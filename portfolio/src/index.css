@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply concept-bg concept-text-primary transition-colors duration-300;
+  }
+  
+  /* 반응형 텍스트 스타일 - 직접 미디어 쿼리 사용 */
+  h1 {
+    font-size: 1.5rem; /* 모바일: 24px */
+    line-height: 2rem;
+    font-weight: 700;
+  }
+  
+  @media (min-width: 640px) {
+    h1 {
+      font-size: 2rem; /* 작은 화면: 32px */
+      line-height: 2.5rem;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 2.5rem; /* 중간 화면: 40px */
+      line-height: 3rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    h1 {
+      font-size: 3rem; /* 큰 화면: 48px */
+      line-height: 3.5rem;
+    }
+  }
+
+  h2 {
+    font-size: 1.25rem; /* 모바일: 20px */
+    line-height: 1.75rem;
+    font-weight: 700;
+  }
+  
+  @media (min-width: 640px) {
+    h2 {
+      font-size: 1.5rem; /* 작은 화면: 24px */
+      line-height: 2rem;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    h2 {
+      font-size: 1.875rem; /* 중간 화면: 30px */
+      line-height: 2.25rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    h2 {
+      font-size: 2.25rem; /* 큰 화면: 36px */
+      line-height: 2.5rem;
+    }
+  }
+
+  h3 {
+    font-size: 1.125rem; /* 모바일: 18px */
+    line-height: 1.75rem;
+    font-weight: 600;
+  }
+  
+  @media (min-width: 640px) {
+    h3 {
+      font-size: 1.25rem; /* 작은 화면: 20px */
+      line-height: 1.75rem;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    h3 {
+      font-size: 1.5rem; /* 중간 화면: 24px */
+      line-height: 2rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    h3 {
+      font-size: 1.875rem; /* 큰 화면: 30px */
+      line-height: 2.25rem;
+    }
+  }
+
+  /* 반응형 일반 텍스트 스타일 */
+  .responsive-text {
+    font-size: 1rem; /* 모바일: 16px */
+    line-height: 1.5rem;
+  }
+  
+  @media (min-width: 640px) {
+    .responsive-text {
+      font-size: 1.125rem; /* 작은 화면: 18px */
+      line-height: 1.75rem;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .responsive-text {
+      font-size: 1.25rem; /* 중간 화면: 20px */
+      line-height: 1.75rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .responsive-text {
+      font-size: 1.5rem; /* 큰 화면: 24px */
+      line-height: 2rem;
+    }
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-lg transition-colors duration-200 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-gray-200;
+  }
+  
+  .section-padding {
+    @apply py-16 px-4 sm:px-6 lg:px-8;
+  }
+  
+  .container-max {
+    @apply max-w-7xl mx-auto;
+  }
+
+  /* Concept Color Utilities */
+  .concept-bg {
+    @apply bg-concept-bg-light dark:bg-concept-bg-dark;
+  }
+  
+  .concept-card {
+    @apply bg-concept-card-light dark:bg-concept-card-dark;
+  }
+  
+  .concept-border {
+    @apply border-concept-border-light dark:border-concept-border-dark;
+  }
+  
+  .concept-border-hover {
+    @apply hover:border-concept-border-hover-light dark:hover:border-concept-border-hover-dark;
+  }
+  
+  .concept-text-primary {
+    @apply text-concept-text-primary-light dark:text-concept-text-primary-dark;
+  }
+  
+  .concept-text-secondary {
+    @apply text-concept-text-secondary-light dark:text-concept-text-secondary-dark;
+  }
+  
+  .concept-interactive-selected {
+    @apply bg-concept-interactive-selected-light dark:bg-concept-interactive-selected-dark;
+  }
+  
+  .concept-interactive-hover {
+    @apply hover:bg-concept-interactive-hover-light dark:hover:bg-concept-interactive-hover-dark;
+  }
+  
+  /* Concept Gradient Utilities */
+  .concept-gradient-primary {
+    background: linear-gradient(to right, theme('colors.concept.gradient.primary.from'), theme('colors.concept.gradient.primary.to'));
+  }
+  
+  .concept-gradient-primary-hover {
+    background: linear-gradient(to right, theme('colors.concept.gradient.primaryHover.from'), theme('colors.concept.gradient.primaryHover.to'));
+  }
+  
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
