@@ -8,6 +8,9 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      screens: {
+        'sb': '350px',
+      },
       colors: {
         primary: {
           50: '#eff6ff',
@@ -169,6 +172,44 @@ module.exports = {
           '@media (min-width: 1024px)': {
             fontSize: '1.5rem', // 큰 화면: 24px
             lineHeight: '2rem',
+          },
+        },
+        // 툴팁 스타일
+        '.tooltip': {
+          position: 'relative',
+          display: 'inline-block',
+          '&:hover .tooltip-content': {
+            opacity: '1',
+            visibility: 'visible',
+            transform: 'translateX(-50%) translateY(-8px)',
+          },
+        },
+        '.tooltip-content': {
+          position: 'absolute',
+          bottom: 'calc(100% + 8px)',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          backgroundColor: 'var(--tooltip-bg)',
+          color: 'var(--tooltip-text)',
+          padding: '0.5rem 0.75rem',
+          borderRadius: '0.375rem',
+          fontSize: '0.875rem',
+          fontWeight: '500',
+          whiteSpace: 'nowrap',
+          opacity: '0',
+          visibility: 'hidden',
+          transition: 'all 0.2s ease-in-out',
+          zIndex: '9999',
+          boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+          pointerEvents: 'none',
+          '&::after': {
+            content: '""',
+            position: 'absolute',
+            top: '100%',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            border: '4px solid transparent',
+            borderTopColor: 'var(--tooltip-bg)',
           },
         },
       });

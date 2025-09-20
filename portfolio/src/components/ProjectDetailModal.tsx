@@ -61,12 +61,12 @@ const ProjectDetailModal: React.FC = () => {
               <div className="overflow-y-auto max-h-[calc(90vh-80px)]">
                 <div className="p-6">
                   {/* Image Gallery */}
-                  <div className="mb-8">
-                    <div className="relative h-96 rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-800">
+                  <div className="relative  gap-8 h-[850px] md:h-[500px] mb-8 grid grid-cols-1 md:grid-cols-[7fr_3fr]">
+                    <div className="relative h-full rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-800">
                       <img
                         src={selectedProject.images[currentImageIndex]}
                         alt={`${selectedProject.title} - Image ${currentImageIndex + 1}`}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full max-h-[700px] object-cover object-top"
                       />
                       
                       {/* Navigation Arrows */}
@@ -108,10 +108,74 @@ const ProjectDetailModal: React.FC = () => {
                         </div>
                       )}
                     </div>
+                     {/* Sidebar */}
+                     <div className="space-y-6 flex flex-col justify-end">
+                      {/* Project Meta */}
+
+                         {/* Action Buttons */}
+                         <div className="space-y-3">
+                        <a
+                          href={selectedProject.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-full flex items-center justify-center px-4 py-3 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 rounded-lg font-medium hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors duration-200"
+                        >
+                          <Github className="h-5 w-5 mr-2" />
+                          GitHub 코드 보기
+                        </a>
+                        <a
+                          href={selectedProject.demo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-full flex items-center justify-center px-4 py-3 concept-gradient-primary text-white rounded-lg font-medium hover:concept-gradient-primary-hover transition-all duration-200"
+                        >
+                          <ExternalLink className="h-5 w-5 mr-2" />
+                          라이브 데모 보기
+                        </a>
+                      </div>
+                      <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-4 md:p-6">
+                        <h3 className="font-bold text-gray-900 dark:text-white mb-4">
+                          프로젝트 정보
+                        </h3>
+                        <div className="space-y-3">
+                          <div className="flex items-center">
+                            <Calendar className="h-4 w-4 mr-3 text-gray-500" />
+                            <span className="responsive-text text-gray-600 dark:text-gray-300">
+                              개발 인원: {selectedProject.details.numberOfDevelopers}명
+                            </span>
+                          </div>
+                          <div className="flex items-center">
+                            <User className="h-4 w-4 mr-3 text-gray-500" />
+                            <span className="responsive-text text-gray-600 dark:text-gray-300">
+                              역할: {selectedProject.details.role}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Tech Stack */}
+                      <div className="bg-gray-50 dark:bg-gray-800 rounded-xl  p-4 md:p-6">
+                        <h3 className="font-bold text-gray-900 dark:text-white mb-4">
+                          기술 스택
+                        </h3>
+                        <div className="flex flex-wrap gap-2">
+                          {selectedProject.tech.map((tech, index) => (
+                            <span
+                              key={index}
+                              className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full font-medium"
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+
+                   
+                    </div>
                   </div>
 
                   {/* Project Info Grid */}
-                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     {/* Main Content */}
                     <div className="lg:col-span-2 space-y-8">
                       {/* Overview */}
@@ -164,68 +228,7 @@ const ProjectDetailModal: React.FC = () => {
                       </div>
                     </div>
 
-                    {/* Sidebar */}
-                    <div className="space-y-6">
-                      {/* Project Meta */}
-                      <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-6">
-                        <h3 className="font-bold text-gray-900 dark:text-white mb-4">
-                          프로젝트 정보
-                        </h3>
-                        <div className="space-y-3">
-                          <div className="flex items-center">
-                            <Calendar className="h-4 w-4 mr-3 text-gray-500" />
-                            <span className="responsive-text text-gray-600 dark:text-gray-300">
-                              개발 인원: {selectedProject.details.numberOfDevelopers}명
-                            </span>
-                          </div>
-                          <div className="flex items-center">
-                            <User className="h-4 w-4 mr-3 text-gray-500" />
-                            <span className="responsive-text text-gray-600 dark:text-gray-300">
-                              역할: {selectedProject.details.role}
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Tech Stack */}
-                      <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-6">
-                        <h3 className="font-bold text-gray-900 dark:text-white mb-4">
-                          기술 스택
-                        </h3>
-                        <div className="flex flex-wrap gap-2">
-                          {selectedProject.tech.map((tech, index) => (
-                            <span
-                              key={index}
-                              className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full font-medium"
-                            >
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Action Buttons */}
-                      <div className="space-y-3">
-                        <a
-                          href={selectedProject.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="w-full flex items-center justify-center px-4 py-3 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 rounded-lg font-medium hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors duration-200"
-                        >
-                          <Github className="h-5 w-5 mr-2" />
-                          GitHub 코드 보기
-                        </a>
-                        <a
-                          href={selectedProject.demo}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="w-full flex items-center justify-center px-4 py-3 concept-gradient-primary text-white rounded-lg font-medium hover:concept-gradient-primary-hover transition-all duration-200"
-                        >
-                          <ExternalLink className="h-5 w-5 mr-2" />
-                          라이브 데모 보기
-                        </a>
-                      </div>
-                    </div>
+                   
                   </div>
                 </div>
               </div>

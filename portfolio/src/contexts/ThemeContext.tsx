@@ -21,14 +21,11 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-  const [isDark, setIsDark] = useState<boolean>(false);
-
-  useEffect(() => {
+  // localStorage에서 초기값을 읽어오거나 기본값 false 사용
+  const [isDark, setIsDark] = useState<boolean>(() => {
     const savedTheme = localStorage.getItem('isDark');
-    if (savedTheme !== null) {
-      setIsDark(savedTheme === 'true');
-    }
-  }, []);
+    return savedTheme !== null ? savedTheme === 'true' : false;
+  });
 
   useEffect(() => {
     if (isDark) {

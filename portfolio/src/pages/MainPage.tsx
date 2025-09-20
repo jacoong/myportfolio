@@ -135,269 +135,232 @@ const MainPage: React.FC = () => {
     },
     {
       id: 4,
-      title: 'Weather Dashboard',
-      description: '데이터 시각화가 포함된 날씨 대시보드',
-      shortDescription: '날씨 정보 대시보드',
-      image: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=600&h=400&fit=crop',
+      title: '파이썬 웹 취업 웹 스크래퍼',
+      description: '여러 구직사이트의 채용공고를 한번에 검색하고 필터링할 수 있는 통합 웹 스크래퍼',
+      shortDescription: '원티드, 사람인, RemoteOK, WeWorkRemotely에서 채용공고를 통합 검색',
+      image: 'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/python_webscrapper/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.09.51.png',
       images: [
-        'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=800&h=600&fit=crop'
+        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/python_webscrapper/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.09.51.png',
+        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/python_webscrapper/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.10.26.png',
       ],
-      tech: ['React', 'Chart.js', 'OpenWeather API', 'CSS3'],
-      featured: false,
-      github: 'https://github.com/username/weather-dashboard',
-      demo: 'https://weather-dashboard-demo.com',
+      tech: ['python', 'flask', 'selenium', 'beautifulsoup4', 'requests', 'render', 'html5lib', 'webdriver-manager'],
+      featured: true,
+      github: 'https://github.com/username/job-scraper',
+      demo: 'https://job-scraper-demo.onrender.com',
       category: 'side' as const,
       status: 'completed' as const,
-      createdAt: '2023-11-01',
+      createdAt: '2025-09-12',
       details: {
-        overview: '실시간 날씨 정보와 데이터 시각화를 제공하는 대시보드 애플리케이션입니다.',
+        overview: '한국 및 해외 구직사이트에서 채용공고를 실시간으로 수집하고 통합 검색할 수 있는 웹 애플리케이션',
         features: [
-          '실시간 날씨 정보',
-          '7일간 날씨 예보',
-          '인터랙티브 차트',
-          '위치 기반 날씨',
-          '다크/라이트 테마',
-          'PWA 지원'
+          '4개 구직사이트 통합 검색 (원티드, 사람인, RemoteOK, WeWorkRemotely)',
+          '사이트별 선택적 검색 기능',
+          '지역별 필터링 (서울, 경기, 인천 등)',
+          '실시간 채용공고 수집',
+          'CSV 파일 다운로드 기능',
+          '모바일 반응형 디자인',
+          '동적 웹 스크래핑 (Selenium)',
+          'API 기반 데이터 수집 (Wanted, RemoteOK)',
+          '사이트별 통계 및 필터링',
+          '검색 결과 실시간 업데이트'
         ],
-        challenges: 'API 호출 최적화와 차트 성능',
-        solutions: '캐싱 전략과 Chart.js 최적화를 통한 성능 개선',
-        numberOfDevelopers: 1,
-        role: '프론트엔드 개발자'
-      }
-    },
-    {
-      id: 4,
-      title: 'AI 챗봇 서비스',
-      description: 'OpenAI API를 활용한 지능형 챗봇 플랫폼',
-      shortDescription: 'AI 기반 고객 서비스 챗봇',
-      image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop',
-      images: [
-        'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop'
-      ],
-      tech: ['Next.js', 'OpenAI API', 'Prisma', 'PostgreSQL'],
-      featured: false,
-      github: 'https://github.com/username/ai-chatbot',
-      demo: 'https://ai-chatbot-demo.com',
-      category: 'latest' as const,
-      status: 'completed' as const,
-      createdAt: '2024-02-01',
-      details: {
-        overview: 'OpenAI GPT API를 활용한 지능형 챗봇 서비스로, 자연어 처리와 대화형 인터페이스를 제공합니다.',
-        features: [
-          '자연어 처리 및 이해',
-          '컨텍스트 기반 대화',
-          '다국어 지원',
-          '관리자 대시보드',
-          '대화 기록 저장',
-          '실시간 응답'
-        ],
-        challenges: 'API 비용 최적화와 응답 속도 개선',
-        solutions: '캐싱 시스템과 스트리밍 응답을 통한 성능 최적화',
+        challenges: '다양한 사이트의 접근 제한과 동적 콘텐츠 처리, 안정적인 데이터 수집',
+        solutions: 'Selenium과 requests의 하이브리드 접근법, 에러 핸들링 및 폴백 메커니즘 구현',
         numberOfDevelopers: 1,
         role: '풀스택 개발자'
       }
     },
     {
       id: 5,
-      title: '블록체인 NFT 마켓플레이스',
-      description: 'Web3 기술을 활용한 NFT 거래 플랫폼',
-      shortDescription: 'NFT 거래 마켓플레이스',
-      image: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=600&h=400&fit=crop',
+      title: 'Random Chord Practice App',
+      description: '음악 연습을 위한 현대적이고 사용자 친화적인 랜덤 코드 생성기',
+      shortDescription: '웹 기반 음악 코드 연습 앱',
+      image: 'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/chord/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.18.44.png',
       images: [
-        'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&h=600&fit=crop'
+        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/chord/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.18.44.png',
+        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/chord/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.19.13.png',
+        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/chord/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.18.56.png'
       ],
-      tech: ['React', 'Web3.js', 'Solidity', 'IPFS', 'MetaMask'],
-      featured: true,
-      github: 'https://github.com/username/nft-marketplace',
-      demo: 'https://nft-marketplace-demo.com',
+      tech: ['HTML5', 'CSS3', 'JavaScript ES6+', 'Web Speech API', 'Local Storage'],
+      featured: false,
+      github: 'https://github.com/jacoong/random-chord',
+      demo: 'https://random-chord-practice.netlify.app',
       category: 'latest' as const,
-      status: 'in-progress' as const,
-      createdAt: '2024-02-15',
+      status: 'completed' as const,
+      createdAt: '2024-01-15',
       details: {
-        overview: '블록체인 기술을 활용한 NFT 거래 플랫폼으로, 스마트 컨트랙트와 Web3 지갑 연동을 제공합니다.',
+        overview: '음악가들을 위한 랜덤 코드 연습 앱으로, 다양한 코드 타입과 템포 설정을 통해 체계적인 음악 연습을 제공합니다. Web Speech API를 활용한 음성 안내와 실시간 템포 조절 기능을 포함합니다.',
         features: [
-          'NFT 생성 및 업로드',
-          '메타마스크 지갑 연동',
-          '스마트 컨트랙트 거래',
-          'IPFS 파일 저장',
-          '경매 시스템',
-          '거래 내역 추적'
+          '랜덤 코드 생성 및 연습',
+          '17개 음표 지원 (C, Db, D, Eb, E, F, Gb, G, Ab, A, Bb, B, C#, D#, F#, G#, A#)',
+          '다양한 코드 타입 (Maj7, min7, 7, sus4, add9 등 50+ 종류)',
+          '실시간 템포 조절 (1-220 BPM)',
+          '박자 시각화 (4박자 점 애니메이션)',
+          '음성 안내 시스템 (TTS)',
+          '커스텀 코드 추가/제거',
+          '설정 저장 (Local Storage)',
+          '반응형 디자인',
+          'A/B 폼 패턴 선택'
         ],
-        challenges: '가스비 최적화와 사용자 경험 개선',
-        solutions: 'Layer 2 솔루션과 UX 개선을 통한 문제 해결',
+        challenges: '복잡한 페이지 네비게이션과 실시간 템포 변경 시 박자 동기화 유지',
+        solutions: '3-컴포넌트 구조(제목/메인/설정)와 인터벌 기반 박자 애니메이션으로 안정적인 상태 관리 구현',
         numberOfDevelopers: 1,
-        role: '블록체인 개발자'
+        role: '풀스택 개발자'
       }
     },
     {
       id: 6,
-      title: '실시간 협업 에디터',
-      description: 'Google Docs 스타일의 실시간 협업 문서 편집기',
-      shortDescription: '실시간 협업 문서 편집기',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop',
-      images: [
-        'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop'
+      title: "The Area - Creative Platform",
+      description: "음악, 비주얼, 크리에이터를 위한 종합 크리에이티브 플랫폼",
+      shortDescription: "크리에이티브 플랫폼",
+      image: "https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/The_Area/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.19.26.png",
+      images: ["https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/The_Area/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.20.08.png","https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/The_Area/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.49.30.png",
+        "https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/The_Area/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.20.17.png"
       ],
-      tech: ['React', 'Socket.io', 'MongoDB', 'Quill.js', 'Redis'],
-      featured: false,
-      github: 'https://github.com/username/collaborative-editor',
-      demo: 'https://collaborative-editor-demo.com',
-      category: 'side' as const,
-      status: 'completed' as const,
-      createdAt: '2023-12-01',
+      tech: ["React", "JavaScript", "CSS3", "HTML5", "React Router"],
+      featured: true,
+      github: "https://github.com/jacoong/The-Area",
+      demo: "https://jacoong.github.io/The-Area/",
+      category: "main" as const,
+      status: "completed" as const,
+      createdAt: "2024-02-01",
       details: {
-        overview: '실시간 협업이 가능한 문서 편집기로, 여러 사용자가 동시에 문서를 편집할 수 있습니다.',
+        overview: "음악, 비주얼 아트, 크리에이터들을 위한 종합 크리에이티브 플랫폼",
         features: [
-          '실시간 동시 편집',
-          '사용자 커서 표시',
-          '변경사항 실시간 동기화',
-          '문서 버전 관리',
-          '권한 관리',
-          '댓글 시스템'
+          "비디오 배경과 로고 애니메이션",
+          "음악 비디오 플레이어", 
+          "크리에이터 프로필 갤러리",
+          "MV 갤러리 시스템",
+          "반응형 디자인",
+          "페이지 라우팅 시스템"
         ],
-        challenges: '동시 편집 시 충돌 해결과 성능 최적화',
-        solutions: 'Operational Transform 알고리즘과 Redis 캐싱을 통한 해결',
+        challenges: "복잡한 애니메이션과 비디오 처리, 반응형 디자인 구현",
+        solutions: "CSS 애니메이션과 React 상태 관리를 통한 동적 UI 구현",
         numberOfDevelopers: 1,
-        role: '풀스택 개발자'
+        role: "풀스택 개발자"
       }
     },
     {
       id: 7,
-      title: '모바일 피트니스 앱',
-      description: 'React Native로 개발한 개인 맞춤형 피트니스 앱',
-      shortDescription: '개인 맞춤형 피트니스 앱',
-      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=400&fit=crop',
+      title: '축구 어플리케이션 어플 웹사이트',
+      description: 'HTML, CSS, JavaScript로 만든 축구 테마 카카오톡 클론 모바일 웹사이트',
+      shortDescription: '축구 테마 채팅 어플 클론',
+      image: 'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/cocoatalk/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.51.44.png',
       images: [
-        'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop'
+      'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/cocoatalk/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.51.44.png',
+      'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/cocoatalk/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.52.03.png',
+      'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/cocoatalk/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.52.16.png',
+      'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/cocoatalk/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.52.20.png',
+      'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/cocoatalk/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.52.25.png'
       ],
-      tech: ['React Native', 'Firebase', 'Expo', 'Redux'],
+      tech: ['HTML5', 'CSS3', 'JavaScript', 'Font Awesome', 'Google Fonts'],
       featured: false,
-      github: 'https://github.com/username/fitness-app',
-      demo: 'https://fitness-app-demo.com',
+      github: 'https://github.com/jacoong/cocoa-talk',
+      demo: 'https://cocoatalkproject.netlify.app/',
       category: 'side' as const,
-      status: 'in-progress' as const,
-      createdAt: '2024-01-20',
+      status: 'completed' as const,
+      createdAt: '2024-01-15',
       details: {
-        overview: '개인 맞춤형 운동 계획과 진행 상황을 추적할 수 있는 모바일 피트니스 앱입니다.',
+        overview: '카카오톡의 UI/UX를 모방하여 만든 웹사이트로, 축구 테마가 적용된 채팅 애플리케이션입니다. 모바일 우선 설계로 반응형 웹 디자인을 구현했습니다.',
         features: [
-          '개인 맞춤 운동 계획',
-          '운동 진행 상황 추적',
-          '칼로리 계산',
-          '운동 영상 제공',
-          '목표 설정 및 달성률',
-          '소셜 기능'
+          '실시간 시계 표시 기능',
+          '모바일 반응형 디자인',
+          '축구 경기 일정 및 라이브 스트리밍 섹션',
+          '채팅방 목록 및 개별 채팅방',
+          '프로필 페이지 (축구 선수 정보 포함)',
+          '커뮤니티 및 검색 기능',
+          'Font Awesome 아이콘 활용',
+          'CSS 애니메이션 효과',
+          '모바일 화면 크기 제한 기능'
         ],
-        challenges: '모바일 성능 최적화와 오프라인 지원',
-        solutions: 'React Native 최적화와 로컬 스토리지를 통한 오프라인 지원',
+        challenges: '모바일 우선 설계와 카카오톡의 복잡한 UI 구조를 웹으로 구현하는 것',
+        solutions: 'CSS Grid와 Flexbox를 활용한 레이아웃 구성, JavaScript를 통한 실시간 기능 구현, 모바일 화면 크기 감지 기능 추가',
         numberOfDevelopers: 1,
-        role: '모바일 개발자'
+        role: '풀스택 웹 개발자'
       }
     },
     {
       id: 8,
-      title: '클라우드 스토리지 서비스',
-      description: 'AWS S3를 활용한 개인 클라우드 스토리지 플랫폼',
-      shortDescription: '개인 클라우드 스토리지',
-      image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop',
+      title: 'Momentum Dashboard',
+      description: '개인 생산성 향상을 위한 올인원 대시보드 웹 애플리케이션',
+      shortDescription: '웹 기반 개인 대시보드',
+      image: 'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/js_vanilla_project/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.59.05.png',
       images: [
-        'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=600&fit=crop'
+        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/js_vanilla_project/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.59.05.png',
+        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/js_vanilla_project/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.21.01.png',
+        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/js_vanilla_project/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.59.05.png',
+        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/js_vanilla_project/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.21.11.png'
       ],
-      tech: ['React', 'Node.js', 'AWS S3', 'MongoDB', 'JWT'],
+      tech: ['HTML5', 'CSS3', 'JavaScript ES6+', 'Geolocation API', 'OpenWeather API', 'YouTube API', 'Local Storage'],
       featured: false,
-      github: 'https://github.com/username/cloud-storage',
-      demo: 'https://cloud-storage-demo.com',
-      category: 'side' as const,
+      github: 'https://github.com/yourusername/momentum-dashboard',
+      demo: 'https://momentum-dashboard-demo.netlify.app',
+      category: 'latest' as const,
       status: 'completed' as const,
-      createdAt: '2023-11-15',
+      createdAt: '2024-02-10',
       details: {
-        overview: 'AWS S3를 백엔드로 활용한 개인 클라우드 스토리지 서비스로, 파일 업로드, 다운로드, 공유 기능을 제공합니다.',
+        overview: '개인 생산성 향상을 위한 올인원 대시보드로, 실시간 시계, 날씨 정보, 할 일 관리, 음악 플레이어, 명언 표시, 구글 검색 기능을 통합한 현대적인 웹 애플리케이션입니다. 사용자 개인화와 반응형 디자인을 통해 최적의 사용자 경험을 제공합니다.',
         features: [
-          '파일 업로드/다운로드',
-          '폴더 구조 관리',
-          '파일 공유 링크',
-          '버전 관리',
-          '검색 기능',
-          '권한 관리'
+          '실시간 디지털 시계 및 날짜 표시',
+          'Geolocation 기반 현재 위치 날씨 정보',
+          'OpenWeather API 연동 (온도, 습도, 체감온도 등)',
+          '할 일 목록 관리 (추가, 완료, 삭제)',
+          'Local Storage를 활용한 데이터 영구 저장',
+          'YouTube API 기반 음악 플레이어',
+          '재생목록 관리 (재생, 일시정지, 이전/다음 곡)',
+          '랜덤 명언 표시 시스템',
+          'Google 검색 통합',
+          '시간대별 맞춤 인사말',
+          '시간대별 배경 이미지 자동 변경',
+          '사용자 이름 설정 및 로그아웃 기능',
+          '반응형 디자인 및 애니메이션 효과'
         ],
-        challenges: '대용량 파일 처리와 보안',
-        solutions: '청크 업로드와 JWT 인증을 통한 안전한 파일 관리',
+        challenges: '다중 API 연동과 Local Storage 상태 관리, 실시간 데이터 동기화',
+        solutions: '모듈화된 JavaScript 구조와 이벤트 기반 프로그래밍으로 안정적인 상태 관리 구현',
         numberOfDevelopers: 1,
         role: '풀스택 개발자'
       }
     },
+  
     {
       id: 9,
-      title: '소셜 미디어 대시보드',
-      description: '다양한 소셜 미디어 플랫폼 통합 관리 도구',
-      shortDescription: '소셜 미디어 통합 관리',
-      image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop',
+      title: '캠핑장 관리 시스템',
+      description: '캠핑장 정보 등록, 조회, 수정, 삭제 및 리뷰 시스템을 제공하는 웹 애플리케이션',
+      shortDescription: '캠핑장 통합 관리 플랫폼',
+      image:  'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/camping/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+5.33.32.png',
       images: [
-        'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=600&fit=crop'
+        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/camping/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+5.39.03.png',
+        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/camping/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+5.33.32.png',
+        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/camping/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+5.33.19.png',
+        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/camping/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+5.33.03.png'
       ],
-      tech: ['Vue.js', 'Node.js', 'MongoDB', 'Chart.js', 'API Integration'],
+      tech: ['Node.js', 'Express.js', 'MongoDB', 'Mongoose', 'EJS', 'Bootstrap 5', 'Passport.js', 'Joi'],
       featured: false,
-      github: 'https://github.com/username/social-dashboard',
-      demo: 'https://social-dashboard-demo.com',
+      github: 'https://github.com/username/campground4',
+      demo: 'https://campground4-demo.com',
       category: 'side' as const,
       status: 'completed' as const,
-      createdAt: '2023-10-01',
+      createdAt: '2024-01-15',
       details: {
-        overview: 'Instagram, Twitter, Facebook 등 다양한 소셜 미디어 플랫폼을 통합 관리할 수 있는 대시보드입니다.',
+        overview: '캠핑장 정보를 등록하고 관리할 수 있는 웹 애플리케이션입니다. 사용자 인증, 캠핑장 CRUD 기능, 리뷰 시스템을 포함합니다.',
         features: [
-          '다중 플랫폼 연동',
-          '포스트 스케줄링',
-          '분석 및 리포트',
-          '해시태그 추천',
-          '댓글 관리',
-          '성과 측정'
+          '사용자 회원가입/로그인/로그아웃',
+          '캠핑장 정보 등록 (제목, 위치, 가격, 설명, 사진)',
+          '캠핑장 목록 조회 및 상세 보기',
+          '캠핑장 정보 수정 및 삭제',
+          '작성자 권한 관리 (본인 글만 수정/삭제 가능)',
+          '리뷰 시스템 (평점 및 텍스트 리뷰)',
+          '반응형 웹 디자인 (Bootstrap 5)',
+          '플래시 메시지를 통한 사용자 피드백',
+          '세션 기반 인증 시스템'
         ],
-        challenges: 'API 제한과 데이터 동기화',
-        solutions: 'API 레이트 리미팅과 배치 처리로 최적화',
+        challenges: '사용자 인증 시스템 구현과 권한 관리, MongoDB 관계형 데이터 처리',
+        solutions: 'Passport.js를 활용한 인증 시스템 구축과 Mongoose populate를 통한 관계형 데이터 조회 최적화',
         numberOfDevelopers: 1,
         role: '풀스택 개발자'
       }
-    },
-    {
-      id: 10,
-      title: 'IoT 스마트홈 시스템',
-      description: 'Raspberry Pi와 센서를 활용한 스마트홈 제어 시스템',
-      shortDescription: '스마트홈 IoT 시스템',
-      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop',
-      images: [
-        'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop'
-      ],
-      tech: ['React', 'Node.js', 'MQTT', 'Raspberry Pi', 'Python'],
-      featured: false,
-      github: 'https://github.com/username/smart-home',
-      demo: 'https://smart-home-demo.com',
-      category: 'side' as const,
-      status: 'in-progress' as const,
-      createdAt: '2024-03-01',
-      details: {
-        overview: 'Raspberry Pi와 다양한 센서를 활용한 스마트홈 자동화 시스템으로, 원격 제어와 모니터링이 가능합니다.',
-        features: [
-          '조명 자동 제어',
-          '온도 및 습도 모니터링',
-          '보안 시스템',
-          '에너지 사용량 추적',
-          '음성 제어',
-          '모바일 앱 연동'
-        ],
-        challenges: '하드웨어 통합과 실시간 데이터 처리',
-        solutions: 'MQTT 프로토콜과 WebSocket을 통한 실시간 통신 구현',
-        numberOfDevelopers: 1,
-        role: 'IoT 개발자'
-      }
     }
+  
   ];
 
   const blogs: Blog[] = [
@@ -555,13 +518,13 @@ const MainPage: React.FC = () => {
     <div className="min-h-screen concept-bg transition-colors duration-300">
       {/* Header */}
       <header className="concept-card shadow-sm transition-colors duration-300">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-14 sm:h-16">
             <div className="flex items-center space-x-2 sm:space-x-4">
               <div className="w-8 h-8 sm:w-10 sm:h-10 concept-gradient-primary rounded-lg flex items-center justify-center">
                 <Code className="h-4 w-4 sm:h-6 sm:w-6 text-white" />
               </div>
-              <h1 className="concept-text-primary">{getText('h-1')}</h1>
+              <h2 className="concept-text-primary">{getText('h-1')}</h2>
             </div>
             
             <div className="flex items-center space-x-2 sm:space-x-4">
@@ -646,11 +609,11 @@ const MainPage: React.FC = () => {
         </section>
 
         {/* Projects Section */}
-        <section className="py-16 mx-auto w-[70%]">
+        <section className="py-16 mx-auto w-[95%]">
           <ProjectsSection projects={projects} />
         </section>
 
-        <section className="py-16 mx-auto w-[70%]">
+        <section className="py-16 mx-auto w-[90%]">
             <BlogSection blogs={blogs}/>
         </section>
 

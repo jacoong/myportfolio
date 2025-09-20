@@ -45,20 +45,20 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, openModal }) => {
       </div>
       
       {/* Project Content */}
-      <div className="p-4 sm:p-6 flex flex-col flex-grow">
+      <div className="p-4 md:p-6 flex flex-col flex-grow">
         <h3 className="py-2 group-hover:text-blue-500 transition-colors duration-300">
           {project.title}
         </h3>
         
         {/* Description - 고정 높이 */}
-        <div className='py-3 flex-grow'>
+        <div className='py-1 sm:py-3 flex-grow'>
           <p className="concept-text-secondary mb-3 sm:mb-4 line-clamp-2 responsive-text">
             {project.description}
           </p>
         </div>
 
         {/* Tech Stack */}
-        <div className="flex flex-wrap gap-2 mb-6">
+        <div className="flex flex-wrap gap-2 mb-3 sm:mb-6">
           {project.tech.slice(0, 3).map((tech, index) => (
             <span 
               key={index}
@@ -83,7 +83,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, openModal }) => {
             자세히 보기
           </button>
 
-          <a 
+          {/* <a 
             href={project.github} 
             target="_blank" 
             rel="noopener noreferrer"
@@ -98,7 +98,60 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, openModal }) => {
             className="px-3 sm:px-4 py-2 concept-gradient-primary text-white rounded-lg font-medium hover:concept-gradient-primary-hover transition-all duration-200"
           >
             <ExternalLink className="h-4 w-4" />
-          </a>
+          </a> */}
+
+
+<div className="flex items-center  space-x-2">
+
+
+<div className="flex items-center space-x-2">
+
+ {/* 두 버튼의 정렬과 간격을 관리하는 Flexbox 부모 컨테이너 */}
+<div className="flex items-center space-x-2">
+
+{/* 1. GitHub 아이콘 툴팁 */}
+{/* 👇 각 툴팁 컨테이너에 group, relative, inline-block을 개별적으로 적용 */}
+<div className="tooltip group relative inline-block">
+  <a 
+    href={project.github} 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="flex items-center justify-center h-10 w-10 border-2 border-concept-border-light rounded-full concept-text-primary hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200"
+  >
+    <Github className="h-5 w-5" />
+  </a>
+  {/* GitHub 툴팁 내용 */}
+  <div 
+    className="tooltip-content absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max px-2 py-1 text-xs text-white bg-gray-800 rounded-md shadow-lg invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-opacity duration-200"
+  >
+    GitHub 코드 보기
+  </div>
+</div>
+
+{/* 2. 데모 링크 툴팁 */}
+{/* 👇 여기에도 동일하게 개별적으로 group 적용 */}
+<div className="tooltip group relative inline-block">
+  <a 
+    href={project.demo} 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="px-3 sm:px-4 py-2 concept-gradient-primary text-white rounded-lg font-medium hover:concept-gradient-primary-hover transition-all duration-200"
+  >
+    Demo
+  </a>
+  {/* 데모 툴팁 내용 */}
+  <div 
+    className="tooltip-content absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max px-2 py-1 text-xs text-white bg-gray-800 rounded-md shadow-lg invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-opacity duration-200"
+  >
+    데모 사이트 보기
+  </div>
+</div>
+
+</div>
+
+</div>
+
+</div>
         </div>
       </div>
     </motion.div>

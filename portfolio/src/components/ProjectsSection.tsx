@@ -37,7 +37,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) => {
 
 
   return (
-    <div className="max-w-7xl mx-auto concept-text-primary px-4 sm:px-6 lg:px-8">
+    <div className="cursor-pointer max-w-7xl mx-auto concept-text-primary px-4 sm:px-6 lg:px-8">
       <div className="text-center mb-8 sm:mb-12">
         <div className='responsive-h1 flex items-center justify-center font-bold mb-2 sm:mb-4'>
           <div className="mr-2">
@@ -121,7 +121,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) => {
       </div>
 
       {/* 프로젝트 그리드 */}
-      <div className="grid grid-cols-2 sm:grid-cols-2 gap-4 sm:gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         <AnimatePresence mode="wait">
           {displayedProjects.map((project) => (
             <ProjectCard

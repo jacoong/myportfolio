@@ -4,6 +4,7 @@ export interface ProjectDetails {
   challenges: string;
   solutions: string;
   numberOfDevelopers: number;
+
   role: string;
 }
 

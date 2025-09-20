@@ -4,6 +4,18 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    /* Light mode tooltip colors */
+    --tooltip-bg: #1f2937;
+    --tooltip-text: #f9fafb;
+  }
+  
+  .dark {
+    /* Dark mode tooltip colors */
+    --tooltip-bg: #f9fafb;
+    --tooltip-text: #1f2937;
+  }
+  
   html {
     scroll-behavior: smooth;
   }

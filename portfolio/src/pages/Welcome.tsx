@@ -6,7 +6,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { useNavigate } from 'react-router-dom';
 import SelectLanguage from '../components/SelectLanguage';
 import TextType from '../components/DynamicCompoents/MovieText';
-import RippleGrid from '../components/DynamicCompoents/RippleGrid';
+import Particles from '../components/DynamicCompoents/Particles';
 
 const Welcome: React.FC = () => {
   const { isDark, setTheme } = useTheme();
@@ -23,17 +23,16 @@ const Welcome: React.FC = () => {
 
   
   return (
-    <div style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden', touchAction: 'none' }}>
-      <RippleGrid
-        enableRainbow={false}
-        gridColor="#ffffff"
-        rippleIntensity={0.08}
-        gridSize={8}
-        gridThickness={12}
-        mouseInteraction={true}
-        mouseInteractionRadius={1.5}
-        opacity={0.3}
-      />
+    <Particles
+      particleColors={['#ffffff', '#ffffff']}
+      particleCount={1000}
+      particleSpread={10}
+      speed={0.1}
+      particleBaseSize={100}
+      moveParticlesOnHover={true}
+      alphaParticles={false}
+      disableRotation={false}
+    >
       <div className="absolute inset-0 flex items-center justify-center p-6 z-10 pointer-events-none">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -173,7 +172,7 @@ const Welcome: React.FC = () => {
         </motion.div>
       </motion.div>
       </div>
-    </div>
+    </Particles>
   );
 };
 

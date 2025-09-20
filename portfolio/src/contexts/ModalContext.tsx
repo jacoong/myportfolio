@@ -1,30 +1,10 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
-
-export interface ProjectDetails {
-  id: number;
-  title: string;
-  description: string;
-  shortDescription: string;
-  image: string;
-  images: string[];
-  tech: string[];
-  featured: boolean;
-  github: string;
-  demo: string;
-  details: {
-    overview: string;
-    features: string[];
-    challenges: string;
-    solutions: string;
-    duration: string;
-    role: string;
-  };
-}
+import { Project } from '../types/Project';
 
 interface ModalContextType {
   isOpen: boolean;
-  selectedProject: ProjectDetails | null;
-  openModal: (project: ProjectDetails) => void;
+  selectedProject: Project | null;
+  openModal: (project: Project) => void;
   closeModal: () => void;
 }
 
@@ -44,9 +24,9 @@ interface ModalProviderProps {
 
 export const ModalProvider: React.FC<ModalProviderProps> = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedProject, setSelectedProject] = useState<ProjectDetails | null>(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-  const openModal = (project: ProjectDetails) => {
+  const openModal = (project: Project) => {
     setSelectedProject(project);
     setIsOpen(true);
     // 모달이 열릴 때 body 스크롤 방지
