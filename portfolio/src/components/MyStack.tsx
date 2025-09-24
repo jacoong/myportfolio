@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import StackIcon from './StackIcon';
+import { useLanguage } from '../contexts/LanguageContext';
 
 // 타입 정의
 interface TechItem {
@@ -10,7 +11,7 @@ interface TechItem {
 }
 
 interface FilterTab {
-  key: 'language' | 'library' | 'deployment' | 'design';
+  key: 'All' | 'language' | 'library' | 'deployment' | 'design';
   label: string;
 }
 
@@ -42,13 +43,15 @@ const techData: TechItem[] = [
 
 // 필터 탭 데이터
 const filterTabs: FilterTab[] = [
-  { key: 'language', label: '언어 및 프레임워크' },
-  { key: 'library', label: '라이브러리' },
-  { key: 'deployment', label: '환경 및 배포' },
-  { key: 'design', label: '디자인 및 협업' },
+  { key: 'All', label: 'stack-all' },
+  { key: 'language', label: 'stack-language' },
+  { key: 'library', label:'stack-library' },
+  { key: 'deployment', label: 'stack-deployment' },
+  { key: 'design', label: 'stack-design' },
 ];
 
 const StackIntroducer: React.FC = () => {
+  const { getText } = useLanguage();
   const [activeFilter, setActiveFilter] = useState<string>('All');
 
   const handleActiveFilter = (value: string): void => {
@@ -75,7 +78,7 @@ const StackIntroducer: React.FC = () => {
                 }
               `}
             >
-              {tab.label}
+              {tab.key === 'All' ? getText('p-0') : getText(tab.label)}
             </button>
           ))}
         </div>

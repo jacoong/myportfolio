@@ -1,16 +1,20 @@
-export const getCategoryLabel = (category: string): string => {
+import LanguagePack from '../components/LanguagePack';
+
+export const getCategoryLabel = (category: string, language: keyof typeof LanguagePack = 'ko'): string => {
+  const pack = LanguagePack[language];
   switch (category) {
-    case 'main': return '메인 프로젝트';
-    case 'latest': return '최신 프로젝트';
-    case 'side': return '사이드 프로젝트';
+    case 'main': return pack['badge-main'];
+    case 'latest': return pack['badge-latest'];
+    case 'side': return pack['badge-side'];
     default: return category;
   }
 };
 
-export const getStatusLabel = (status: string): string => {
+export const getStatusLabel = (status: string, language: keyof typeof LanguagePack = 'ko'): string => {
+  const pack = LanguagePack[language];
   switch (status) {
-    case 'completed': return '완성';
-    case 'in-progress': return '제작중';
+    case 'completed': return pack['badge-completed'];
+    case 'in-progress': return pack['badge-in-progress'];
     default: return status;
   }
 };

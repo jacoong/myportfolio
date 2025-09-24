@@ -2,17 +2,20 @@ import { Blog } from '../types/Project';
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, Calendar, User, Tag } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const BlogSection: React.FC<{ blogs: Blog[] }> = ({ blogs }) => {
+    const { getText } = useLanguage();
+    
     return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Section Header */}
             <div className="text-center mb-12 sm:mb-16">
                 <h2 className="responsive-h2 font-bold concept-text-primary mb-4">
-                    Latest Blog Posts
+                    {getText('b-0')}
                 </h2>
                 <p className="responsive-text concept-text-secondary max-w-2xl mx-auto">
-                    자세한 내용은 Notion 바로가기를 클릭해주세요
+                    {getText('b-2')}
                 </p>
             </div>
 
@@ -27,7 +30,7 @@ const BlogSection: React.FC<{ blogs: Blog[] }> = ({ blogs }) => {
                     whileTap={{ scale: 0.95 }}
                 >
                     <Tag className="h-5 w-5" />
-                    <span>Notion 바로가기</span>
+                    <span>{getText('b-3')}</span>
                     <ExternalLink className="h-4 w-4" />
                 </motion.a>
             </div>
@@ -101,7 +104,7 @@ const BlogSection: React.FC<{ blogs: Blog[] }> = ({ blogs }) => {
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
                             >
-                                <span>Read More</span>
+                                <span>{getText('b-1')}</span>
                                 <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4 group-hover/btn:translate-x-1 transition-transform duration-200" />
                             </motion.a>
                             </div>

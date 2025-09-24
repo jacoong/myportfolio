@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Github, ExternalLink, Calendar, User, Code, Lightbulb, CheckCircle } from 'lucide-react';
 import { useModal } from '../contexts/ModalContext';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const ProjectDetailModal: React.FC = () => {
   const { isOpen, selectedProject, closeModal } = useModal();
+  const { getText } = useLanguage();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   if (!selectedProject) return null;
@@ -121,7 +123,7 @@ const ProjectDetailModal: React.FC = () => {
                           className="w-full flex items-center justify-center px-4 py-3 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 rounded-lg font-medium hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors duration-200"
                         >
                           <Github className="h-5 w-5 mr-2" />
-                          GitHub 코드 보기
+                          {getText('pd-1')}
                         </a>
                         <a
                           href={selectedProject.demo}
@@ -130,24 +132,24 @@ const ProjectDetailModal: React.FC = () => {
                           className="w-full flex items-center justify-center px-4 py-3 concept-gradient-primary text-white rounded-lg font-medium hover:concept-gradient-primary-hover transition-all duration-200"
                         >
                           <ExternalLink className="h-5 w-5 mr-2" />
-                          라이브 데모 보기
+                          {getText('pd-2')}
                         </a>
                       </div>
                       <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-4 md:p-6">
                         <h3 className="font-bold text-gray-900 dark:text-white mb-4">
-                          프로젝트 정보
+                          {getText('pd-3')}
                         </h3>
                         <div className="space-y-3">
                           <div className="flex items-center">
                             <Calendar className="h-4 w-4 mr-3 text-gray-500" />
                             <span className="responsive-text text-gray-600 dark:text-gray-300">
-                              개발 인원: {selectedProject.details.numberOfDevelopers}명
+                              {getText('pd-4')} {selectedProject.details.numberOfDevelopers}{getText('pd-5')}
                             </span>
                           </div>
                           <div className="flex items-center">
                             <User className="h-4 w-4 mr-3 text-gray-500" />
                             <span className="responsive-text text-gray-600 dark:text-gray-300">
-                              역할: {selectedProject.details.role}
+                              {getText('pd-6')} {selectedProject.details.role}
                             </span>
                           </div>
                         </div>
@@ -156,7 +158,7 @@ const ProjectDetailModal: React.FC = () => {
                       {/* Tech Stack */}
                       <div className="bg-gray-50 dark:bg-gray-800 rounded-xl  p-4 md:p-6">
                         <h3 className="font-bold text-gray-900 dark:text-white mb-4">
-                          기술 스택
+                          {getText('pd-7')}
                         </h3>
                         <div className="flex flex-wrap gap-2">
                           {selectedProject.tech.map((tech, index) => (
@@ -182,7 +184,7 @@ const ProjectDetailModal: React.FC = () => {
                       <div>
                         <h3 className="font-bold text-gray-900 dark:text-white mb-4 flex items-center">
                           <Code className="h-6 w-6 mr-2 text-blue-500" />
-                          프로젝트 개요
+                          {getText('pd-8')}
                         </h3>
                         <p className="text-gray-600 dark:text-gray-300 leading-relaxed responsive-text">
                           {selectedProject.details.overview}
@@ -193,7 +195,7 @@ const ProjectDetailModal: React.FC = () => {
                       <div>
                         <h3 className="font-bold text-gray-900 dark:text-white mb-4 flex items-center">
                           <CheckCircle className="h-6 w-6 mr-2 text-green-500" />
-                          주요 기능
+                          {getText('pd-9')}
                         </h3>
                         <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
                           {selectedProject.details.features.map((feature, index) => (
@@ -210,7 +212,7 @@ const ProjectDetailModal: React.FC = () => {
                         <div>
                           <h3 className="font-bold text-gray-900 dark:text-white mb-3 flex items-center">
                             <Lightbulb className="h-5 w-5 mr-2 text-yellow-500" />
-                            도전 과제
+                            {getText('pd-10')}
                           </h3>
                           <p className="text-gray-600 dark:text-gray-300 responsive-text">
                             {selectedProject.details.challenges}
@@ -219,7 +221,7 @@ const ProjectDetailModal: React.FC = () => {
                         <div>
                           <h3 className="font-bold text-gray-900 dark:text-white mb-3 flex items-center">
                             <CheckCircle className="h-5 w-5 mr-2 text-green-500" />
-                            해결 방법
+                            {getText('pd-11')}
                           </h3>
                           <p className="text-gray-600 dark:text-gray-300 responsive-text">
                             {selectedProject.details.solutions}

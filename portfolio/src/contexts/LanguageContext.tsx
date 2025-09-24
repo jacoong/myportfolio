@@ -3,6 +3,7 @@ import LanguagePack from '../components/LanguagePack';
 
 interface LanguageContextType {
   lang: string;
+  language: string;
   setLang: (lang: string) => void;
   countries: string[];
   getText: (key: string) => string;
@@ -79,7 +80,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
   };
 
   return (
-    <LanguageContext.Provider value={{ lang, setLang: handleSetLang, countries, getText }}>
+    <LanguageContext.Provider value={{ lang, language: lang, setLang: handleSetLang, countries, getText }}>
       {children}
     </LanguageContext.Provider>
   );

@@ -26,9 +26,9 @@ const MainPage: React.FC = () => {
   const projects: Project[] = [
     {
       id: 1,
-      title: 'The Clipo Project',
-      description: 'React와 Tailwind CSS TypeScript를 사용한 소셜미디어 플랫폼 포트폴리오',
-      shortDescription: '개인 포트폴리오 웹사이트',
+      title: getText('proj-1-title'),
+      description: getText('proj-1-desc'),
+      shortDescription: getText('proj-1-short'),
       image: 'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-10+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+8.00.41.png',
       images: [
         'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-10+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+8.00.41.png',
@@ -38,31 +38,31 @@ const MainPage: React.FC = () => {
       tech: ['React', 'TypeScript', 'Tailwind CSS',  'Spring Boot', 'MariaDB'],
       featured: true,
       github: 'https://github.com/jacoong/Clipo-front',
-      demo: 'https://portfolio-demo.com',
+      demo: 'https://clipofront.netlify.app/',
       category: 'main' as const,
       status: 'completed' as const,
       createdAt: '2024-09-12',
       details: {
-        overview: '개인 포트폴리오를 위한 반응형 웹사이트로, 다크/라이트 모드, Access Token, Refresh Token  포함합니다. 친구와 한번 소셜미디어를 만든다는 생각을 가지고 한번 열심히 현업하듯이 만들어 보았습니다.',
+        overview: getText('proj-1-overview'),
         features: [
-          '인증 및 토큰 관리 시스템',
-          'Redux 기반 다중 중첩 모달 시스템',
-          '소셜 미디어 핵심 기능',
-          'UI 컴포넌트 및 디자인 시스템',
-          '데이터 관리 및 상태 관리',
-          '실시간 기능'
+          getText('proj-1-feature-1'),
+          getText('proj-1-feature-2'),
+          getText('proj-1-feature-3'),
+          getText('proj-1-feature-4'),
+          getText('proj-1-feature-5'),
+          getText('proj-1-feature-6')
         ],
-        challenges: '낙관적 업데이트와 데이터 동기화/ 백엔드와 전체적인 협업',
-        solutions: 'React-query를 활용하여 네트워크 오류시 전의 쿼리를 가져와 동기화',
+        challenges: getText('proj-1-challenge'),
+        solutions: getText('proj-1-solution'),
         numberOfDevelopers: 2,
-        role: '프론트엔드 / 기획자 '
+        role: getText('proj-1-role')
       }
     },
     {
       id: 2,
-      title: '축구 동영상 자동화',
-      description: 'Aws Lamda Python을 활용하여, Movie.py로 동영상 자동화',
-      shortDescription: '',
+      title: getText('proj-2-title'),
+      description: getText('proj-2-desc'),
+      shortDescription: getText('proj-2-short'),
       image: 'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/runscreen.png',
       images: [
         'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.11.28.png',
@@ -95,9 +95,9 @@ const MainPage: React.FC = () => {
     },
     {
       id: 3,
-      title: 'Calender Auto',
-      description: '자동화 달력 플랫폼',
-      shortDescription: 'Open Ai Api 를 활용하여 달력 스케줄 자동화 시스템',
+      title: getText('proj-3-title'),
+      description: getText('proj-3-desc'),
+      shortDescription: getText('proj-3-short'),
       image: 'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/calender+Project/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-24+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+7.06.11.png',
       images: [
         'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/calender+Project/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-24+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+7.06.06.png',
@@ -106,7 +106,7 @@ const MainPage: React.FC = () => {
       tech: ['React', 'TypeScript','TypeScript', 'Spring Boot', 'Open Ai Api'],
       featured: true,
       github: 'https://github.com/username/ecommerce',
-      demo: 'https://ecommerce-demo.com',
+      demo: '/welcome',
       category: 'main' as const,
       status: 'in-progress' as const,
       createdAt: '2024-01-01',
@@ -128,9 +128,9 @@ const MainPage: React.FC = () => {
     },
     {
       id: 4,
-      title: '파이썬 웹 취업 웹 스크래퍼',
-      description: '여러 구직사이트의 채용공고를 한번에 검색하고 필터링할 수 있는 통합 웹 스크래퍼',
-      shortDescription: '원티드, 사람인, RemoteOK, WeWorkRemotely에서 채용공고를 통합 검색',
+      title: getText('proj-4-title'),
+      description: getText('proj-4-desc'),
+      shortDescription: getText('proj-4-short'),
       image: 'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/python_webscrapper/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.09.51.png',
       images: [
         'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/python_webscrapper/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.09.51.png',
@@ -165,9 +165,9 @@ const MainPage: React.FC = () => {
     },
     {
       id: 5,
-      title: 'Random Chord Practice App',
-      description: '음악 연습을 위한 현대적이고 사용자 친화적인 랜덤 코드 생성기',
-      shortDescription: '웹 기반 음악 코드 연습 앱',
+      title: getText('proj-5-title'),
+      description: getText('proj-5-desc'),
+      shortDescription: getText('proj-5-short'),
       image: 'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/chord/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.18.44.png',
       images: [
         'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/chord/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.18.44.png',
@@ -203,9 +203,9 @@ const MainPage: React.FC = () => {
     },
     {
       id: 6,
-      title: "The Area - Creative Platform",
-      description: "음악, 비주얼, 크리에이터를 위한 종합 크리에이티브 플랫폼",
-      shortDescription: "크리에이티브 플랫폼",
+      title: getText('proj-6-title'),
+      description: getText('proj-6-desc'),
+      shortDescription: getText('proj-6-short'),
       image: "https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/The_Area/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.19.26.png",
       images: ["https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/The_Area/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.20.08.png","https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/The_Area/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.49.30.png",
         "https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/The_Area/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.20.17.png"
@@ -235,9 +235,9 @@ const MainPage: React.FC = () => {
     },
     {
       id: 7,
-      title: '축구 어플리케이션 어플 웹사이트',
-      description: 'HTML, CSS, JavaScript로 만든 축구 테마 카카오톡 클론 모바일 웹사이트',
-      shortDescription: '축구 테마 채팅 어플 클론',
+      title: getText('proj-7-title'),
+      description: getText('proj-7-desc'),
+      shortDescription: getText('proj-7-short'),
       image: 'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/cocoatalk/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.51.44.png',
       images: [
       'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/cocoatalk/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.51.44.png',
@@ -274,9 +274,9 @@ const MainPage: React.FC = () => {
     },
     {
       id: 8,
-      title: 'Momentum Dashboard',
-      description: '개인 생산성 향상을 위한 올인원 대시보드 웹 애플리케이션',
-      shortDescription: '웹 기반 개인 대시보드',
+      title: getText('proj-8-title'),
+      description: getText('proj-8-desc'),
+      shortDescription: getText('proj-8-short'),
       image: 'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/js_vanilla_project/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.59.05.png',
       images: [
         'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/js_vanilla_project/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.59.05.png',
@@ -317,9 +317,9 @@ const MainPage: React.FC = () => {
   
     {
       id: 9,
-      title: '캠핑장 관리 시스템',
-      description: '캠핑장 정보 등록, 조회, 수정, 삭제 및 리뷰 시스템을 제공하는 웹 애플리케이션',
-      shortDescription: '캠핑장 통합 관리 플랫폼',
+      title: getText('proj-9-title'),
+      description: getText('proj-9-desc'),
+      shortDescription: getText('proj-9-short'),
       image:  'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/camping/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+5.33.32.png',
       images: [
         'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/camping/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+5.39.03.png',
@@ -330,7 +330,7 @@ const MainPage: React.FC = () => {
       tech: ['Node.js', 'Express.js', 'MongoDB', 'Mongoose', 'EJS', 'Bootstrap 5', 'Passport.js', 'Joi'],
       featured: false,
       github: 'https://github.com/username/campground4',
-      demo: 'https://campground4-demo.com',
+      demo: '/welcome',
       category: 'side' as const,
       status: 'completed' as const,
       createdAt: '2024-01-15',
@@ -359,8 +359,8 @@ const MainPage: React.FC = () => {
   const blogs: Blog[] = [
     {
       id: 1,
-      title: 'AccessToken RefreshToken 구현',
-      description: '엑세스 토큰과 리프레쉬 토큰을 구현하여 jwt 인증 절차를 알아 봅니다. 여러가지 방법중에서 쿠키값에 저장을한뒤 만료되면 재할당을 동작으로 refreshToken 을 사용한다',
+      title: getText('blog-1-title'),
+      description: getText('blog-1-desc'),
       image: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=600&h=400&fit=crop',
       tech: ['React', 'JavaScript', 'jwt'],
       link: 'https://reinvented-screen-ae1.notion.site/Clipo-Making-a-basic-authentication-System-using-Token-27763c79136b808cb699cf1d751e75f3?source=copy_link',
@@ -368,8 +368,8 @@ const MainPage: React.FC = () => {
     },
     {
       id: 2,
-      title: 'Mongoose 를 이용하여 MongoDb data 구조화',
-      description: 'Campingground 작업도중 node.js 와 mongoDb 의 데이터 객체를 파싱해오는 mongoose를 알게되었다. 몽구스는 mongoDb의 데이터를 활용하기 쉬운 객체 형태로 파싱하기 쉽게 해주는 모듈이다',
+      title: getText('blog-2-title'),
+      description: getText('blog-2-desc'),
       image: 'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/jim-n9KxLAjs4wM-unsplash.jpg',
       tech: ['Mongoose', 'JavaScript', 'MongoDb'],
       link: 'https://reinvented-screen-ae1.notion.site/Mongoose-1-ba9f20ad649f43b4b96656dfdd9b2f01?source=copy_link',
@@ -377,8 +377,8 @@ const MainPage: React.FC = () => {
     },
     {
       id: 3,
-      title: '중첩 모달 구현하기',
-      description: 'Redux 의 초기값을 배열로 변경하여 z-index를 알맞게 분배하여 중첩모달을 구현합니다.',
+      title: getText('blog-3-title'),
+      description: getText('blog-3-desc'),
       image: 'https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=600&h=400&fit=crop',
       tech: ['React hook', 'React', 'Redux'],
       link: 'https://reinvented-screen-ae1.notion.site/Mongoose-1-ba9f20ad649f43b4b96656dfdd9b2f01?source=copy_link',
@@ -428,7 +428,7 @@ const MainPage: React.FC = () => {
     {
       children: (
         <div className="max-w-4xl mx-auto concept-text-primary px-8">
-        <h2 className="responsive-h2 font-bold mb-8 text-center">About Me</h2>
+        <h2 className="responsive-h2 font-bold mb-8 text-center">{getText('about-title')}</h2>
 
 
          
@@ -436,50 +436,50 @@ const MainPage: React.FC = () => {
         <div className="hidden md:grid grid-cols-2 gap-8">
       
           <div className="concept-card rounded-lg p-6">
-            <h3 className="font-semibold mb-6 text-xl border-b pb-2">💼 경력 (Experience)</h3>
+            <h3 className="font-semibold mb-6 text-xl border-b pb-2">{getText('experience-title')}</h3>
             <div className="space-y-6">
       
               <div className="experience-item rounded-md p-4 transition-all duration-300 hover:shadow-lg hover:bg-gray-50 dark:hover:bg-gray-800 transform hover:-translate-y-1">
                 <div className="flex justify-between items-start">
                   <div>
-                    <h4 className="font-bold text-blue-600">Coboct (프랑스)</h4>
-                    <p className="text-sm font-semibold concept-text-secondary">홈페이지 리뉴얼 인턴</p>
+                    <h4 className="font-bold text-blue-600">{getText('exp-1-company')}</h4>
+                    <p className="text-sm font-semibold concept-text-secondary">{getText('exp-1-position')}</p>
                   </div>
-                  <span className="text-xs text-gray-500">2023.09 - 2023.12 (4개월)</span>
+                  <span className="text-xs text-gray-500">{getText('exp-1-period')}</span>
                 </div>
                 <ul className="mt-3 list-disc list-inside text-sm space-y-1 concept-text-secondary">
-                  <li>react.js와 ModuleCSS를 활용한 프론트엔드 UI/UX 개선</li>
-                  <li>반응형 웹 디자인 적용</li>
-                  <li>Three.js를 활용한 3D 효과 적용 시도</li>
+                  <li>{getText('exp-1-desc-1')}</li>
+                  <li>{getText('exp-1-desc-2')}</li>
+                  <li>{getText('exp-1-desc-3')}</li>
                 </ul>
               </div>
       
               <div className="experience-item rounded-md p-4 transition-all duration-300 hover:shadow-lg hover:bg-gray-50 dark:hover:bg-gray-800 transform hover:-translate-y-1">
                 <div className="flex justify-between items-start">
                   <div>
-                    <h4 className="font-bold text-blue-600">알서포트 (Rsupport)</h4>
-                    <p className="text-sm font-semibold concept-text-secondary">QA Engineer</p>
+                    <h4 className="font-bold text-blue-600">{getText('exp-2-company')}</h4>
+                    <p className="text-sm font-semibold concept-text-secondary">{getText('exp-2-position')}</p>
                   </div>
-                  <span className="text-xs text-gray-500">2021.06 - 2022.12 (1년 6개월)</span>
+                  <span className="text-xs text-gray-500">{getText('exp-2-period')}</span>
                 </div>
                 <ul className="mt-3 list-disc list-inside text-sm space-y-1 concept-text-secondary">
-                  <li>개발 기획 회의 참여</li>
-                  <li>테스트 케이스 작성 인증</li>
-                  <li>자바 셀레니움 자동화 테스트 스크립트 작성 및 유지보수 참여</li>
+                  <li>{getText('exp-2-desc-1')}</li>
+                  <li>{getText('exp-2-desc-2')}</li>
+                  <li>{getText('exp-2-desc-3')}</li>
                 </ul>
               </div>
       
               <div className="experience-item rounded-md p-4 transition-all duration-300 hover:shadow-lg hover:bg-gray-50 dark:hover:bg-gray-800 transform hover:-translate-y-1">
                 <div className="flex justify-between items-start">
                   <div>
-                    <h4 className="font-bold text-blue-600">대한민국 육군</h4>
-                    <p className="text-sm font-semibold concept-text-secondary">8사단 만기 전역</p>
+                    <h4 className="font-bold text-blue-600">{getText('exp-3-company')}</h4>
+                    <p className="text-sm font-semibold concept-text-secondary">{getText('exp-3-position')}</p>
                   </div>
-                  <span className="text-xs text-gray-500">2019.04 - 2021.10</span>
+                  <span className="text-xs text-gray-500">{getText('exp-3-period')}</span>
                 </div>
                 <ul className="mt-3 list-disc list-inside text-sm space-y-1 concept-text-secondary">
-                  <li>분대장 임무 수행을 통한 리더십 및 책임감 함양</li>
-                  <li>원활한 소통 능력을 바탕으로 한 팀워크 증진</li>
+                  <li>{getText('exp-3-desc-1')}</li>
+                  <li>{getText('exp-3-desc-2')}</li>
                 </ul>
               </div>
       
@@ -487,15 +487,15 @@ const MainPage: React.FC = () => {
           </div>
       
           <div className="concept-card rounded-lg p-6">
-            <h3 className="font-semibold mb-6 text-xl border-b pb-2">🎓 학력 (Education)</h3>
+            <h3 className="font-semibold mb-6 text-xl border-b pb-2">{getText('education-title')}</h3>
             <ul className="space-y-4 concept-text-secondary pt-2">
               <li className='py-3'>
-                  <p className="font-bold">고려사이버대학교</p>
-                  <p className="text-sm">소프트웨어응용학과 졸업 (2021-2024)</p>
+                  <p className="font-bold">{getText('edu-1-school')}</p>
+                  <p className="text-sm">{getText('edu-1-major')}</p>
               </li>
               <li>
-                  <p className="font-bold">한림대학교</p>
-                  <p className="text-sm">경제학과 중퇴 (2018-2019)</p>
+                  <p className="font-bold">{getText('edu-2-school')}</p>
+                  <p className="text-sm">{getText('edu-2-major')}</p>
               </li>
             </ul>
           </div>
@@ -503,8 +503,14 @@ const MainPage: React.FC = () => {
 
         {/* Mobile Slider View */}
 
-            {/* Progress Bar Indicator */}
-            <div className="h-auto" >
+       
+
+
+        <div className="md:hidden relative w-[95%] mx-auto">
+          {/* Debug Info */}
+
+               {/* Progress Bar Indicator */}
+               <div className="h-auto" >
             <div className="w-full   bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
               <div 
                 className="h-1 w-full bg-blue-600 transition-all duration-300 ease-in-out"
@@ -526,7 +532,7 @@ const MainPage: React.FC = () => {
                      : 'text-gray-500 dark:text-gray-400'
                  }`}
                >
-                 💼 경력
+                 {getText('experience-btn')}
                </button>
                <button
                  onClick={() => {
@@ -539,14 +545,12 @@ const MainPage: React.FC = () => {
                      : 'text-gray-500 dark:text-gray-400'
                  }`}
                >
-                 🎓 학력
+                 {getText('education-btn')}
                </button>
             </div>
           </div>
 
 
-        <div className="md:hidden relative w-[95%] mx-auto">
-          {/* Debug Info */}
           <div className="overflow-hidden">
             <div 
               className="flex h-full transition-transform duration-300 ease-in-out"
@@ -559,45 +563,45 @@ const MainPage: React.FC = () => {
                     <div className="experience-item rounded-md p-4 transition-all duration-300 hover:shadow-lg hover:bg-gray-50 dark:hover:bg-gray-800 transform hover:-translate-y-1">
                       <div className="flex justify-between items-start">
                         <div>
-                          <h4 className="font-bold text-blue-600">Coboct (프랑스)</h4>
-                          <span className="text-xs text-gray-500">2023.09 - 2023.12 (4개월)</span>
-                          <p className="text-sm font-semibold concept-text-secondary">홈페이지 리뉴얼 인턴</p>
+                          <h4 className="font-bold text-blue-600">{getText('exp-1-company')}</h4>
+                          <span className="text-xs text-gray-500">{getText('exp-1-period')}</span>
+                          <p className="text-sm font-semibold concept-text-secondary">{getText('exp-1-position')}</p>
                         </div>
                 
                       </div>
                       <ul className="mt-3 list-disc list-inside text-sm space-y-1 concept-text-secondary">
-                        <li>react.js와 ModuleCSS를 활용한 프론트엔드 UI/UX 개선</li>
-                        <li>반응형 웹 디자인 적용</li>
-                        <li>Three.js를 활용한 3D 효과 적용 시도</li>
+                        <li>{getText('exp-1-desc-1')}</li>
+                        <li>{getText('exp-1-desc-2')}</li>
+                        <li>{getText('exp-1-desc-3')}</li>
                       </ul>
                     </div>
                     <div className="experience-item rounded-md p-4 transition-all duration-300 hover:shadow-lg hover:bg-gray-50 dark:hover:bg-gray-800 transform hover:-translate-y-1">
                       <div className="flex justify-between items-start">
                         <div>
-                          <h4 className="font-bold text-blue-600">알서포트 (Rsupport)</h4>
-                          <span className="text-xs text-gray-500">2021.06 - 2022.12 (1년 6개월)</span>
-                          <p className="text-sm font-semibold concept-text-secondary">QA Engineer</p>
+                          <h4 className="font-bold text-blue-600">{getText('exp-2-company')}</h4>
+                          <span className="text-xs text-gray-500">{getText('exp-2-period')}</span>
+                          <p className="text-sm font-semibold concept-text-secondary">{getText('exp-2-position')}</p>
                         </div>
                      
                       </div>
                       <ul className="mt-3 list-disc list-inside text-sm space-y-1 concept-text-secondary">
-                        <li>개발 기획 회의 참여</li>
-                        <li>테스트 케이스 작성 인증</li>
-                        <li>자바 셀레니움 자동화 테스트 스크립트 작성 및 유지보수 참여</li>
+                        <li>{getText('exp-2-desc-1')}</li>
+                        <li>{getText('exp-2-desc-2')}</li>
+                        <li>{getText('exp-2-desc-3')}</li>
                       </ul>
                     </div>
                     <div className="experience-item rounded-md p-4 transition-all duration-300 hover:shadow-lg hover:bg-gray-50 dark:hover:bg-gray-800 transform hover:-translate-y-1">
                       <div className="flex justify-between items-start">
                         <div>
-                          <h4 className="font-bold text-blue-600">대한민국 육군</h4>
-                          <span className="text-xs text-gray-500">2019.04 - 2021.10</span>
-                          <p className="text-sm font-semibold concept-text-secondary">8사단 만기 전역</p>
+                          <h4 className="font-bold text-blue-600">{getText('exp-3-company')}</h4>
+                          <span className="text-xs text-gray-500">{getText('exp-3-period')}</span>
+                          <p className="text-sm font-semibold concept-text-secondary">{getText('exp-3-position')}</p>
                         </div>
                        
                       </div>
                       <ul className="mt-3 list-disc list-inside text-sm space-y-1 concept-text-secondary">
-                        <li>분대장 임무 수행을 통한 리더십 및 책임감 함양</li>
-                        <li>원활한 소통 능력을 바탕으로 한 팀워크 증진</li>
+                        <li>{getText('exp-3-desc-1')}</li>
+                        <li>{getText('exp-3-desc-2')}</li>
                       </ul>
                     </div>
                   </div>
@@ -606,19 +610,19 @@ const MainPage: React.FC = () => {
 
               {/* Slide 2: Education */}
               <div className=" w-full flex-shrink-0">
-                <div className="concept-card rounded-lg p-6">
-                  <h3 className="font-semibold mb-6 text-xl border-b pb-2">🎓 학력 (Education)</h3>
-                  <ul className="space-y-4 concept-text-secondary pt-2">
-                    <li className='py-3'>
-                        <p className="font-bold">고려사이버대학교</p>
-                        <p className="text-sm">소프트웨어응용학과 졸업 (2021-2024)</p>
-                    </li>
-                    <li>
-                        <p className="font-bold">한림대학교</p>
-                        <p className="text-sm">경제학과 중퇴 (2018-2019)</p>
-                    </li>
-                  </ul>
-                </div>
+          <div className="concept-card rounded-lg p-6">
+            <h3 className="font-semibold mb-6 text-xl border-b pb-2">{getText('education-title')}</h3>
+            <ul className="space-y-4 concept-text-secondary pt-2">
+              <li className='py-3'>
+                  <p className="font-bold">{getText('edu-1-school')}</p>
+                  <p className="text-sm">{getText('edu-1-major')}</p>
+              </li>
+              <li>
+                  <p className="font-bold">{getText('edu-2-school')}</p>
+                  <p className="text-sm">{getText('edu-2-major')}</p>
+              </li>
+            </ul>
+          </div>
               </div>
             </div>
           </div>
@@ -685,9 +689,9 @@ const MainPage: React.FC = () => {
                 <h1 className="font-bold responsive-h1 concept-text-primary mb-4 text-center">
                   {getText('m-0')}
                     </h1>
-                  <div className='responsive-h1 pb-5 w-full flex items-start justify-start'>
+                  <div className='responsive-h1 pb-5 w-full flex items-center justify-center'>
                       <RotatingText
-                      texts={['창의적인', '열정적인', '갈망하는', '도전하는']}
+                      texts={getText('rotating-texts').split(',')}
                       mainClassName="px-2 sm:px-3 md:px-5 concept-gradient-primary text-white overflow-hidden py-1 sm:py-2 md:py-3 justify-center rounded-lg font-bold"
                       staggerFrom={"last"}
                       initial={{ y: "100%" }}
@@ -706,7 +710,7 @@ const MainPage: React.FC = () => {
                     {getText('m-0-0')}
               </h1>
               </div>
-              <div className="flex py-6 sm:py-10 flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex py-6 sm:py-10 flex-col sm:flex-row gap-4 items-center justify-center">
                 <SwipeButton
                   onSwipeComplete={() => {
                   

@@ -2,16 +2,19 @@ import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Filter, ChevronDown, ChevronUp } from 'lucide-react';
 import { useModal } from '../contexts/ModalContext';
+import { useLanguage } from '../contexts/LanguageContext';
 import { Project, FilterType, StatusFilterType } from '../types/Project';
 import { getCategoryLabel, getStatusLabel } from '../utils/projectUtils';
 import ProjectCard from './ProjectComponents';
 import DynamicNumber from './DynamicCompoents/DynamicNumber';
+import LanguagePack from './LanguagePack';
 interface ProjectsSectionProps {
   projects: Project[];
 }
 
 const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) => {
   const { openModal } = useModal();
+  const { getText, language } = useLanguage();
   const [categoryFilter, setCategoryFilter] = useState<FilterType>('all');
   const [statusFilter, setStatusFilter] = useState<StatusFilterType>('all');
   const [showAll, setShowAll] = useState(false);
@@ -50,9 +53,9 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) => {
               className="font-bold bg-gradient-to-r from-[#40ffaa] via-[#4079ff] to-[#40ffaa] bg-clip-text text-transparent animate-gradient"
             />
           </div>
-          <h2 className="concept-text-primary font-bold">{`Projects`}</h2>
+          <h2 className="concept-text-primary font-bold">{getText('p-11')}</h2>
         </div>
-        <p className="responsive-text concept-text-secondary">{`다양한 프로젝트를 확인해보세요`}</p>
+        <p className="responsive-text concept-text-secondary">{getText('p-12')}</p>
       </div>
 
       {/* 필터 섹션 */}
@@ -62,7 +65,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) => {
           className="flex items-center gap-2 px-4 py-2 concept-card rounded-lg concept-text-primary hover:concept-interactive-hover transition-colors duration-200 mb-4"
         >
           <Filter className="h-4 w-4" />
-          필터
+          {getText('p-0')}
           {showFilters ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
         </button>
 
@@ -77,7 +80,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) => {
               <div className="concept-card rounded-lg p-6 space-y-4">
                 {/* 프로젝트 종류 필터 */}
                 <div>
-                  <h3 className="text-sm font-semibold concept-text-primary mb-2">프로젝트 종류</h3>
+                  <h3 className="text-sm font-semibold concept-text-primary mb-2">{getText('p-13')}</h3>
                   <div className="flex flex-wrap gap-2">
                     {(['all', 'main', 'latest', 'side'] as FilterType[]).map((filter) => (
                       <button
@@ -89,7 +92,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) => {
                             : 'concept-interactive-hover concept-text-primary'
                         }`}
                       >
-                        {filter === 'all' ? '전체' : getCategoryLabel(filter)}
+                        {filter === 'all' ? getText('p-0') : getCategoryLabel(filter, language as keyof typeof LanguagePack)}
                       </button>
                     ))}
                   </div>
@@ -97,7 +100,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) => {
 
                 {/* 완성 상태 필터 */}
                 <div>
-                  <h3 className="text-sm font-semibold concept-text-primary mb-2">완성 상태</h3>
+                  <h3 className="text-sm font-semibold concept-text-primary mb-2">{getText('p-14')}</h3>
                   <div className="flex flex-wrap gap-2">
                     {(['all', 'completed', 'in-progress'] as StatusFilterType[]).map((filter) => (
                       <button
@@ -109,7 +112,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) => {
                             : 'concept-interactive-hover concept-text-primary'
                         }`}
                       >
-                        {filter === 'all' ? '전체' : getStatusLabel(filter)}
+                        {filter === 'all' ? getText('p-0') : getStatusLabel(filter, language as keyof typeof LanguagePack)}
                       </button>
                     ))}
                   </div>
@@ -140,7 +143,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) => {
             onClick={() => setShowAll(!showAll)}
             className="px-8 py-3 concept-gradient-primary text-white rounded-lg font-medium hover:concept-gradient-primary-hover transition-all duration-200"
           >
-            {showAll ? '접기' : `더보기 (${filteredProjects.length - 4}개 더)`}
+            {showAll ? getText('p-10') : `${getText('p-9')} (${filteredProjects.length - 4}${getText('p-15')})`}
           </button>
         </div>
       )}

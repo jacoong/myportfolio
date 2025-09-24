@@ -154,6 +154,8 @@ const SwipeButton: React.FC<SwipeButtonProps> = ({
         </span>
       </div>
     </div>
+    <div className='w-full justify-center flex'>
+
     <div className={`relative  w-60 ${className}`}>
       {/* 슬롯 틀 (배경) */}
        <div className={`${isCompleted ? 'bg-gradient-to-r from-green-500 to-green-600' : 'bg-gray-800 dark:bg-gray-700'} absolute top-0 left-0 w-full h-full rounded-lg border-2 concept-border flex items-center justify-center min-h-[48px] transition-colors duration-300`}>
@@ -217,6 +219,8 @@ const SwipeButton: React.FC<SwipeButtonProps> = ({
       </div>
       </button>
     </div>
+    </div>
+
     </div>
   );
 };

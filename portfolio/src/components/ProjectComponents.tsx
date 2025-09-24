@@ -2,7 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Github } from 'lucide-react';
 import { Project } from '../types/Project';
+import { useLanguage } from '../contexts/LanguageContext';
 import { getCategoryLabel, getStatusLabel, getStatusColor } from '../utils/projectUtils';
+import LanguagePack from './LanguagePack';
 
 interface ProjectCardProps {
   project: Project;
@@ -10,6 +12,7 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, openModal }) => {
+  const { getText, language } = useLanguage();
 
   return (
     <motion.div
@@ -32,14 +35,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, openModal }) => {
         {/* Status Badge */}
         <div className="absolute top-4 left-4 flex gap-2">
           <span className={`px-3 py-1 text-white text-sm font-medium rounded-full ${getStatusColor(project.status)}`}>
-            {getStatusLabel(project.status)}
+            {getStatusLabel(project.status, language as keyof typeof LanguagePack)}
           </span>
         </div>
 
         {/* Category Badge */}
         <div className="absolute top-4 right-4">
           <span className="px-3 py-1 bg-black/50 text-white text-sm font-medium rounded-full">
-            {getCategoryLabel(project.category)}
+            {getCategoryLabel(project.category, language as keyof typeof LanguagePack)}
           </span>
         </div>
       </div>
@@ -80,7 +83,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, openModal }) => {
             onClick={() => openModal(project)}
             className="flex-1 px-3 sm:px-4 py-2 concept-interactive-hover concept-text-primary rounded-lg font-medium transition-colors duration-200"
           >
-            자세히 보기
+            {getText('p-6')}
           </button>
 
           {/* <a 
@@ -124,7 +127,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, openModal }) => {
   <div 
     className="tooltip-content absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max px-2 py-1 text-xs text-white bg-gray-800 rounded-md shadow-lg invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-opacity duration-200"
   >
-    GitHub 코드 보기
+    {getText('p-7')}
   </div>
 </div>
 
@@ -143,7 +146,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, openModal }) => {
   <div 
     className="tooltip-content absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max px-2 py-1 text-xs text-white bg-gray-800 rounded-md shadow-lg invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-opacity duration-200"
   >
-    데모 사이트 보기
+    {getText('p-8')}
   </div>
 </div>
 

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PhoneInput from 'react-phone-number-input';
 import axios from 'axios';
+import { useLanguage } from '../contexts/LanguageContext';
 import 'react-phone-number-input/style.css';
 
 interface FormData {
@@ -18,6 +19,7 @@ interface ContactProps {
 const API_KEY = process.env.REACT_APP_API_KEY || 'vpLaHO402z5a8TI8u8kzA3wqZxfKFwh97Nd9uz9d';
 
 const Contact: React.FC<ContactProps> = ({ className = '' }) => {
+  const { getText } = useLanguage();
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -51,7 +53,7 @@ const Contact: React.FC<ContactProps> = ({ className = '' }) => {
     try {
       // API Gateway로 전송 (API 키를 헤더에 포함)
       const response = await axios.post(
-        'https://example.com/contact',
+        'https://2cn2p4rm4l.execute-api.ap-northeast-2.amazonaws.com/telegram_senders',
         formData,
         {
           headers: {
@@ -84,14 +86,14 @@ const Contact: React.FC<ContactProps> = ({ className = '' }) => {
     <div className={`max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 ${className}`}>
       <div className="concept-card rounded-xl p-6 sm:p-8">
         <h2 className="responsive-h2 font-bold mb-8 text-center concept-text-primary">
-          Contact Me
+          {getText('c-0')}
         </h2>
         
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* 이름 입력 */}
           <div>
             <label htmlFor="name" className="block text-sm font-medium concept-text-primary mb-2">
-              보내는 이 *
+              {getText('c-1')}
             </label>
             <input
               type="text"
@@ -101,15 +103,15 @@ const Contact: React.FC<ContactProps> = ({ className = '' }) => {
               onChange={handleInputChange}
               required
               className="w-full px-4 py-3 concept-card border border-concept-border-light dark:border-concept-border-dark rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent concept-text-primary placeholder-gray-400 transition-all duration-200"
-              placeholder="이름을 입력해주세요"
+              placeholder={getText('c-9')}
             />
           </div>
 
 
- {/* 메시지 입력 */}
- <div>
+          {/* 메시지 입력 */}
+          <div>
             <label htmlFor="message" className="block text-sm font-medium concept-text-primary mb-2">
-              메시지 *
+              {getText('c-4')}
             </label>
             <textarea
               id="message"
@@ -119,14 +121,14 @@ const Contact: React.FC<ContactProps> = ({ className = '' }) => {
               required
               rows={5}
               className="w-full px-4 py-3 concept-card border border-concept-border-light dark:border-concept-border-dark rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent concept-text-primary placeholder-gray-400 transition-all duration-200 resize-none"
-              placeholder="메시지를 입력해주세요"
+              placeholder={getText('c-12')}
             />
           </div>
 
           {/* 이메일 입력 */}
           <div>
             <label htmlFor="email" className="block text-sm font-medium concept-text-primary mb-2">
-              이메일 *
+              {getText('c-2')}
             </label>
             <input
               type="email"
@@ -136,21 +138,21 @@ const Contact: React.FC<ContactProps> = ({ className = '' }) => {
               onChange={handleInputChange}
               required
               className="w-full px-4 py-3 concept-card border border-concept-border-light dark:border-concept-border-dark rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent concept-text-primary placeholder-gray-400 transition-all duration-200"
-              placeholder="이메일을 입력해주세요"
+              placeholder={getText('c-10')}
             />
           </div>
 
           {/* 전화번호 입력 (선택사항) */}
           <div>
             <label className="block text-sm font-medium concept-text-primary mb-2">
-              전화번호 (Optional)
+              {getText('c-3')}
             </label>
             <div className="phone-input-container">
               <PhoneInput
                 value={formData.phoneNumber}
                 onChange={handlePhoneChange}
                 defaultCountry="KR"
-                placeholder="전화번호를 입력해주세요"
+                placeholder={getText('c-11')}
                 className="w-full"
                 inputComponent={({ className, ...props }) => (
                   <input
@@ -191,10 +193,10 @@ const Contact: React.FC<ContactProps> = ({ className = '' }) => {
             {isLoading ? (
               <div className="flex items-center justify-center">
                 <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                전송 중...
+                {getText('c-6')}
               </div>
             ) : (
-              '전송하기'
+              getText('c-5')
             )}
           </button>
 
@@ -202,7 +204,7 @@ const Contact: React.FC<ContactProps> = ({ className = '' }) => {
           {submitStatus === 'success' && (
             <div className="p-4 bg-green-100 dark:bg-green-900 border border-green-300 dark:border-green-700 rounded-lg">
               <p className="text-green-800 dark:text-green-200 text-center font-medium">
-                메시지가 성공적으로 전송되었습니다! 빠른 시일 내에 답변드리겠습니다.
+                {getText('c-7')}
               </p>
             </div>
           )}
@@ -210,7 +212,7 @@ const Contact: React.FC<ContactProps> = ({ className = '' }) => {
           {submitStatus === 'error' && (
             <div className="p-4 bg-red-100 dark:bg-red-900 border border-red-300 dark:border-red-700 rounded-lg">
               <p className="text-red-800 dark:text-red-200 text-center font-medium">
-                전송 중 오류가 발생했습니다. 다시 시도해주세요.
+                {getText('c-8')}
               </p>
             </div>
           )}
