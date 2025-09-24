@@ -1,6 +1,6 @@
 [build]
   publish = "portfolio/build"
-  command = "cd portfolio && npm run build"
+  command = "cd portfolio && npm install && npm run build"
 
 [build.environment]
   NODE_VERSION = "18"
