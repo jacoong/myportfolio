@@ -1,0 +1,12 @@
+[build]
+  publish = "portfolio/build"
+  command = "cd portfolio && npm run build"
+
+[build.environment]
+  NODE_VERSION = "18"
+  NPM_VERSION = "10"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
