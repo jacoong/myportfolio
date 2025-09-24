@@ -3,13 +3,12 @@ import { motion } from 'framer-motion';
 import { useTheme } from '../contexts/ThemeContext';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useModal } from '../contexts/ModalContext';
-import { Sun, Moon, User, Briefcase, Code, Mail, Github, Linkedin, Twitter, ArrowRight, Star, Award, Zap, ExternalLink } from 'lucide-react';
+import { Sun, Moon, Briefcase, Code, Star, Award, Zap } from 'lucide-react';
 import LanguageSelector from '../components/LanguageSelector';
 import MyStack from '../components/MyStack';
 import Contact from '../components/Contact';
 import DynamicEntireScroll from '../components/DynamicCompoents/DynamicEntireScroll';
 import SwipeButton from '../components/SwipeButton';
-import ShinyTextProps from '../components/DynamicCompoents/ShinyTextProps';
 import TiltedCard from '../components/DynamicCompoents/ProfileImage';
 import ProjectDetailModal from '../components/ProjectDetailModal';
 import ProjectsSection from '../components/ProjectsSection';
@@ -20,16 +19,9 @@ import { Project,Blog } from '../types/Project';
 const MainPage: React.FC = () => {
   const { isDark, toggleTheme } = useTheme();
   const { getText } = useLanguage();
-  const { openModal } = useModal();
   const dynamicScrollRef = useRef<HTMLDivElement>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const stats = [
-    { icon: Briefcase, label: getText('m-4'), value: '50+' },
-    { icon: Award, label: getText('m-5'), value: '12' },
-    { icon: Star, label: getText('m-6'), value: '100+' },
-    { icon: Zap, label: getText('m-7'), value: '5+' },
-  ];
 
   const projects: Project[] = [
     {
@@ -394,14 +386,6 @@ const MainPage: React.FC = () => {
     }
   ];
 
-  const skills = [
-    { name: 'React', level: 95 },
-    { name: 'TypeScript', level: 90 },
-    { name: 'Node.js', level: 85 },
-    { name: 'Python', level: 80 },
-    { name: 'PostgreSQL', level: 85 },
-    { name: 'AWS', level: 75 },
-  ];
 
 
   

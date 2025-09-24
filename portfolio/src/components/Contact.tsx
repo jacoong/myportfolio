@@ -56,7 +56,7 @@ const Contact: React.FC<ContactProps> = ({ className = '' }) => {
         {
           headers: {
             'Content-Type': 'application/json',
-            'x-api-key': 'ㄴㄷㄹㄷ'  // API 키를 헤더에 포함
+            'x-api-key': API_KEY  // API 키를 헤더에 포함
           }
         }
       );

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Sun, Moon, ArrowRight, Palette } from 'lucide-react';
+import { Sun, Moon, ArrowRight } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useNavigate } from 'react-router-dom';
@@ -9,7 +9,7 @@ import TextType from '../components/DynamicCompoents/MovieText';
 import Particles from '../components/DynamicCompoents/Particles';
 
 const Welcome: React.FC = () => {
-  const { isDark, setTheme } = useTheme();
+  const { setTheme } = useTheme();
   const { getText, lang } = useLanguage();
   const navigate = useNavigate();
 

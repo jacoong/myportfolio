@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { Circle } from 'lucide-react';
 
 interface Section {
@@ -53,7 +53,6 @@ const DynamicEntireScroll: React.FC<DynamicEntireScrollProps> = ({
     // 섹션 2: targetOffsetTop + 150vh ~ targetOffsetTop + 300vh
     // 섹션 3: targetOffsetTop + 300vh ~ targetOffsetTop + 450vh
     const relativeScrollTop = scrollTop - targetOffsetTop;
-    const numberOfSections = sections.length;
     // 두 번째 섹션부터: 150vh + (index-1) * 100vh
     const adjustedScrollTop = relativeScrollTop - (windowHeight *1);
     const sectionIndex = Math.floor(adjustedScrollTop / windowHeight) + 1;

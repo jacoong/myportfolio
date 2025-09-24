@@ -3,17 +3,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const SelectLanguage: React.FC = () => {
-  const { lang, setLang, countries, getText } = useLanguage();
+  const { lang, setLang, countries } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
 
-  const languageNames: { [key: string]: string } = {
-    'en': 'English',
-    'yt': 'Français',
-    'jp': '日本語',
-    'cn': '中文',
-    'de': 'Deutsch',
-    'ko': '한국어',
-  };
 
   const handleLanguageSelect = (selectedLang: string) => {
     setLang(selectedLang);

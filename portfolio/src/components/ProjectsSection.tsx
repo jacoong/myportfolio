@@ -1,9 +1,9 @@
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Github, ExternalLink, Filter, ChevronDown, ChevronUp } from 'lucide-react';
+import { Filter, ChevronDown, ChevronUp } from 'lucide-react';
 import { useModal } from '../contexts/ModalContext';
 import { Project, FilterType, StatusFilterType } from '../types/Project';
-import { getCategoryLabel, getStatusLabel, getStatusColor } from '../utils/projectUtils';
+import { getCategoryLabel, getStatusLabel } from '../utils/projectUtils';
 import ProjectCard from './ProjectComponents';
 import DynamicNumber from './DynamicCompoents/DynamicNumber';
 interface ProjectsSectionProps {
