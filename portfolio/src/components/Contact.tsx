@@ -14,8 +14,8 @@ interface ContactProps {
   className?: string;
 }
 
-// API 키 상수
-const API_KEY = 'vpLaHO402z5a8TI8u8kzA3wqZxfKFwh97Nd9uz9d';
+// API 키 (환경 변수에서 가져오거나 기본값 사용)
+const API_KEY = process.env.REACT_APP_API_KEY || 'vpLaHO402z5a8TI8u8kzA3wqZxfKFwh97Nd9uz9d';
 
 const Contact: React.FC<ContactProps> = ({ className = '' }) => {
   const [formData, setFormData] = useState<FormData>({
