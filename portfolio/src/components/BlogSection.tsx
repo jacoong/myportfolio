@@ -41,10 +41,10 @@ const BlogSection: React.FC<{ blogs: Blog[] }> = ({ blogs }) => {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
-                        className="h-auto md:h-auto flex flex-col sm:flex-row group concept-card rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 concept-interactive-hover"
+                        className="h-96 flex flex-col sm:flex-row sm:h-80 group concept-card rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 concept-interactive-hover"
                     >
                         {/* Blog Image */}
-                        <div className="relative overflow-hidden max-w-[640px] w-full h-full">
+                        <div className="relative overflow-hidden h-64 w-full sm:h-full sm:w-1/3">
                             <img
                                 src={blog.image}
                                 alt={blog.title}
@@ -66,7 +66,7 @@ const BlogSection: React.FC<{ blogs: Blog[] }> = ({ blogs }) => {
                         </div>
 
                         {/* Blog Content */}
-                        <div className="flex flex-col  justify-between p-4 md:p-6">
+                        <div className="flex flex-col justify-between p-4 md:p-6 w-full sm:w-2/3">
                             {/* Blog Title */}
                             <h3 className="text-lg sm:text-xl font-bold concept-text-primary mb-2 sm:mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200 line-clamp-2">
                                 {blog.title}
@@ -82,7 +82,7 @@ const BlogSection: React.FC<{ blogs: Blog[] }> = ({ blogs }) => {
                                 <div className="flex items-center space-x-2 sm:space-x-3 text-xs sm:text-sm concept-text-secondary">
                                     <div className="flex items-center space-x-1">
                                         <Calendar className="h-3 w-3 sm:h-4 sm:w-4" />
-                                        <span>2024.03.15</span>
+                                        <span>{blog.date}</span>
                                     </div>
                                     <div className="flex items-center space-x-1">
                                         <User className="h-3 w-3 sm:h-4 sm:w-4" />

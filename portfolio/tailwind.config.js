@@ -11,6 +11,10 @@ module.exports = {
       screens: {
         'sb': '350px',
       },
+      width: {
+        '1/5': '20%',
+        '4/5': '80%',
+      },
       colors: {
         primary: {
           50: '#eff6ff',

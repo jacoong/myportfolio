@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTheme } from '../contexts/ThemeContext';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -6,6 +6,7 @@ import { useModal } from '../contexts/ModalContext';
 import { Sun, Moon, User, Briefcase, Code, Mail, Github, Linkedin, Twitter, ArrowRight, Star, Award, Zap, ExternalLink } from 'lucide-react';
 import LanguageSelector from '../components/LanguageSelector';
 import MyStack from '../components/MyStack';
+import Contact from '../components/Contact';
 import DynamicEntireScroll from '../components/DynamicCompoents/DynamicEntireScroll';
 import SwipeButton from '../components/SwipeButton';
 import ShinyTextProps from '../components/DynamicCompoents/ShinyTextProps';
@@ -21,6 +22,7 @@ const MainPage: React.FC = () => {
   const { getText } = useLanguage();
   const { openModal } = useModal();
   const dynamicScrollRef = useRef<HTMLDivElement>(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   const stats = [
     { icon: Briefcase, label: getText('m-4'), value: '50+' },
@@ -104,11 +106,10 @@ const MainPage: React.FC = () => {
       title: 'Calender Auto',
       description: '자동화 달력 플랫폼',
       shortDescription: 'Open Ai Api 를 활용하여 달력 스케줄 자동화 시스템',
-      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop',
+      image: 'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/calender+Project/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-24+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+7.06.11.png',
       images: [
-        'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1556742111-a301076d9d18?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1556745757-8d76bdb6984b?w=800&h=600&fit=crop'
+        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/calender+Project/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-24+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+7.06.06.png',
+        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/calender+Project/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-24+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+7.06.11.png'
       ],
       tech: ['React', 'TypeScript','TypeScript', 'Spring Boot', 'Open Ai Api'],
       featured: true,
@@ -366,27 +367,30 @@ const MainPage: React.FC = () => {
   const blogs: Blog[] = [
     {
       id: 1,
-      title: 'React 19의 새로운 기능들',
-      description: 'React 19에서 도입된 새로운 기능들과 개선사항들을 살펴보고, 실제 프로젝트에 어떻게 적용할 수 있는지 알아봅니다.',
+      title: 'AccessToken RefreshToken 구현',
+      description: '엑세스 토큰과 리프레쉬 토큰을 구현하여 jwt 인증 절차를 알아 봅니다. 여러가지 방법중에서 쿠키값에 저장을한뒤 만료되면 재할당을 동작으로 refreshToken 을 사용한다',
       image: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=600&h=400&fit=crop',
-      tech: ['React', 'JavaScript', 'Frontend'],
-      link: 'https://blog.naver.com/yuh0812'
+      tech: ['React', 'JavaScript', 'jwt'],
+      link: 'https://reinvented-screen-ae1.notion.site/Clipo-Making-a-basic-authentication-System-using-Token-27763c79136b808cb699cf1d751e75f3?source=copy_link',
+      date: '2024-05-15'
     },
     {
       id: 2,
-      title: 'TypeScript로 더 안전한 코드 작성하기',
-      description: 'TypeScript의 타입 시스템을 활용하여 런타임 에러를 줄이고 코드의 가독성과 유지보수성을 높이는 방법을 소개합니다.',
-      image: 'https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=600&h=400&fit=crop',
-      tech: ['TypeScript', 'JavaScript', 'Development'],
-      link: 'https://blog.naver.com/yuh0812'
+      title: 'Mongoose 를 이용하여 MongoDb data 구조화',
+      description: 'Campingground 작업도중 node.js 와 mongoDb 의 데이터 객체를 파싱해오는 mongoose를 알게되었다. 몽구스는 mongoDb의 데이터를 활용하기 쉬운 객체 형태로 파싱하기 쉽게 해주는 모듈이다',
+      image: 'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/jim-n9KxLAjs4wM-unsplash.jpg',
+      tech: ['Mongoose', 'JavaScript', 'MongoDb'],
+      link: 'https://reinvented-screen-ae1.notion.site/Mongoose-1-ba9f20ad649f43b4b96656dfdd9b2f01?source=copy_link',
+      date: '2023-08-20'
     },
     {
       id: 3,
-      title: 'Tailwind CSS로 빠른 UI 개발하기',
-      description: 'Tailwind CSS의 유틸리티 클래스를 활용하여 빠르고 일관성 있는 UI를 개발하는 방법과 팁을 공유합니다.',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop',
-      tech: ['Tailwind CSS', 'CSS', 'UI/UX'],
-      link: 'https://blog.naver.com/yuh0812'
+      title: '중첩 모달 구현하기',
+      description: 'Redux 의 초기값을 배열로 변경하여 z-index를 알맞게 분배하여 중첩모달을 구현합니다.',
+      image: 'https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=600&h=400&fit=crop',
+      tech: ['React hook', 'React', 'Redux'],
+      link: 'https://reinvented-screen-ae1.notion.site/Mongoose-1-ba9f20ad649f43b4b96656dfdd9b2f01?source=copy_link',
+      date: '2024-03-15'
     }
   ];
 
@@ -407,7 +411,7 @@ const MainPage: React.FC = () => {
         <div className="flex flex-col items-center justify-center text-center concept-text-primary">
           <div className="mb-16">
           <TiltedCard
-            imageSrc="https://i.scdn.co/image/ab67616d0000b273d9985092cd88bffd97653b58"
+            imageSrc="https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/IMG_1064.JPG"
             altText=""
             captionText=""
             containerHeight="300px"
@@ -427,6 +431,13 @@ const MainPage: React.FC = () => {
 
           <h1 className="responsive-h2 font-bold mb-10">{getText('DES-0')}</h1>
           <p className="responsive-h3 concept-text-secondary">Frontend Developer</p>
+          <p className="responsive-text concept-text-secondary mt-4 max-w-2xl mx-auto px-4">
+            {getText('m-1')}
+          </p>
+
+          <p className="responsive-text concept-text-secondary mt-4 max-w-2xl mx-auto px-4">
+            {'yuh0812@gmail.com'}
+          </p>
         </div>
       )
     },
@@ -434,7 +445,11 @@ const MainPage: React.FC = () => {
       children: (
         <div className="max-w-4xl mx-auto concept-text-primary px-8">
         <h2 className="responsive-h2 font-bold mb-8 text-center">About Me</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+
+         
+        {/* Desktop Grid View */}
+        <div className="hidden md:grid grid-cols-2 gap-8">
       
           <div className="concept-card rounded-lg p-6">
             <h3 className="font-semibold mb-6 text-xl border-b pb-2">💼 경력 (Experience)</h3>
@@ -501,6 +516,131 @@ const MainPage: React.FC = () => {
             </ul>
           </div>
         </div>
+
+        {/* Mobile Slider View */}
+
+            {/* Progress Bar Indicator */}
+            <div className="h-auto" >
+            <div className="w-full   bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+              <div 
+                className="h-1 w-full bg-blue-600 transition-all duration-300 ease-in-out"
+                style={{ 
+                  width: currentSlide === 0 ? '50%' : '100%',
+                  marginLeft: currentSlide === 0 ? '0%' : '50%'
+                }}
+              />
+            </div>
+            <div className="flex">
+               <button
+                 onClick={() => {
+                   console.log('경력 버튼 클릭');
+                   setCurrentSlide(0);
+                 }}
+                 className={`py-5 flex-1 text-sm font-medium transition-colors duration-200 hover:text-blue-600 dark:hover:text-blue-400 ${
+                   currentSlide === 0 
+                     ? 'text-blue-600 dark:text-blue-400' 
+                     : 'text-gray-500 dark:text-gray-400'
+                 }`}
+               >
+                 💼 경력
+               </button>
+               <button
+                 onClick={() => {
+                   console.log('학력 버튼 클릭');
+                   setCurrentSlide(1);
+                 }}
+                 className={`py-5 flex-1 text-sm font-medium transition-colors duration-200 hover:text-blue-600 dark:hover:text-blue-400 ${
+                   currentSlide === 1 
+                     ? 'text-blue-600 dark:text-blue-400' 
+                     : 'text-gray-500 dark:text-gray-400'
+                 }`}
+               >
+                 🎓 학력
+               </button>
+            </div>
+          </div>
+
+
+        <div className="md:hidden relative w-[95%] mx-auto">
+          {/* Debug Info */}
+          <div className="overflow-hidden">
+            <div 
+              className="flex h-full transition-transform duration-300 ease-in-out"
+              style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+            >
+              {/* Slide 1: Experience */}
+              <div className=" w-full flex-shrink-0">
+                <div className="concept-card rounded-lg p-6">
+                  <div className="">
+                    <div className="experience-item rounded-md p-4 transition-all duration-300 hover:shadow-lg hover:bg-gray-50 dark:hover:bg-gray-800 transform hover:-translate-y-1">
+                      <div className="flex justify-between items-start">
+                        <div>
+                          <h4 className="font-bold text-blue-600">Coboct (프랑스)</h4>
+                          <span className="text-xs text-gray-500">2023.09 - 2023.12 (4개월)</span>
+                          <p className="text-sm font-semibold concept-text-secondary">홈페이지 리뉴얼 인턴</p>
+                        </div>
+                
+                      </div>
+                      <ul className="mt-3 list-disc list-inside text-sm space-y-1 concept-text-secondary">
+                        <li>react.js와 ModuleCSS를 활용한 프론트엔드 UI/UX 개선</li>
+                        <li>반응형 웹 디자인 적용</li>
+                        <li>Three.js를 활용한 3D 효과 적용 시도</li>
+                      </ul>
+                    </div>
+                    <div className="experience-item rounded-md p-4 transition-all duration-300 hover:shadow-lg hover:bg-gray-50 dark:hover:bg-gray-800 transform hover:-translate-y-1">
+                      <div className="flex justify-between items-start">
+                        <div>
+                          <h4 className="font-bold text-blue-600">알서포트 (Rsupport)</h4>
+                          <span className="text-xs text-gray-500">2021.06 - 2022.12 (1년 6개월)</span>
+                          <p className="text-sm font-semibold concept-text-secondary">QA Engineer</p>
+                        </div>
+                     
+                      </div>
+                      <ul className="mt-3 list-disc list-inside text-sm space-y-1 concept-text-secondary">
+                        <li>개발 기획 회의 참여</li>
+                        <li>테스트 케이스 작성 인증</li>
+                        <li>자바 셀레니움 자동화 테스트 스크립트 작성 및 유지보수 참여</li>
+                      </ul>
+                    </div>
+                    <div className="experience-item rounded-md p-4 transition-all duration-300 hover:shadow-lg hover:bg-gray-50 dark:hover:bg-gray-800 transform hover:-translate-y-1">
+                      <div className="flex justify-between items-start">
+                        <div>
+                          <h4 className="font-bold text-blue-600">대한민국 육군</h4>
+                          <span className="text-xs text-gray-500">2019.04 - 2021.10</span>
+                          <p className="text-sm font-semibold concept-text-secondary">8사단 만기 전역</p>
+                        </div>
+                       
+                      </div>
+                      <ul className="mt-3 list-disc list-inside text-sm space-y-1 concept-text-secondary">
+                        <li>분대장 임무 수행을 통한 리더십 및 책임감 함양</li>
+                        <li>원활한 소통 능력을 바탕으로 한 팀워크 증진</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Slide 2: Education */}
+              <div className=" w-full flex-shrink-0">
+                <div className="concept-card rounded-lg p-6">
+                  <h3 className="font-semibold mb-6 text-xl border-b pb-2">🎓 학력 (Education)</h3>
+                  <ul className="space-y-4 concept-text-secondary pt-2">
+                    <li className='py-3'>
+                        <p className="font-bold">고려사이버대학교</p>
+                        <p className="text-sm">소프트웨어응용학과 졸업 (2021-2024)</p>
+                    </li>
+                    <li>
+                        <p className="font-bold">한림대학교</p>
+                        <p className="text-sm">경제학과 중퇴 (2018-2019)</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+     
+        </div>
       </div>
       )
     },
@@ -509,6 +649,14 @@ const MainPage: React.FC = () => {
         <div className='flex flex-col'>
                <h1 className="max-w-4xl mx-auto concept-text-primary px-8 responsive-h2 font-bold mb-8 text-center">{getText('DES-5')}</h1>
                <MyStack></MyStack>
+        </div>
+      )
+    },
+    {
+      children: (
+        <div className='flex flex-col'>
+          <h1 className="max-w-4xl mx-auto concept-text-primary px-8 responsive-h2 font-bold mb-8 text-center">Contact</h1>
+          <Contact />
         </div>
       )
     }
@@ -553,7 +701,7 @@ const MainPage: React.FC = () => {
                 <h1 className="font-bold responsive-h1 concept-text-primary mb-4 text-center">
                   {getText('m-0')}
                     </h1>
-                  <div className='responsive-h1 pb-5 w-full flex items-center justify-center'>
+                  <div className='responsive-h1 pb-5 w-full flex items-start justify-start'>
                       <RotatingText
                       texts={['창의적인', '열정적인', '갈망하는', '도전하는']}
                       mainClassName="px-2 sm:px-3 md:px-5 concept-gradient-primary text-white overflow-hidden py-1 sm:py-2 md:py-3 justify-center rounded-lg font-bold"
@@ -588,9 +736,7 @@ const MainPage: React.FC = () => {
           </div>
 
 
-          <p className="responsive-text concept-text-secondary mb-8 max-w-2xl mx-auto px-4">
-            {getText('m-1')}
-          </p>
+        
         </motion.section>
 
         {/* DynamicEntireScroll - motion.section 밖으로 이동 */}

@@ -60,14 +60,14 @@ const StackIntroducer: React.FC = () => {
   };
 
   return (
-        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-2xl mx-auto px-1 sm:px-6 lg:px-8">
         {/* 필터 버튼 그룹 */}
-        <div className="flex items-center justify-center concept-card rounded-full p-1.5 mb-10 backdrop-blur-sm">
+        <div className="flex items-center justify-center concept-card rounded-full p-1.5 mb-7 backdrop-blur-sm">
           {filterTabs.map((tab) => (
             <button
               key={tab.key}
               onClick={() => handleActiveFilter(tab.key)}
-              className={`px-4 sm:px-6 py-2.5 text-sm sm:text-base font-semibold rounded-full transition-colors duration-300 ease-in-out focus:outline-none
+              className={`px-3 sm:px-6 py-2.5 text-xs sm:text-base font-semibold rounded-full transition-colors duration-300 ease-in-out focus:outline-none
                 ${
                   activeFilter === tab.key
                     ? 'concept-interactive-selected text-white dark:text-black'
@@ -81,7 +81,7 @@ const StackIntroducer: React.FC = () => {
         </div>
 
 
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4 sm:gap-6">
+        <div className="p-10 sm:p-0 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4 sm:gap-6">
           {techData.map((item) => (
             <div
               key={item.id}

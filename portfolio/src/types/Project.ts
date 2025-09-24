@@ -32,6 +32,7 @@ export interface Blog {
     image: string;
     tech: string[];
     link: string;
+    date: string;
   }
 
 export type FilterType = 'all' | 'main' | 'latest' | 'side';
