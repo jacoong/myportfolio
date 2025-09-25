@@ -39,7 +39,7 @@ const Welcome: React.FC = () => {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="max-w-2xl w-full px-4 h-[80vh] sm:h-auto"
+        className="max-w-2xl w-full px-1 sm:px-4 h-[80vh] sm:h-auto"
       >
   
         {/* Header */}
@@ -50,7 +50,7 @@ const Welcome: React.FC = () => {
             initial={{ scale: 0.7 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="mb-3"
+            className="mb-0 sm:mb-3"
           >
             <span className="text-sm sm:text-base concept-text-secondary">
               {getText('w-7')} {lang.toUpperCase()}
@@ -62,7 +62,7 @@ const Welcome: React.FC = () => {
             initial={{ scale: 0.7 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-              className="h-20 sm:h-40 md:h-40 my-[8vh] sm:my-[3vh]"
+              className="px-4 sm:px-16 h-20 sm:h-40 md:h-40 my-[4vh] sm:mt-[3vh] sm:mb-0"
           >
             <TextType 
               text={[getText('w-0-1'),getText('w-0-2'),getText('w-0-3')]}
@@ -70,7 +70,7 @@ const Welcome: React.FC = () => {
               pauseDuration={1000}
               showCursor={true}
               cursorCharacter="|"
-              className="h-40 text-3xl sm:text-4xl md:text-6xl font-bold concept-text-primary"
+              className="h-32 text-3xl sm:text-4xl md:text-5xl font-bold concept-text-primary"
             />
             </motion.div>
    
@@ -79,7 +79,7 @@ const Welcome: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="text-xl concept-text-secondary  "
+            className="text-xl concept-text-secondary  py-5 sm:pb-3"
           >
             {getText('w-1')}
           </motion.p>
@@ -93,27 +93,29 @@ const Welcome: React.FC = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-6 mb-8 pointer-events-auto"
+          className="grid grid-cols-2 gap-4 sm:gap-4 md:gap-6 mb-24 md:mb-8 pointer-events-auto"
         >
           {/* Light Mode */}
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => handleThemeSelect(false)}
-            className={`group relative p-3 sm:p-4 md:p-8 lg:p-10 concept-card rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 concept-border concept-border-hover ${
+            className={`group relative p-4 h-44 sm:h-56 md:h-60 concept-card rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 concept-border concept-border-hover ${
               selectedTheme === false ? 'ring-2 sm:ring-4 ring-blue-500 ring-opacity-50' : ''
             }`}
           >
-            <div className="text-center">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 mx-auto mb-2 sm:mb-3 md:mb-4 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <Sun className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 lg:h-8 lg:w-8 text-white" />
+            <div className="text-center h-full flex flex-col justify-between">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 mx-auto mb-3 sm:mb-4 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <Sun className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-white" />
               </div>
-              <h3 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold concept-text-primary mb-1 sm:mb-2">
-                {getText('w-2')}
-              </h3>
-              <p className="text-sm sm:text-basem md:text-lg concept-text-secondary mb-2 sm:mb-3 md:mb-4">
-                {getText('w-3')}
-              </p>
+              <div className="flex-1 flex flex-col justify-center">
+                <h3 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold concept-text-primary mb-1 sm:mb-2">
+                  {getText('w-2')}
+                </h3>
+                <p className="px-3 text-xs sm:text-sm md:text-base concept-text-secondary mb-2 sm:mb-3 md:mb-4">
+                  {getText('w-3')}
+                </p>
+              </div>
               <div className="flex justify-center space-x-2">
                 <div className="w-3 h-3 bg-gray-200 dark:bg-gray-600 rounded-full"></div>
                 <div className="w-3 h-3 bg-gray-300 dark:bg-gray-500 rounded-full"></div>
@@ -130,20 +132,22 @@ const Welcome: React.FC = () => {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => handleThemeSelect(true)}
-            className={`group relative p-3 sm:p-4 md:p-6 lg:p-8 concept-card rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 concept-border concept-border-hover ${
+            className={`group relative p-4 h-44 sm:h-56 md:h-60 concept-card rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 concept-border concept-border-hover ${
               selectedTheme === true ? 'ring-2 sm:ring-4 ring-purple-500 ring-opacity-50' : ''
             }`}
           >
-            <div className="text-center">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 mx-auto mb-2 sm:mb-3 md:mb-4 bg-gradient-to-r from-purple-500 to-blue-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <Moon className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 lg:h-8 lg:w-8 text-white" />
+            <div className="text-center h-full flex flex-col justify-between">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 mx-auto mb-3 sm:mb-4 bg-gradient-to-r from-purple-500 to-blue-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <Moon className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-white" />
               </div>
-              <h3 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold concept-text-primary mb-1 sm:mb-2">
-                {getText('w-4')}
-              </h3>
-              <p className="text-xs sm:text-sm md:text-base concept-text-secondary mb-2 sm:mb-3 md:mb-4">
-                {getText('w-5')}
-              </p>
+              <div className="flex-1 flex flex-col justify-center">
+                <h3 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold concept-text-primary mb-1 sm:mb-2">
+                  {getText('w-4')}
+                </h3>
+                <p className="px-3 text-xs sm:text-sm md:text-base concept-text-secondary mb-2 sm:mb-3 md:mb-4">
+                  {getText('w-5')}
+                </p>
+              </div>
               <div className="flex justify-center space-x-2">
                 <div className="w-3 h-3 bg-gray-600 dark:bg-gray-700 rounded-full"></div>
                 <div className="w-3 h-3 bg-gray-500 dark:bg-gray-600 rounded-full"></div>
@@ -168,7 +172,7 @@ const Welcome: React.FC = () => {
             whileTap={{ scale: 0.95 }}
             onClick={handleWelcome}
             disabled={selectedTheme === null}
-            className={`px-8 sm:px-10 md:px-12 py-3 sm:py-4 text-white text-lg sm:text-xl font-bold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 ${
+            className={`px-8 sm:px-8  py-3  text-white text-lg sm:text-xl font-bold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 ${
               selectedTheme !== null 
                 ? 'bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 cursor-pointer' 
                 : 'bg-gray-400 cursor-not-allowed opacity-50'

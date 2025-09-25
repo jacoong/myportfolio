@@ -175,7 +175,7 @@ const TextType: React.FC<TextTypeProps> = ({
     Component as any,
     {
       ref: containerRef,
-      className: `inline-block whitespace-pre-wrap tracking-tight ${className}`,
+      className: `inline-block whitespace-pre-wrap tracking-tight leading-5 ${className}`,
       ...props
     },
     <span 

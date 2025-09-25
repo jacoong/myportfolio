@@ -1,9 +1,9 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useTheme } from '../contexts/ThemeContext';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useModal } from '../contexts/ModalContext';
-import { Sun, Moon, Briefcase, Code, Star, Award, Zap } from 'lucide-react';
+import { Sun, Moon, Briefcase, Code, Star, Award, Zap, ArrowUp } from 'lucide-react';
 import LanguageSelector from '../components/LanguageSelector';
 import MyStack from '../components/MyStack';
 import Contact from '../components/Contact';
@@ -21,7 +21,18 @@ const MainPage: React.FC = () => {
   const { getText } = useLanguage();
   const dynamicScrollRef = useRef<HTMLDivElement>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [showScrollButton, setShowScrollButton] = useState(false);
 
+  // 스크롤 위치 감지
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      setShowScrollButton(scrollTop > 300);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const projects: Project[] = [
     {
@@ -77,20 +88,20 @@ const MainPage: React.FC = () => {
       status: 'completed' as const,
       createdAt: '2023-12-15',
       details: {
-        overview: '축구를 좋아서 만든 동영상 자동화 시스템으로 기획 구상을 하여 이후에 개발 시작, 일주일에 한번 실행되는 동영상 자동화 시스템 입니다. 이후에 받아온 경기일정을 기반으로 Aws Lamda 를 예약하여 이후에 Telegram Bot으로 경기 데이터를 fetch해 옵니다.',
+        overview: getText('proj-2-overview'),
         features: [
-          'Football Api 데이터 패칭',
-          'Python 데이터 가공 및 Telegram Bot 연동',
-          'Aws Lamda 예약 및 실행',
-          'Aws S3 파일 저장',
-          'Google Spreadsheet 연동',
-          'Movie.py 동영상 자동화',
-          'Youtube Api 연동',
+          getText('proj-2-feature-1'),
+          getText('proj-2-feature-2'),
+          getText('proj-2-feature-3'),
+          getText('proj-2-feature-4'),
+          getText('proj-2-feature-5'),
+          getText('proj-2-feature-6'),
+          getText('proj-2-feature-7'),
         ],
-        challenges: 'Movie.py 패키지 적응, Aws Step Function run time error handling',
-        solutions: 'Movie.py Offical Documentation을 참고하여 적응, Step Function에서 발생하는 error 종류 파악 및 runtime error 처리',
+        challenges: getText('proj-2-challenge'),
+        solutions: getText('proj-2-solution'),
         numberOfDevelopers: 1,
-        role: '1인 개발'
+        role: getText('proj-2-role')
       }
     },
     {
@@ -111,19 +122,19 @@ const MainPage: React.FC = () => {
       status: 'in-progress' as const,
       createdAt: '2024-01-01',
       details: {
-        overview: '완전한 기능을 갖춘 온라인 쇼핑몰 플랫폼으로, 사용자 인증, 결제 시스템, 관리자 대시보드를 포함합니다.',
+        overview: getText('proj-3-overview'),
         features: [
-          '사용자 인증 및 권한 관리',
-          '상품 검색 및 필터링',
-          '장바구니 및 위시리스트',
-          'Stripe 결제 시스템',
-          '관리자 대시보드',
-          '실시간 재고 관리'
+          getText('proj-3-feature-1'),
+          getText('proj-3-feature-2'),
+          getText('proj-3-feature-3'),
+          getText('proj-3-feature-4'),
+          getText('proj-3-feature-5'),
+          getText('proj-3-feature-6'),
         ],
-        challenges: '대용량 트래픽 처리와 결제 보안',
-        solutions: 'Redis 캐싱과 Stripe 보안 API를 활용한 안전한 결제 시스템 구축',
+        challenges: getText('proj-3-challenge'),
+        solutions: getText('proj-3-solution'),
         numberOfDevelopers: 1,
-        role: '프론트 개발자'
+        role: getText('proj-3-role')
       }
     },
     {
@@ -144,23 +155,23 @@ const MainPage: React.FC = () => {
       status: 'completed' as const,
       createdAt: '2025-09-12',
       details: {
-        overview: '한국 및 해외 구직사이트에서 채용공고를 실시간으로 수집하고 통합 검색할 수 있는 웹 애플리케이션',
+        overview: getText('proj-4-overview'),
         features: [
-          '4개 구직사이트 통합 검색 (원티드, 사람인, RemoteOK, WeWorkRemotely)',
-          '사이트별 선택적 검색 기능',
-          '지역별 필터링 (서울, 경기, 인천 등)',
-          '실시간 채용공고 수집',
-          'CSV 파일 다운로드 기능',
-          '모바일 반응형 디자인',
-          '동적 웹 스크래핑 (Selenium)',
-          'API 기반 데이터 수집 (Wanted, RemoteOK)',
-          '사이트별 통계 및 필터링',
-          '검색 결과 실시간 업데이트'
+          getText('proj-4-feature-1'),
+          getText('proj-4-feature-2'),
+          getText('proj-4-feature-3'),
+          getText('proj-4-feature-4'),
+          getText('proj-4-feature-5'),
+          getText('proj-4-feature-6'),
+          getText('proj-4-feature-7'),
+          getText('proj-4-feature-8'),
+          getText('proj-4-feature-9'),
+          getText('proj-4-feature-10'),
         ],
-        challenges: '다양한 사이트의 접근 제한과 동적 콘텐츠 처리, 안정적인 데이터 수집',
-        solutions: 'Selenium과 requests의 하이브리드 접근법, 에러 핸들링 및 폴백 메커니즘 구현',
+        challenges: getText('proj-4-challenge'),
+        solutions: getText('proj-4-solution'),
         numberOfDevelopers: 1,
-        role: '풀스택 개발자'
+        role: getText('proj-4-role')
       }
     },
     {
@@ -182,23 +193,23 @@ const MainPage: React.FC = () => {
       status: 'completed' as const,
       createdAt: '2024-01-15',
       details: {
-        overview: '음악가들을 위한 랜덤 코드 연습 앱으로, 다양한 코드 타입과 템포 설정을 통해 체계적인 음악 연습을 제공합니다. Web Speech API를 활용한 음성 안내와 실시간 템포 조절 기능을 포함합니다.',
+        overview: getText('proj-5-overview'),
         features: [
-          '랜덤 코드 생성 및 연습',
-          '17개 음표 지원 (C, Db, D, Eb, E, F, Gb, G, Ab, A, Bb, B, C#, D#, F#, G#, A#)',
-          '다양한 코드 타입 (Maj7, min7, 7, sus4, add9 등 50+ 종류)',
-          '실시간 템포 조절 (1-220 BPM)',
-          '박자 시각화 (4박자 점 애니메이션)',
-          '음성 안내 시스템 (TTS)',
-          '커스텀 코드 추가/제거',
-          '설정 저장 (Local Storage)',
-          '반응형 디자인',
-          'A/B 폼 패턴 선택'
+          getText('proj-5-feature-1'),
+          getText('proj-5-feature-2'),
+          getText('proj-5-feature-3'),
+          getText('proj-5-feature-4'),
+          getText('proj-5-feature-5'),
+          getText('proj-5-feature-6'),
+          getText('proj-5-feature-7'),
+          getText('proj-5-feature-8'),
+          getText('proj-5-feature-9'),
+          getText('proj-5-feature-10'),
         ],
-        challenges: '복잡한 페이지 네비게이션과 실시간 템포 변경 시 박자 동기화 유지',
-        solutions: '3-컴포넌트 구조(제목/메인/설정)와 인터벌 기반 박자 애니메이션으로 안정적인 상태 관리 구현',
+        challenges: getText('proj-5-challenge'),
+        solutions: getText('proj-5-solution'),
         numberOfDevelopers: 1,
-        role: '풀스택 개발자'
+        role: getText('proj-5-role')
       }
     },
     {
@@ -218,19 +229,19 @@ const MainPage: React.FC = () => {
       status: "completed" as const,
       createdAt: "2024-02-01",
       details: {
-        overview: "음악, 비주얼 아트, 크리에이터들을 위한 종합 크리에이티브 플랫폼",
+        overview: getText('proj-6-overview'),
         features: [
-          "비디오 배경과 로고 애니메이션",
-          "음악 비디오 플레이어", 
-          "크리에이터 프로필 갤러리",
-          "MV 갤러리 시스템",
-          "반응형 디자인",
-          "페이지 라우팅 시스템"
+          getText('proj-6-feature-1'),
+          getText('proj-6-feature-2'),
+          getText('proj-6-feature-3'),
+          getText('proj-6-feature-4'),
+          getText('proj-6-feature-5'),
+          getText('proj-6-feature-6'),
         ],
-        challenges: "복잡한 애니메이션과 비디오 처리, 반응형 디자인 구현",
-        solutions: "CSS 애니메이션과 React 상태 관리를 통한 동적 UI 구현",
+        challenges: getText('proj-6-challenge'),
+        solutions: getText('proj-6-solution'),
         numberOfDevelopers: 1,
-        role: "풀스택 개발자"
+        role: getText('proj-6-role')
       }
     },
     {
@@ -254,22 +265,22 @@ const MainPage: React.FC = () => {
       status: 'completed' as const,
       createdAt: '2024-01-15',
       details: {
-        overview: '카카오톡의 UI/UX를 모방하여 만든 웹사이트로, 축구 테마가 적용된 채팅 애플리케이션입니다. 모바일 우선 설계로 반응형 웹 디자인을 구현했습니다.',
+        overview: getText('proj-7-overview'),
         features: [
-          '실시간 시계 표시 기능',
-          '모바일 반응형 디자인',
-          '축구 경기 일정 및 라이브 스트리밍 섹션',
-          '채팅방 목록 및 개별 채팅방',
-          '프로필 페이지 (축구 선수 정보 포함)',
-          '커뮤니티 및 검색 기능',
-          'Font Awesome 아이콘 활용',
-          'CSS 애니메이션 효과',
-          '모바일 화면 크기 제한 기능'
+          getText('proj-7-feature-1'),
+          getText('proj-7-feature-2'),
+          getText('proj-7-feature-3'),
+          getText('proj-7-feature-4'),
+          getText('proj-7-feature-5'),
+          getText('proj-7-feature-6'),
+          getText('proj-7-feature-7'),
+          getText('proj-7-feature-8'),
+          getText('proj-7-feature-9'),
         ],
-        challenges: '모바일 우선 설계와 카카오톡의 복잡한 UI 구조를 웹으로 구현하는 것',
-        solutions: 'CSS Grid와 Flexbox를 활용한 레이아웃 구성, JavaScript를 통한 실시간 기능 구현, 모바일 화면 크기 감지 기능 추가',
+        challenges: getText('proj-7-challenge'),
+        solutions: getText('proj-7-solution'),
         numberOfDevelopers: 1,
-        role: '풀스택 웹 개발자'
+        role: getText('proj-7-role')
       }
     },
     {
@@ -292,26 +303,26 @@ const MainPage: React.FC = () => {
       status: 'completed' as const,
       createdAt: '2024-02-10',
       details: {
-        overview: '개인 생산성 향상을 위한 올인원 대시보드로, 실시간 시계, 날씨 정보, 할 일 관리, 음악 플레이어, 명언 표시, 구글 검색 기능을 통합한 현대적인 웹 애플리케이션입니다. 사용자 개인화와 반응형 디자인을 통해 최적의 사용자 경험을 제공합니다.',
+        overview: getText('proj-8-overview'),
         features: [
-          '실시간 디지털 시계 및 날짜 표시',
-          'Geolocation 기반 현재 위치 날씨 정보',
-          'OpenWeather API 연동 (온도, 습도, 체감온도 등)',
-          '할 일 목록 관리 (추가, 완료, 삭제)',
-          'Local Storage를 활용한 데이터 영구 저장',
-          'YouTube API 기반 음악 플레이어',
-          '재생목록 관리 (재생, 일시정지, 이전/다음 곡)',
-          '랜덤 명언 표시 시스템',
-          'Google 검색 통합',
-          '시간대별 맞춤 인사말',
-          '시간대별 배경 이미지 자동 변경',
-          '사용자 이름 설정 및 로그아웃 기능',
-          '반응형 디자인 및 애니메이션 효과'
+          getText('proj-8-feature-1'),
+          getText('proj-8-feature-2'),
+          getText('proj-8-feature-3'),
+          getText('proj-8-feature-4'),
+          getText('proj-8-feature-5'),
+          getText('proj-8-feature-6'),
+          getText('proj-8-feature-7'),
+          getText('proj-8-feature-8'),
+          getText('proj-8-feature-9'),
+          getText('proj-8-feature-10'),
+          getText('proj-8-feature-11'),
+          getText('proj-8-feature-12'),
+          getText('proj-8-feature-13'),
         ],
-        challenges: '다중 API 연동과 Local Storage 상태 관리, 실시간 데이터 동기화',
-        solutions: '모듈화된 JavaScript 구조와 이벤트 기반 프로그래밍으로 안정적인 상태 관리 구현',
+        challenges: getText('proj-8-challenge'),
+        solutions: getText('proj-8-solution'),
         numberOfDevelopers: 1,
-        role: '풀스택 개발자'
+        role: getText('proj-8-role')
       }
     },
   
@@ -335,22 +346,22 @@ const MainPage: React.FC = () => {
       status: 'completed' as const,
       createdAt: '2024-01-15',
       details: {
-        overview: '캠핑장 정보를 등록하고 관리할 수 있는 웹 애플리케이션입니다. 사용자 인증, 캠핑장 CRUD 기능, 리뷰 시스템을 포함합니다.',
+        overview: getText('proj-9-overview'),
         features: [
-          '사용자 회원가입/로그인/로그아웃',
-          '캠핑장 정보 등록 (제목, 위치, 가격, 설명, 사진)',
-          '캠핑장 목록 조회 및 상세 보기',
-          '캠핑장 정보 수정 및 삭제',
-          '작성자 권한 관리 (본인 글만 수정/삭제 가능)',
-          '리뷰 시스템 (평점 및 텍스트 리뷰)',
-          '반응형 웹 디자인 (Bootstrap 5)',
-          '플래시 메시지를 통한 사용자 피드백',
-          '세션 기반 인증 시스템'
+          getText('proj-9-feature-1'),
+          getText('proj-9-feature-2'),
+          getText('proj-9-feature-3'),
+          getText('proj-9-feature-4'),
+          getText('proj-9-feature-5'),
+          getText('proj-9-feature-6'),
+          getText('proj-9-feature-7'),
+          getText('proj-9-feature-8'),
+          getText('proj-9-feature-9'),
         ],
-        challenges: '사용자 인증 시스템 구현과 권한 관리, MongoDB 관계형 데이터 처리',
-        solutions: 'Passport.js를 활용한 인증 시스템 구축과 Mongoose populate를 통한 관계형 데이터 조회 최적화',
+        challenges: getText('proj-9-challenge'),
+        solutions: getText('proj-9-solution'),
         numberOfDevelopers: 1,
-        role: '풀스택 개발자'
+        role: getText('proj-9-role')
       }
     }
   
@@ -628,7 +639,7 @@ const MainPage: React.FC = () => {
           </div>
 
      
-        </div>
+          </div>
         </div>
       </div>
       )
@@ -643,8 +654,8 @@ const MainPage: React.FC = () => {
     },
     {
       children: (
-        <div className='flex flex-col'>
-          <h1 className="max-w-4xl mx-auto concept-text-primary px-8 responsive-h2 font-bold mb-8 text-center">{getText('c-0')}</h1>
+        <div className="w-[90%]  md:max-w-2xl mx-auto concept-text-primary sm:px-8 md:h-auto">
+          <h1 className=" concept-text-primary  responsive-h2 font-bold mb-8 text-center">{getText('c-0')}</h1>
           <Contact />
         </div>
       )
@@ -652,9 +663,9 @@ const MainPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen concept-bg transition-colors duration-300">
+    <div className="h-auto w-full concept-bg transition-colors duration-300 ">
       {/* Header */}
-      <header className="concept-card shadow-sm transition-colors duration-300">
+      <header className="absolute z-40 top-0 left-0 right-0 concept-card shadow-sm transition-colors duration-300">
         <div className="px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-14 sm:h-16">
             <div className="flex items-center space-x-2 sm:space-x-4">
@@ -754,6 +765,81 @@ const MainPage: React.FC = () => {
 
         {/* Project Detail Modal */}
         <ProjectDetailModal />
+
+        {/* Scroll to Top Button */}
+        <motion.div
+          className="fixed bottom-9 right-9 z-50 group"
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ 
+            opacity: showScrollButton ? 1 : 0, 
+            scale: showScrollButton ? 1 : 0,
+            y: showScrollButton ? 0 : 20
+          }}
+          transition={{ 
+            type: "spring", 
+            stiffness: 300, 
+            damping: 30,
+            duration: 0.3
+          }}
+        >
+          {/* 말풍선 툴팁 */}
+          <div className="absolute bottom-full right-0 mb-2 px-3 py-1 bg-gray-800 dark:bg-gray-200 text-white dark:text-gray-800 text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
+            {getText('scroll-to-top')}
+            <div className="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-800 dark:border-t-gray-200"></div>
+          </div>
+
+          {/* 메인 버튼 */}
+          <motion.button
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="concept-gradient-primary text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden"
+            whileHover={{ 
+              scale: 1.1,
+              rotate: [0, -5, 5, 0],
+              transition: { duration: 0.3 }
+            }}
+            whileTap={{ 
+              scale: 0.95,
+              transition: { duration: 0.1 }
+            }}
+            animate={{
+              boxShadow: [
+                "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
+                "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+                "0 4px 6px -1px rgba(0, 0, 0, 0.1)"
+              ]
+            }}
+            transition={{
+              boxShadow: {
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }
+            }}
+          >
+            {/* 내부 애니메이션 효과 */}
+            <motion.div
+              className="absolute inset-0 bg-white opacity-0 rounded-full"
+              whileHover={{
+                opacity: [0, 0.2, 0],
+                scale: [1, 1.2, 1],
+                transition: { duration: 0.6 }
+              }}
+            />
+            
+            <motion.div
+              animate={{
+                y: [0, -2, 0],
+                transition: {
+                  duration: 1.5,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }
+              }}
+            >
+              <ArrowUp className="h-5 w-5 relative z-10" />
+            </motion.div>
+          </motion.button>
+        </motion.div>
    
     </div>
   );

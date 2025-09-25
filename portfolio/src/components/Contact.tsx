@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-import PhoneInput from 'react-phone-number-input';
 import axios from 'axios';
 import { useLanguage } from '../contexts/LanguageContext';
-import 'react-phone-number-input/style.css';
 
 interface FormData {
   name: string;
   email: string;
   message: string;
   phoneNumber?: string;
+  countryCode: string;
 }
 
 interface ContactProps {
@@ -24,7 +23,8 @@ const Contact: React.FC<ContactProps> = ({ className = '' }) => {
     name: '',
     email: '',
     message: '',
-    phoneNumber: ''
+    phoneNumber: '',
+    countryCode: 'KR'
   });
   
   const [isLoading, setIsLoading] = useState(false);
@@ -35,13 +35,6 @@ const Contact: React.FC<ContactProps> = ({ className = '' }) => {
     setFormData(prev => ({
       ...prev,
       [name]: value
-    }));
-  };
-
-  const handlePhoneChange = (value?: string) => {
-    setFormData(prev => ({
-      ...prev,
-      phoneNumber: value || ''
     }));
   };
 
@@ -70,7 +63,8 @@ const Contact: React.FC<ContactProps> = ({ className = '' }) => {
           name: '',
           email: '',
           message: '',
-          phoneNumber: ''
+          phoneNumber: '',
+          countryCode: 'KR'
         });
       } else {
         setSubmitStatus('error');
@@ -90,7 +84,7 @@ const Contact: React.FC<ContactProps> = ({ className = '' }) => {
   };
 
   return (
-    <div className={`max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 ${className}`}>
+    <div className={` ${className}`}>
       <div className="concept-card rounded-xl p-6 sm:p-8">
     
         
@@ -151,33 +145,27 @@ const Contact: React.FC<ContactProps> = ({ className = '' }) => {
             <label className="block text-sm font-medium concept-text-primary mb-2">
               {getText('c-3')}
             </label>
-            <div className="phone-input-container">
-              <PhoneInput
+            <div className="flex flex-col sm:flex-row gap-2">
+              <select
+                value={formData.countryCode || 'KR'}
+                onChange={(e) => setFormData({...formData, countryCode: e.target.value})}
+                className="px-3 py-3 concept-card border border-concept-border-light dark:border-concept-border-dark rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent concept-text-primary bg-transparent w-full sm:w-[30%]"
+              >
+                <option value="KR">🇰🇷 +82</option>
+                <option value="US">🇺🇸 +1</option>
+                <option value="JP">🇯🇵 +81</option>
+                <option value="CN">🇨🇳 +86</option>
+                <option value="GB">🇬🇧 +44</option>
+                <option value="DE">🇩🇪 +49</option>
+                <option value="FR">🇫🇷 +33</option>
+              </select>
+              <input
+                type="tel"
                 value={formData.phoneNumber}
-                onChange={handlePhoneChange}
-                defaultCountry="KR"
+                onChange={(e) => setFormData({...formData, phoneNumber: e.target.value})}
                 placeholder={getText('c-11')}
-                className="w-full"
-                inputComponent={({ className, ...props }) => (
-                  <input
-                    {...props}
-                    className={`w-full px-4 py-3 concept-card border border-concept-border-light dark:border-concept-border-dark rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent concept-text-primary placeholder-gray-400 transition-all duration-200 ${className || ''}`}
-                  />
-                )}
-                countrySelectComponent={({ value, onChange, options, ...rest }: any) => (
-                  <select
-                    {...rest}
-                    value={value}
-                    onChange={(e) => onChange(e.target.value)}
-                    className="bg-transparent border-none outline-none text-gray-600 dark:text-gray-300 mr-2"
-                  >
-                    {options.map(({ value, label }: { value: string; label: string }) => (
-                      <option key={value} value={value}>
-                        {label}
-                      </option>
-                    ))}
-                  </select>
-                )}
+                className="w-full sm:w-[70%] px-4 py-3 concept-card border border-concept-border-light dark:border-concept-border-dark rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent concept-text-primary placeholder-gray-400 transition-all duration-200"
+                autoComplete="tel"
               />
             </div>
           </div>

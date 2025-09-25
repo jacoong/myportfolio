@@ -34,6 +34,7 @@ const ProjectDetailModal: React.FC = () => {
             exit={{ opacity: 0 }}
             className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50"
             onClick={closeModal}
+            style={{ zIndex: 50 }}
           />
           
           {/* Modal */}
