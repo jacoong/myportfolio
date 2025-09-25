@@ -25,17 +25,22 @@ const DynamicEntireScroll: React.FC<DynamicEntireScrollProps> = ({
   const [activeSectionNumber, setActiveSectionNumber] = useState<number>(0);
   const [isInitialized, setIsInitialized] = useState<boolean>(false);
 
-  // 섹션별 정확한 스크롤 위치 계산 함수 - 통일된 로직
+  // 섹션별 정확한 스크롤 위치 계산 함수 - 마지막 섹션 특별 처리
   const getSectionScrollTop = useCallback((index: number): number => {
     const windowHeight = window.innerHeight;
     const targetOffsetTop = targetRef?.current?.offsetTop || 0;
     
-    // Dot 클릭 시 100vh, 200vh, 300vh로 스크롤
-    // 섹션 1: 100vh
-    // 섹션 2: 200vh  
-    // 섹션 3: 300vh
-    return targetOffsetTop + ((index) * windowHeight);
-  }, [targetRef]);
+    // 마지막 섹션인지 확인
+    const isLastSection = index === sections.length - 1;
+    
+    if (isLastSection) {
+      // 마지막 섹션: 3배 공간 (300vh)
+      return targetOffsetTop + ((index) * windowHeight * 2);
+    } else {
+      // 일반 섹션: 2배 공간 (200vh)
+      return targetOffsetTop + ((index) * windowHeight * 2);
+    }
+  }, [targetRef, sections.length]);
 
   // 현재 스크롤 위치에서 활성 섹션 계산
   const getActiveSectionFromScroll = useCallback((): number => {
@@ -48,15 +53,23 @@ const DynamicEntireScroll: React.FC<DynamicEntireScrollProps> = ({
       return 0;
     }
     
-    // 각 섹션의 범위를 기준으로 활성 섹션 결정
-    // 섹션 1: targetOffsetTop ~ targetOffsetTop + 100vh
-    // 섹션 2: targetOffsetTop + 100vh ~ targetOffsetTop + 200vh
-    // 섹션 3: targetOffsetTop + 200vh ~ targetOffsetTop + 300vh
+    // 각 섹션의 범위를 기준으로 활성 섹션 결정 (마지막 섹션 특별 처리)
+    // 섹션 1: targetOffsetTop ~ targetOffsetTop + 200vh
+    // 섹션 2: targetOffsetTop + 200vh ~ targetOffsetTop + 400vh
+    // 섹션 3: targetOffsetTop + 400vh ~ targetOffsetTop + 700vh (마지막은 300vh)
     const relativeScrollTop = scrollTop - targetOffsetTop;
-    const sectionIndex = Math.floor(relativeScrollTop / windowHeight);
     
-    // 마지막 섹션 인덱스로 제한
-    return Math.min(sectionIndex, sections.length - 1);
+    // 마지막 섹션 전까지는 200vh씩 계산
+    const normalSectionsHeight = (sections.length - 1) * windowHeight * 2;
+    
+    if (relativeScrollTop < normalSectionsHeight) {
+      // 일반 섹션들
+      const sectionIndex = Math.floor(relativeScrollTop / (windowHeight * 2));
+      return Math.min(sectionIndex, sections.length - 2);
+    } else {
+      // 마지막 섹션 범위
+      return sections.length - 1;
+    }
   }, [sections.length, targetRef]);
 
   // 도트 클릭 핸들러
@@ -131,7 +144,7 @@ const DynamicEntireScroll: React.FC<DynamicEntireScrollProps> = ({
 
   const containerHeightStyle = containerHeight 
     ? { height: `${containerHeight}vh` }
-    : { height: `${sections.length * 100}vh` };
+    : { height: `${(sections.length - 1) * 200 + 300}vh` };
 
   console.log('DynamicEntireScroll: Container height', containerHeightStyle.height, 'Active section:', activeSectionNumber);
 

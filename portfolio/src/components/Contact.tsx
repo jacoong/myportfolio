@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useLanguage } from '../contexts/LanguageContext';
 
@@ -29,6 +29,17 @@ const Contact: React.FC<ContactProps> = ({ className = '' }) => {
   
   const [isLoading, setIsLoading] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  // 2초 후 상태 메시지 자동 제거
+  useEffect(() => {
+    if (submitStatus === 'success' || submitStatus === 'error') {
+      const timer = setTimeout(() => {
+        setSubmitStatus('idle');
+      }, 2000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [submitStatus]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -84,7 +95,7 @@ const Contact: React.FC<ContactProps> = ({ className = '' }) => {
   };
 
   return (
-    <div className={` ${className}`}>
+    <div className={`relative ${className}`}>
       <div className="concept-card rounded-xl p-6 sm:p-8">
     
         
@@ -197,24 +208,25 @@ const Contact: React.FC<ContactProps> = ({ className = '' }) => {
             )}
           </button>
 
-          {/* 상태 메시지 */}
-          {submitStatus === 'success' && (
-            <div className="p-4 bg-green-100 dark:bg-green-900 border border-green-300 dark:border-green-700 rounded-lg">
-              <p className="text-green-800 dark:text-green-200 text-center font-medium">
-                {getText('c-7')}
-              </p>
-            </div>
-          )}
-
-          {submitStatus === 'error' && (
-            <div className="p-4 bg-red-100 dark:bg-red-900 border border-red-300 dark:border-red-700 rounded-lg">
-              <p className="text-red-800 dark:text-red-200 text-center font-medium">
-                {getText('c-8')}
-              </p>
-            </div>
-          )}
         </form>
       </div>
+
+      {/* 상태 메시지 - Bottom Position */}
+      {submitStatus === 'success' && (
+        <div className="absolute bottom-4 left-4 right-4 z-50 p-4 bg-green-100 dark:bg-green-900 border border-green-300 dark:border-green-700 rounded-lg shadow-lg animate-in slide-in-from-bottom-2 duration-300">
+          <p className="text-green-800 dark:text-green-200 text-center font-medium">
+            {getText('c-7')}
+          </p>
+        </div>
+      )}
+
+      {submitStatus === 'error' && (
+        <div className="absolute bottom-4 left-4 right-4 z-50 p-4 bg-red-100 dark:bg-red-900 border border-red-300 dark:border-red-700 rounded-lg shadow-lg animate-in slide-in-from-bottom-2 duration-300">
+          <p className="text-red-800 dark:text-red-200 text-center font-medium">
+            {getText('c-8')}
+          </p>
+        </div>
+      )}
 
     </div>
   );
