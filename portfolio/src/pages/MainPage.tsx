@@ -427,8 +427,9 @@ const MainPage: React.FC = () => {
     },
     {
       children: (
-        <div className="max-w-4xl mx-auto concept-text-primary px-8">
-        <h2 className="responsive-h2 font-bold mb-8 text-center">{getText('about-title')}</h2>
+        <div className="max-w-4xl mx-auto concept-text-primary px-8 h-[100vh] md:h-auto">
+        <div className='h-[100%] flex  flex-col justify-center items-center'>
+        <h2 className="responsive-h2 font-bold my-[2vh] lg:mb-8 text-center">{getText('about-title')}</h2>
 
 
          
@@ -439,7 +440,7 @@ const MainPage: React.FC = () => {
             <h3 className="font-semibold mb-6 text-xl border-b pb-2">{getText('experience-title')}</h3>
             <div className="space-y-6">
       
-              <div className="experience-item rounded-md p-4 transition-all duration-300 hover:shadow-lg hover:bg-gray-50 dark:hover:bg-gray-800 transform hover:-translate-y-1">
+              <div className="experience-item rounded-md p-[1.5vh]   transition-all duration-300 hover:shadow-lg hover:bg-gray-50 dark:hover:bg-gray-800 transform hover:-translate-y-1">
                 <div className="flex justify-between items-start">
                   <div>
                     <h4 className="font-bold text-blue-600">{getText('exp-1-company')}</h4>
@@ -454,7 +455,7 @@ const MainPage: React.FC = () => {
                 </ul>
               </div>
       
-              <div className="experience-item rounded-md p-4 transition-all duration-300 hover:shadow-lg hover:bg-gray-50 dark:hover:bg-gray-800 transform hover:-translate-y-1">
+              <div className="experience-item rounded-md p-[1.5vh] transition-all duration-300 hover:shadow-lg hover:bg-gray-50 dark:hover:bg-gray-800 transform hover:-translate-y-1">
                 <div className="flex justify-between items-start">
                   <div>
                     <h4 className="font-bold text-blue-600">{getText('exp-2-company')}</h4>
@@ -469,7 +470,7 @@ const MainPage: React.FC = () => {
                 </ul>
               </div>
       
-              <div className="experience-item rounded-md p-4 transition-all duration-300 hover:shadow-lg hover:bg-gray-50 dark:hover:bg-gray-800 transform hover:-translate-y-1">
+              <div className="experience-item rounded-md p-[1.5vh]   transition-all duration-300 hover:shadow-lg hover:bg-gray-50 dark:hover:bg-gray-800 transform hover:-translate-y-1">
                 <div className="flex justify-between items-start">
                   <div>
                     <h4 className="font-bold text-blue-600">{getText('exp-3-company')}</h4>
@@ -505,8 +506,7 @@ const MainPage: React.FC = () => {
 
        
 
-
-        <div className="md:hidden relative w-[95%] mx-auto">
+        <div className="md:hidden relative  mx-auto">
           {/* Debug Info */}
 
                {/* Progress Bar Indicator */}
@@ -526,7 +526,7 @@ const MainPage: React.FC = () => {
                    console.log('경력 버튼 클릭');
                    setCurrentSlide(0);
                  }}
-                 className={`py-5 flex-1 text-sm font-medium transition-colors duration-200 hover:text-blue-600 dark:hover:text-blue-400 ${
+                 className={`py-4  md:py-5 flex-1 text-sm font-medium transition-colors duration-200 hover:text-blue-600 dark:hover:text-blue-400 ${
                    currentSlide === 0 
                      ? 'text-blue-600 dark:text-blue-400' 
                      : 'text-gray-500 dark:text-gray-400'
@@ -539,7 +539,7 @@ const MainPage: React.FC = () => {
                    console.log('학력 버튼 클릭');
                    setCurrentSlide(1);
                  }}
-                 className={`py-5 flex-1 text-sm font-medium transition-colors duration-200 hover:text-blue-600 dark:hover:text-blue-400 ${
+                 className={`py-3 sm:py-4  md:py-5 flex-1 text-sm font-medium transition-colors duration-200 hover:text-blue-600 dark:hover:text-blue-400 ${
                    currentSlide === 1 
                      ? 'text-blue-600 dark:text-blue-400' 
                      : 'text-gray-500 dark:text-gray-400'
@@ -558,7 +558,7 @@ const MainPage: React.FC = () => {
             >
               {/* Slide 1: Experience */}
               <div className=" w-full flex-shrink-0">
-                <div className="concept-card rounded-lg p-6">
+                <div className="concept-card rounded-lg p-2 sm:p-4 md:p-6">
                   <div className="">
                     <div className="experience-item rounded-md p-4 transition-all duration-300 hover:shadow-lg hover:bg-gray-50 dark:hover:bg-gray-800 transform hover:-translate-y-1">
                       <div className="flex justify-between items-start">
@@ -629,13 +629,14 @@ const MainPage: React.FC = () => {
 
      
         </div>
+        </div>
       </div>
       )
     },
     {
       children: (
         <div className='flex flex-col'>
-               <h1 className="max-w-4xl mx-auto concept-text-primary px-8 responsive-h2 font-bold mb-8 text-center">{getText('DES-5')}</h1>
+               <h1 className="max-w-4xl mx-auto concept-text-primary px-8 responsive-h2 font-bold mb-2 md:mb-8 text-center">{getText('DES-5')}</h1>
                <MyStack></MyStack>
         </div>
       )
@@ -643,7 +644,7 @@ const MainPage: React.FC = () => {
     {
       children: (
         <div className='flex flex-col'>
-          <h1 className="max-w-4xl mx-auto concept-text-primary px-8 responsive-h2 font-bold mb-8 text-center">Contact</h1>
+          <h1 className="max-w-4xl mx-auto concept-text-primary px-8 responsive-h2 font-bold mb-8 text-center">{getText('c-0')}</h1>
           <Contact />
         </div>
       )

@@ -51,7 +51,7 @@ const Contact: React.FC<ContactProps> = ({ className = '' }) => {
     setSubmitStatus('idle');
 
     try {
-      // API Gateway로 전송 (API 키를 헤더에 포함)
+      // API Gateway로 전송 (API 키를 헤더에 포함, 1분 타임아웃 설정)
       const response = await axios.post(
         'https://2cn2p4rm4l.execute-api.ap-northeast-2.amazonaws.com/telegram_senders',
         formData,
@@ -59,7 +59,8 @@ const Contact: React.FC<ContactProps> = ({ className = '' }) => {
           headers: {
             'Content-Type': 'application/json',
             'x-api-key': API_KEY  // API 키를 헤더에 포함
-          }
+          },
+          timeout: 60000  // 1분 (60초) 타임아웃 설정
         }
       );
 
@@ -76,6 +77,12 @@ const Contact: React.FC<ContactProps> = ({ className = '' }) => {
       }
     } catch (error) {
       console.error('Error submitting form:', error);
+      
+      // 타임아웃 에러인지 확인
+      if (error && typeof error === 'object' && 'code' in error && error.code === 'ECONNABORTED') {
+        console.log('Request timed out after 1 minute');
+      }
+      
       setSubmitStatus('error');
     } finally {
       setIsLoading(false);
@@ -85,9 +92,7 @@ const Contact: React.FC<ContactProps> = ({ className = '' }) => {
   return (
     <div className={`max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 ${className}`}>
       <div className="concept-card rounded-xl p-6 sm:p-8">
-        <h2 className="responsive-h2 font-bold mb-8 text-center concept-text-primary">
-          {getText('c-0')}
-        </h2>
+    
         
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* 이름 입력 */}
@@ -128,7 +133,7 @@ const Contact: React.FC<ContactProps> = ({ className = '' }) => {
           {/* 이메일 입력 */}
           <div>
             <label htmlFor="email" className="block text-sm font-medium concept-text-primary mb-2">
-              {getText('c-2')}
+              {getText('c-2').replace(' *', '')} <span className="text-gray-500 text-xs">({getText('c-13')})</span>
             </label>
             <input
               type="email"
@@ -136,7 +141,6 @@ const Contact: React.FC<ContactProps> = ({ className = '' }) => {
               name="email"
               value={formData.email}
               onChange={handleInputChange}
-              required
               className="w-full px-4 py-3 concept-card border border-concept-border-light dark:border-concept-border-dark rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent concept-text-primary placeholder-gray-400 transition-all duration-200"
               placeholder={getText('c-10')}
             />
@@ -192,8 +196,13 @@ const Contact: React.FC<ContactProps> = ({ className = '' }) => {
           >
             {isLoading ? (
               <div className="flex items-center justify-center">
-                <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                {getText('c-6')}
+                <svg className="animate-spin h-5 w-5 mr-2" viewBox="0 0 24 24" fill="none">
+                  {/* AWS Lambda Icon - Simplified */}
+                  <path fill="currentColor" d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                  <circle cx="12" cy="12" r="1.5" fill="#FF9900" className="animate-pulse"/>
+                  <path fill="#FF9900" d="M12 6l-2 4h4l-2-4z"/>
+                </svg>
+                <span className="text-sm">{getText('c-14')}</span>
               </div>
             ) : (
               getText('c-5')

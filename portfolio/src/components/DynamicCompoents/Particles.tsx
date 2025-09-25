@@ -248,7 +248,7 @@ const Particles: React.FC<ParticlesProps> = ({
   ]);
 
   return (
-    <div ref={containerRef} className={`relative w-full h-full ${className || ''}`} style={{ minHeight: '100vh', width: '100vw' }}>
+    <div ref={containerRef} className={`relative w-full h-screen ${className || ''}`} style={{ minHeight: '100vh', width: '100vw' }}>
       {children}
     </div>
   );

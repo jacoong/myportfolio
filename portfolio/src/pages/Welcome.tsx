@@ -39,11 +39,11 @@ const Welcome: React.FC = () => {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="max-w-2xl w-full px-4 h-[70vh] sm:h-auto"
+        className="max-w-2xl w-full px-4 h-[80vh] sm:h-auto"
       >
   
         {/* Header */}
-        <div className="text-center mb-3 sm:mb-12 pointer-events-auto">
+        <div className="text-center mb-3 pointer-events-auto">
           <SelectLanguage />
           
           <motion.div
@@ -52,7 +52,7 @@ const Welcome: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="mb-3"
           >
-            <span className="text-xs sm:text-sm concept-text-secondary">
+            <span className="text-sm sm:text-base concept-text-secondary">
               {getText('w-7')} {lang.toUpperCase()}
             </span>
           </motion.div>
@@ -62,7 +62,7 @@ const Welcome: React.FC = () => {
             initial={{ scale: 0.7 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-              className="h-20 sm:h-40 md:h-48 my-6"
+              className="h-20 sm:h-40 md:h-40 my-[8vh] sm:my-[3vh]"
           >
             <TextType 
               text={[getText('w-0-1'),getText('w-0-2'),getText('w-0-3')]}
@@ -79,20 +79,12 @@ const Welcome: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="text-xl concept-text-secondary"
+            className="text-xl concept-text-secondary  "
           >
             {getText('w-1')}
           </motion.p>
 
-          {/* Detected Language Info */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-            className="flex items-center justify-center space-x-3 mt-6"
-          >
-          </motion.div>
-
+ 
 
         </div>
 
@@ -119,7 +111,7 @@ const Welcome: React.FC = () => {
               <h3 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold concept-text-primary mb-1 sm:mb-2">
                 {getText('w-2')}
               </h3>
-              <p className="text-xs sm:text-sm md:text-base concept-text-secondary mb-2 sm:mb-3 md:mb-4">
+              <p className="text-sm sm:text-basem md:text-lg concept-text-secondary mb-2 sm:mb-3 md:mb-4">
                 {getText('w-3')}
               </p>
               <div className="flex justify-center space-x-2">
@@ -165,23 +157,26 @@ const Welcome: React.FC = () => {
         </motion.div>
 
         {/* Welcome Button */}
-        {selectedTheme !== null && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-center mb-8 pointer-events-auto"
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: selectedTheme !== null ? 1 : 0, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-center mb-8 pointer-events-auto"
+        >
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={handleWelcome}
+            disabled={selectedTheme === null}
+            className={`px-8 sm:px-10 md:px-12 py-3 sm:py-4 text-white text-lg sm:text-xl font-bold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 ${
+              selectedTheme !== null 
+                ? 'bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 cursor-pointer' 
+                : 'bg-gray-400 cursor-not-allowed opacity-50'
+            }`}
           >
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={handleWelcome}
-              className="px-8 sm:px-10 md:px-12 py-3 sm:py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-lg sm:text-xl font-bold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:from-blue-600 hover:to-purple-700"
-            >
-              Welcome!
-            </motion.button>
-          </motion.div>
-        )}
+            Welcome!
+          </motion.button>
+        </motion.div>
 
         {/* Footer */}
         <motion.div
