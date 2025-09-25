@@ -119,7 +119,7 @@ const Contact: React.FC<ContactProps> = ({ className = '' }) => {
               onChange={handleInputChange}
               required
               rows={5}
-              className="w-full px-4 py-3 concept-card border border-concept-border-light dark:border-concept-border-dark rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent concept-text-primary placeholder-gray-400 transition-all duration-200 resize-none"
+              className="w-full h-[15vh] px-4 py-3 concept-card border border-concept-border-light dark:border-concept-border-dark rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent concept-text-primary placeholder-gray-400 transition-all duration-200 resize-none"
               placeholder={getText('c-12')}
             />
           </div>

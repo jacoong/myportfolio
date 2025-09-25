@@ -16,6 +16,23 @@
     --tooltip-text: #1f2937;
   }
 
+  /* Prevent horizontal scrolling and touch gestures */
+  body {
+    overflow-x: hidden;
+    touch-action: pan-y;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Prevent header from being pulled */
+  header {
+    touch-action: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
   /* Phone Input Styles */
   .phone-input-container .PhoneInput {
     display: flex;

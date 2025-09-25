@@ -536,9 +536,7 @@ const MainPage: React.FC = () => {
                  onClick={() => {
                    console.log('경력 버튼 클릭');
                    setCurrentSlide(0);
-                 }}
-                 className={`py-4  md:py-5 flex-1 text-sm font-medium transition-colors duration-200 hover:text-blue-600 dark:hover:text-blue-400 ${
-                   currentSlide === 0 
+                 }}                 className={`py-3 sm:py-4  md:py-5 flex-1 text-sm font-medium transition-colors duration-200 hover:text-blue-600 dark:hover:text-blue-400 ${                   currentSlide === 0 
                      ? 'text-blue-600 dark:text-blue-400' 
                      : 'text-gray-500 dark:text-gray-400'
                  }`}
@@ -571,7 +569,7 @@ const MainPage: React.FC = () => {
               <div className=" w-full flex-shrink-0">
                 <div className="concept-card rounded-lg p-2 sm:p-4 md:p-6">
                   <div className="">
-                    <div className="experience-item rounded-md p-4 transition-all duration-300 hover:shadow-lg hover:bg-gray-50 dark:hover:bg-gray-800 transform hover:-translate-y-1">
+                    <div className="experience-item rounded-md p-[1.5vh] transition-all duration-300 hover:shadow-lg hover:bg-gray-50 dark:hover:bg-gray-800 transform hover:-translate-y-1">
                       <div className="flex justify-between items-start">
                         <div>
                           <h4 className="font-bold text-blue-600">{getText('exp-1-company')}</h4>
@@ -586,7 +584,7 @@ const MainPage: React.FC = () => {
                         <li>{getText('exp-1-desc-3')}</li>
                       </ul>
                     </div>
-                    <div className="experience-item rounded-md p-4 transition-all duration-300 hover:shadow-lg hover:bg-gray-50 dark:hover:bg-gray-800 transform hover:-translate-y-1">
+                    <div className="experience-item rounded-md p-[1.5vh] transition-all duration-300 hover:shadow-lg hover:bg-gray-50 dark:hover:bg-gray-800 transform hover:-translate-y-1">
                       <div className="flex justify-between items-start">
                         <div>
                           <h4 className="font-bold text-blue-600">{getText('exp-2-company')}</h4>
@@ -601,7 +599,7 @@ const MainPage: React.FC = () => {
                         <li>{getText('exp-2-desc-3')}</li>
                       </ul>
                     </div>
-                    <div className="experience-item rounded-md p-4 transition-all duration-300 hover:shadow-lg hover:bg-gray-50 dark:hover:bg-gray-800 transform hover:-translate-y-1">
+                    <div className="experience-item rounded-md p-[1.5vh] transition-all duration-300 hover:shadow-lg hover:bg-gray-50 dark:hover:bg-gray-800 transform hover:-translate-y-1">
                       <div className="flex justify-between items-start">
                         <div>
                           <h4 className="font-bold text-blue-600">{getText('exp-3-company')}</h4>
@@ -655,7 +653,7 @@ const MainPage: React.FC = () => {
     {
       children: (
         <div className="w-[90%]  md:max-w-2xl mx-auto concept-text-primary sm:px-8 md:h-auto">
-          <h1 className=" concept-text-primary  responsive-h2 font-bold mb-8 text-center">{getText('c-0')}</h1>
+          <h1 className=" concept-text-primary  responsive-h2 font-bold mb-[1vh] sm:mb-8 text-center">{getText('c-0')}</h1>
           <Contact />
         </div>
       )
@@ -663,9 +661,9 @@ const MainPage: React.FC = () => {
   ];
 
   return (
-    <div className="h-auto w-full concept-bg transition-colors duration-300 ">
+    <div className="h-auto w-full concept-bg transition-colors duration-300">
       {/* Header */}
-      <header className="absolute z-40 top-0 left-0 right-0 concept-card shadow-sm transition-colors duration-300">
+      <header className="absolute z-40 top-0 left-0 right-0 concept-card shadow-sm transition-colors duration-300 overflow-hidden">
         <div className="px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-14 sm:h-16">
             <div className="flex items-center space-x-2 sm:space-x-4">

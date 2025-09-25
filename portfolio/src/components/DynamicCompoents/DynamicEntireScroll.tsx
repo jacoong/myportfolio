@@ -49,12 +49,11 @@ const DynamicEntireScroll: React.FC<DynamicEntireScrollProps> = ({
     }
     
     // 각 섹션의 범위를 기준으로 활성 섹션 결정
-    // 섹션 1: targetOffsetTop ~ targetOffsetTop + 150vh
-    // 섹션 2: targetOffsetTop + 150vh ~ targetOffsetTop + 250vh
-    // 섹션 3: targetOffsetTop + 250vh ~ targetOffsetTop + 350vh
+    // 섹션 1: targetOffsetTop ~ targetOffsetTop + 100vh
+    // 섹션 2: targetOffsetTop + 100vh ~ targetOffsetTop + 200vh
+    // 섹션 3: targetOffsetTop + 200vh ~ targetOffsetTop + 300vh
     const relativeScrollTop = scrollTop - targetOffsetTop;
-    const adjustedScrollTop = relativeScrollTop - (windowHeight * 1);
-    const sectionIndex = Math.floor(adjustedScrollTop / windowHeight) + 1;
+    const sectionIndex = Math.floor(relativeScrollTop / windowHeight);
     
     // 마지막 섹션 인덱스로 제한
     return Math.min(sectionIndex, sections.length - 1);
@@ -132,7 +131,7 @@ const DynamicEntireScroll: React.FC<DynamicEntireScrollProps> = ({
 
   const containerHeightStyle = containerHeight 
     ? { height: `${containerHeight}vh` }
-    : { height: `${150 + sections.length * 100}vh` };
+    : { height: `${sections.length * 100}vh` };
 
   console.log('DynamicEntireScroll: Container height', containerHeightStyle.height, 'Active section:', activeSectionNumber);
 

@@ -70,7 +70,7 @@ const StackIntroducer: React.FC = () => {
             <button
               key={tab.key}
               onClick={() => handleActiveFilter(tab.key)}
-              className={`px-2 py-2 sm:py-2 sm:px-4 text-xs sm:text-base font-semibold rounded-full transition-colors duration-300 ease-in-out focus:outline-none
+              className={`px-[1vh] py-2 sm:py-2 sm:px-4 text-xs sm:text-base font-semibold rounded-full transition-colors duration-300 ease-in-out focus:outline-none
                 ${
                   activeFilter === tab.key
                     ? 'concept-interactive-selected text-white dark:text-black'
