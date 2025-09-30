@@ -102,59 +102,41 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, openModal }) => {
           >
             <ExternalLink className="h-4 w-4" />
           </a> */}
+          <div className="flex items-center space-x-2">
+            {/* GitHub Tooltip */}
+            <div className="tooltip relative inline-block">
+              <a 
+                href={project.github} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center justify-center h-10 w-10 border-2 border-concept-border-light rounded-full concept-text-primary hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200"
+              >
+                <Github className="h-5 w-5" />
+              </a>
+              <div 
+                className="tooltip-content absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max px-2 py-1 text-xs text-white bg-gray-800 rounded-md shadow-lg opacity-0 invisible transition-opacity duration-200"
+              >
+                {getText('p-7')}
+              </div>
+            </div>
 
-
-<div className="flex items-center  space-x-2">
-
-
-<div className="flex items-center space-x-2">
-
- {/* 두 버튼의 정렬과 간격을 관리하는 Flexbox 부모 컨테이너 */}
-<div className="flex items-center space-x-2">
-
-{/* 1. GitHub 아이콘 툴팁 */}
-{/* 👇 각 툴팁 컨테이너에 group, relative, inline-block을 개별적으로 적용 */}
-<div className="tooltip group relative inline-block">
-  <a 
-    href={project.github} 
-    target="_blank" 
-    rel="noopener noreferrer"
-    className="flex items-center justify-center h-10 w-10 border-2 border-concept-border-light rounded-full concept-text-primary hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200"
-  >
-    <Github className="h-5 w-5" />
-  </a>
-  {/* GitHub 툴팁 내용 */}
-  <div 
-    className="tooltip-content absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max px-2 py-1 text-xs text-white bg-gray-800 rounded-md shadow-lg invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-opacity duration-200"
-  >
-    {getText('p-7')}
-  </div>
-</div>
-
-{/* 2. 데모 링크 툴팁 */}
-{/* 👇 여기에도 동일하게 개별적으로 group 적용 */}
-<div className="tooltip group relative inline-block">
-  <a 
-    href={project.demo} 
-    target="_blank" 
-    rel="noopener noreferrer"
-    className="px-3 sm:px-4 py-2 concept-gradient-primary text-white rounded-lg font-medium hover:concept-gradient-primary-hover transition-all duration-200"
-  >
-    Demo
-  </a>
-  {/* 데모 툴팁 내용 */}
-  <div 
-    className="tooltip-content absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max px-2 py-1 text-xs text-white bg-gray-800 rounded-md shadow-lg invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-opacity duration-200"
-  >
-    {getText('p-8')}
-  </div>
-</div>
-
-</div>
-
-</div>
-
-</div>
+            {/* Demo Tooltip */}
+            <div className="tooltip relative inline-block">
+              <a 
+                href={project.demo} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="px-3 sm:px-4 py-2 concept-gradient-primary text-white rounded-lg font-medium hover:concept-gradient-primary-hover transition-all duration-200"
+              >
+                Demo
+              </a>
+              <div 
+                className="tooltip-content absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max px-2 py-1 text-xs text-white bg-gray-800 rounded-md shadow-lg opacity-0 invisible transition-opacity duration-200"
+              >
+                {getText('p-8')}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </motion.div>
