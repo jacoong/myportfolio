@@ -61,7 +61,7 @@ const ProjectDetailModal: React.FC = () => {
               </div>
 
               {/* Content */}
-              <div className="overflow-y-auto max-h-[calc(90vh-80px)]">
+              <div className="overflow-y-auto max-h-[calc(90vh-80px)] no-scrollbar">
                 <div className="p-6">
                   {/* Image Gallery */}
                   <div className="relative  gap-8 h-[850px] md:h-[500px] mb-8 grid grid-cols-1 md:grid-cols-[7fr_3fr]">
@@ -112,7 +112,7 @@ const ProjectDetailModal: React.FC = () => {
                       )}
                     </div>
                      {/* Sidebar */}
-                     <div className="space-y-6 flex flex-col justify-end">
+                     <div className="flex flex-col justify-between mt-6 md:mt-0 space-y-1">
                       {/* Project Meta */}
 
                          {/* Action Buttons */}
@@ -136,20 +136,20 @@ const ProjectDetailModal: React.FC = () => {
                           {getText('pd-2')}
                         </a>
                       </div>
-                      <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-4 md:p-6">
-                        <h3 className="font-bold text-gray-900 dark:text-white mb-4">
+                      <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-3 md:p-3">
+                        <h3 className="font-bold text-2xl text-gray-900 dark:text-white mb-4">
                           {getText('pd-3')}
                         </h3>
                         <div className="space-y-3">
                           <div className="flex items-center">
                             <Calendar className="h-4 w-4 mr-3 text-gray-500" />
-                            <span className="responsive-text text-gray-600 dark:text-gray-300">
+                            <span className="text-xl text-gray-600 dark:text-gray-300">
                               {getText('pd-4')} {selectedProject.details.numberOfDevelopers}{getText('pd-5')}
                             </span>
                           </div>
                           <div className="flex items-center">
                             <User className="h-4 w-4 mr-3 text-gray-500" />
-                            <span className="responsive-text text-gray-600 dark:text-gray-300">
+                            <span className="text-xl text-gray-600 dark:text-gray-300">
                               {getText('pd-6')} {selectedProject.details.role}
                             </span>
                           </div>
@@ -157,8 +157,8 @@ const ProjectDetailModal: React.FC = () => {
                       </div>
 
                       {/* Tech Stack */}
-                      <div className="bg-gray-50 dark:bg-gray-800 rounded-xl  p-4 md:p-6">
-                        <h3 className="font-bold text-gray-900 dark:text-white mb-4">
+                      <div className="bg-gray-50 dark:bg-gray-800 rounded-xl  p-3 md:p-3">
+                        <h3 className="font-bold  text-2xl text-gray-900 dark:text-white mb-4">
                           {getText('pd-7')}
                         </h3>
                         <div className="flex flex-wrap gap-2">
@@ -183,7 +183,7 @@ const ProjectDetailModal: React.FC = () => {
                     <div className="lg:col-span-2 space-y-8">
                       {/* Overview */}
                       <div>
-                        <h3 className="font-bold text-gray-900 dark:text-white mb-4 flex items-center">
+                        <h3 className="font-bold  text-gray-900 dark:text-white mb-4 flex items-center">
                           <Code className="h-6 w-6 mr-2 text-blue-500" />
                           {getText('pd-8')}
                         </h3>
@@ -194,7 +194,7 @@ const ProjectDetailModal: React.FC = () => {
 
                       {/* Features */}
                       <div>
-                        <h3 className="font-bold text-gray-900 dark:text-white mb-4 flex items-center">
+                        <h3 className="font-bold  text-gray-900 dark:text-white mb-4 flex items-center">
                           <CheckCircle className="h-6 w-6 mr-2 text-green-500" />
                           {getText('pd-9')}
                         </h3>

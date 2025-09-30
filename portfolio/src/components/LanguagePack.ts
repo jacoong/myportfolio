@@ -1285,8 +1285,10 @@ const LanguagePack = {
     'proj-1-challenge': '낙관적 업데이트와 데이터 동기화/ 백엔드와 전체적인 협업',
     'proj-1-solution': 'React-query를 활용하여 네트워크 오류시 전의 쿼리를 가져와 동기화',
     'proj-1-role': '프론트엔드 / 기획자',
-    
+
     // Project 2 - Football Video Automation
+    'proj-2-title': '축구 영상 자동화 시스템',
+    'proj-2-desc': 'AWS Lambda와 Python 기반 Movie.py를 활용한 축구 영상 자동화 프로젝트.',
     'proj-2-overview': '축구를 좋아해서 만든 동영상 자동화 시스템으로 기획 구상을 하여 이후에 개발 시작, 일주일에 한번 실행되는 동영상 자동화 시스템 입니다. 이후에 받아온 경기일정을 기반으로 Aws Lamda 를 예약하여 이후에 Telegram Bot으로 경기 데이터를 fetch해 옵니다.',
     'proj-2-feature-1': 'Football Api 데이터 패칭',
     'proj-2-feature-2': 'Python 데이터 가공 및 Telegram Bot 연동',
@@ -1298,8 +1300,10 @@ const LanguagePack = {
     'proj-2-challenge': 'Movie.py 패키지 적응, Aws Step Function run time error handling',
     'proj-2-solution': 'Movie.py Offical Documentation을 참고하여 적응, Step Function에서 발생하는 error 종류 파악 및 runtime error 처리',
     'proj-2-role': '1인 개발',
-    
+
     // Project 3 - Calendar Project
+    'proj-3-title': '캘린더 자동화',
+    'proj-3-desc': '자동화된 캘린더 플랫폼',
     'proj-3-overview': '완전한 기능을 갖춘 온라인 쇼핑몰 플랫폼으로, 사용자 인증, 결제 시스템, 관리자 대시보드를 포함합니다.',
     'proj-3-feature-1': '사용자 인증 및 권한 관리',
     'proj-3-feature-2': '상품 검색 및 필터링',
@@ -1310,8 +1314,10 @@ const LanguagePack = {
     'proj-3-challenge': '대용량 트래픽 처리와 결제 보안',
     'proj-3-solution': 'Redis 캐싱과 Stripe 보안 API를 활용한 안전한 결제 시스템 구축',
     'proj-3-role': '프론트 개발자',
-    
+
     // Project 4 - Job Scraper
+    'proj-4-title': '파이썬 웹 채용 스크래퍼',
+    'proj-4-desc': '여러 채용 사이트의 공고를 동시에 검색하고 필터링하는 통합 웹 스크래퍼.',
     'proj-4-overview': '한국 및 해외 구직사이트에서 채용공고를 실시간으로 수집하고 통합 검색할 수 있는 웹 애플리케이션',
     'proj-4-feature-1': '4개 구직사이트 통합 검색 (원티드, 사람인, RemoteOK, WeWorkRemotely)',
     'proj-4-feature-2': '사이트별 선택적 검색 기능',
@@ -1326,8 +1332,10 @@ const LanguagePack = {
     'proj-4-challenge': '다양한 사이트의 접근 제한과 동적 콘텐츠 처리, 안정적인 데이터 수집',
     'proj-4-solution': 'Selenium과 requests의 하이브리드 접근법, 에러 핸들링 및 폴백 메커니즘 구현',
     'proj-4-role': '풀스택 개발자',
-    
+
     // Project 5 - Random Chord Practice
+    'proj-5-title': '랜덤 코드 연습 앱',
+    'proj-5-desc': '음악 연습을 위한 모던하고 사용자 친화적인 랜덤 코드 생성기.',
     'proj-5-overview': '음악가들을 위한 랜덤 코드 연습 앱으로, 다양한 코드 타입과 템포 설정을 통해 체계적인 음악 연습을 제공합니다. Web Speech API를 활용한 음성 안내와 실시간 템포 조절 기능을 포함합니다.',
     'proj-5-feature-1': '랜덤 코드 생성 및 연습',
     'proj-5-feature-2': '17개 음표 지원 (C, Db, D, Eb, E, F, Gb, G, Ab, A, Bb, B, C#, D#, F#, G#, A#)',
@@ -1342,8 +1350,10 @@ const LanguagePack = {
     'proj-5-challenge': '복잡한 페이지 네비게이션과 실시간 템포 변경 시 박자 동기화 유지',
     'proj-5-solution': '3-컴포넌트 구조(제목/메인/설정)와 인터벌 기반 박자 애니메이션으로 안정적인 상태 관리 구현',
     'proj-5-role': '풀스택 개발자',
-    
+
     // Project 6 - The Area
+    'proj-6-title': 'The Area - 크리에이티브 플랫폼',
+    'proj-6-desc': '음악과 비주얼, 크리에이터를 위한 종합 크리에이티브 플랫폼.',
     'proj-6-overview': '음악, 비주얼 아트, 크리에이터들을 위한 종합 크리에이티브 플랫폼',
     'proj-6-feature-1': '비디오 배경과 로고 애니메이션',
     'proj-6-feature-2': '음악 비디오 플레이어',
@@ -1354,8 +1364,10 @@ const LanguagePack = {
     'proj-6-challenge': '복잡한 애니메이션과 비디오 처리, 반응형 디자인 구현',
     'proj-6-solution': 'CSS 애니메이션과 React 상태 관리를 통한 동적 UI 구현',
     'proj-6-role': '풀스택 개발자',
-    
+
     // Project 7 - Cocoa Talk
+    'proj-7-title': '축구 테마 카카오톡 웹사이트',
+    'proj-7-desc': 'HTML, CSS, JavaScript로 제작한 축구 테마의 카카오톡 클론 모바일 웹사이트.',
     'proj-7-overview': '카카오톡의 UI/UX를 모방하여 만든 웹사이트로, 축구 테마가 적용된 채팅 애플리케이션입니다. 모바일 우선 설계로 반응형 웹 디자인을 구현했습니다.',
     'proj-7-feature-1': '실시간 시계 표시 기능',
     'proj-7-feature-2': '모바일 반응형 디자인',
@@ -1369,8 +1381,10 @@ const LanguagePack = {
     'proj-7-challenge': '모바일 우선 설계와 카카오톡의 복잡한 UI 구조를 웹으로 구현하는 것',
     'proj-7-solution': 'CSS Grid와 Flexbox를 활용한 레이아웃 구성, JavaScript를 통한 실시간 기능 구현, 모바일 화면 크기 감지 기능 추가',
     'proj-7-role': '풀스택 웹 개발자',
-    
+
     // Project 8 - Momentum Dashboard
+    'proj-8-title': 'Momentum 대시보드',
+    'proj-8-desc': '개인 생산성을 높이기 위한 올인원 대시보드 웹 애플리케이션.',
     'proj-8-overview': '개인 생산성 향상을 위한 올인원 대시보드로, 실시간 시계, 날씨 정보, 할 일 관리, 음악 플레이어, 명언 표시, 구글 검색 기능을 통합한 현대적인 웹 애플리케이션입니다. 사용자 개인화와 반응형 디자인을 통해 최적의 사용자 경험을 제공합니다.',
     'proj-8-feature-1': '실시간 디지털 시계 및 날짜 표시',
     'proj-8-feature-2': 'Geolocation 기반 현재 위치 날씨 정보',
@@ -1388,8 +1402,10 @@ const LanguagePack = {
     'proj-8-challenge': '다중 API 연동과 Local Storage 상태 관리, 실시간 데이터 동기화',
     'proj-8-solution': '모듈화된 JavaScript 구조와 이벤트 기반 프로그래밍으로 안정적인 상태 관리 구현',
     'proj-8-role': '풀스택 개발자',
-    
+
     // Project 9 - Campground
+    'proj-9-title': '캠핑장 관리 시스템',
+    'proj-9-desc': '캠핑장 정보를 등록하고 조회, 수정, 삭제하며 리뷰를 제공하는 웹 애플리케이션.',
     'proj-9-overview': '캠핑장 정보를 등록하고 관리할 수 있는 웹 애플리케이션입니다. 사용자 인증, 캠핑장 CRUD 기능, 리뷰 시스템을 포함합니다.',
     'proj-9-feature-1': '사용자 회원가입/로그인/로그아웃',
     'proj-9-feature-2': '캠핑장 정보 등록 (제목, 위치, 가격, 설명, 사진)',
