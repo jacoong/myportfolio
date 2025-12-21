@@ -46,6 +46,12 @@ const LanguagePack = {
     "c-13": "Optional",
     "c-14": "AWS Lambda Function executing...",
     "scroll-to-top": "Scroll to Top",
+    "hero-project-button": "Go to Projects",
+    "hero-notion-button": "Go to Notion Blog",
+    "remote-about": "About",
+    "remote-projects": "Projects",
+    "remote-blog": "Blog",
+    "remote-title": "Remote",
     "p-0": "All",
     "p-1": "Main",
     "p-2": "Side",
@@ -77,6 +83,7 @@ const LanguagePack = {
     "pd-9": "Key Features",
     "pd-10": "Challenges",
     "pd-11": "Solutions",
+    "pd-card-image-alt": "Feature preview",
     
     // Project Badge Labels
     "badge-main": "Main Project",
@@ -323,6 +330,12 @@ const LanguagePack = {
       "c-13": "Optionnel",
       "c-14": "Fonction AWS Lambda en cours d'exécution...",
       "scroll-to-top": "Retour en haut",
+      "hero-project-button": "Aller aux projets",
+      "hero-notion-button": "Aller sur Notion",
+      "remote-about": "À propos",
+      "remote-projects": "Projets",
+      "remote-blog": "Blog",
+      "remote-title": "Télécommande",
       "p-0": "Tous",
       "p-1": "Principal",
       "p-2": "Secondaire",
@@ -543,6 +556,12 @@ const LanguagePack = {
     "c-13": "任意",
     "c-14": "AWS Lambda Function実行中...",
     "scroll-to-top": "トップに戻る",
+    "hero-project-button": "プロジェクトへ移動",
+    "hero-notion-button": "Notionへ移動",
+    "remote-about": "紹介",
+    "remote-projects": "プロジェクト",
+    "remote-blog": "ブログ",
+    "remote-title": "リモコン",
     "p-0": "すべて",
     "p-1": "メイン",
     "p-2": "サイド",
@@ -763,6 +782,11 @@ const LanguagePack = {
     "c-13": "可选",
     "c-14": "AWS Lambda Function执行中...",
     "scroll-to-top": "回到顶部",
+    "hero-project-button": "前往项目",
+    "hero-notion-button": "前往Notion博客",
+    "remote-about": "关于我",
+    "remote-projects": "项目",
+    "remote-blog": "博客",
     "p-0": "全部",
     "p-1": "主要",
     "p-2": "次要",
@@ -983,6 +1007,11 @@ const LanguagePack = {
     "c-13": "Optional",
     "c-14": "AWS Lambda Function wird ausgeführt...",
     "scroll-to-top": "Nach oben",
+    "hero-project-button": "Zu den Projekten",
+    "hero-notion-button": "Zu Notion",
+    "remote-about": "Über mich",
+    "remote-projects": "Projekte",
+    "remote-blog": "Blog",
     "p-0": "Alle",
     "p-1": "Haupt",
     "p-2": "Neben",
@@ -1175,6 +1204,17 @@ const LanguagePack = {
     // Main Page
     'm-0': '  안녕하세요',
     'm-0-0': '프론트엔드 개발자 유현우 입니다',
+
+
+    'm-1-1': '다양한 프로젝트를 통해 성장하며',
+    'm-1-2': '으로 개발 블로그를 운영하고 있으며,',
+    'm-1-3': '60+개의 포스팅을 작성하였습니다.',
+    'm-1-4': '프론트 개발자로서 사용자 경험을 중요하게 생각합니다.',
+    'm-1-5': '또한 스스로 니콜라스 / Udemy 를 통하여 강의를 수강하여 챌린지 수상도 하는등',
+    'm-1-6': '문제를 해결하는 다양한 방법을 찾고 적용하는것을 즐깁니다.',
+
+
+
     'm-0-1': '알아보기 까지  ',
     'm-0-2': '✓ 완료됨',
     'm-0-3': '스와이프하여 시작',
@@ -1211,6 +1251,11 @@ const LanguagePack = {
     'c-13': '선택사항',
     'c-14': 'AWS Lambda Function 실행 중...',
     'scroll-to-top': '맨 위로',
+    'hero-project-button': '프로젝트 바로가기',
+    'hero-notion-button': 'Notion 바로가기',
+    'remote-about': '소개',
+    'remote-projects': '프로젝트',
+    'remote-blog': '블로그',
     
     // Projects Section
     'p-0': '전체',
@@ -1275,15 +1320,94 @@ const LanguagePack = {
     'proj-1-title': 'The Clipo Project',
     'proj-1-desc': 'React와 Tailwind CSS TypeScript를 사용한 소셜미디어 플랫폼 포트폴리오',
     'proj-1-short': '개인 포트폴리오 웹사이트',
-    'proj-1-overview': '개인 포트폴리오를 위한 반응형 웹사이트로, 다크/라이트 모드, Access Token, Refresh Token 포함합니다. 친구와 한번 소셜미디어를 만든다는 생각을 가지고 한번 열심히 현업하듯이 만들어 보았습니다.',
-    'proj-1-feature-1': '인증 및 토큰 관리 시스템',
-    'proj-1-feature-2': 'Redux 기반 다중 중첩 모달 시스템',
-    'proj-1-feature-3': '소셜 미디어 핵심 기능',
-    'proj-1-feature-4': 'UI 컴포넌트 및 디자인 시스템',
-    'proj-1-feature-5': '데이터 관리 및 상태 관리',
-    'proj-1-feature-6': '실시간 기능',
-    'proj-1-challenge': '낙관적 업데이트와 데이터 동기화/ 백엔드와 전체적인 협업',
-    'proj-1-solution': 'React-query를 활용하여 네트워크 오류시 전의 쿼리를 가져와 동기화',
+    'proj-1-overview': '개인 포트폴리오를 위한 반응형 웹사이트로, 다크/라이트 모드, JWT 토큰 기반 인증 시스템입니다. thread 를 참고하여 댓글 대댓글기능까지 구현하였으며, React Query 를 활용한 데이터 캐싱, 낙천적 업데이트를 적용하였으며, Skeleton 과 loading 를 적절히 활용하여 유저 친화적인 사이트를 만들라고 노력하였습니다.',
+    
+     
+    'proj-1-feature-1': '로그인과 인증 및 토큰 관리 시스템',
+
+    'proj-1-feature-1-c1':
+      '로그인시에 react-cookie 를 활용하여 토큰 저장 및 axios 인스턴스 기본 헤더 설정',
+
+    'proj-1-feature-1-c2':
+      'Jwt 토큰 기반 인증 시스템으로 Access Token과 Refresh Token을 활용한 인증 시스템 구현',
+
+    'proj-1-feature-1-c3':
+      'Axios Interceptor를 활용하여 401 에러 및 message EXPIRED_TOKEN 발생시 Refresh Token 재요청 구현',
+
+
+    'proj-1-feature-2': 'Redux 기반 다중 중첩 모달 시스템 및 Portal 기반 팝업창 구현',
+
+    'proj-1-feature-2-c1':
+      'useModal custom hook을 활용하여 openModal, closeModal, closeAllModal 액션 구현',
+
+    'proj-1-feature-2-c2':
+      'Redux 전역 저장소 기반으로 모달 값을 배열로 관리하여 다중 모달 정보 저장, z-index를 이용해 레이어 순서 제어',
+
+    'proj-1-feature-2-c3':
+      'createPortal을 사용해 #modal-root에 렌더링함으로써 레이아웃 영향 없이 모달 중첩 처리',
+
+    'proj-1-feature-2-c4':
+      '훅에서 공통 옵션과 테마를 주입하고, 각 컴포넌트는 타입과 props만 전달하여 일관된 UI 및 동작 보장',
+
+    'proj-1-feature-3':
+      '게시물 작성, 수정, 삭제, 좋아요, 북마크 등의 기능 낙관적 업데이트와 전역적인 데이터 상태 관리',
+
+    'proj-1-feature-3-c1':
+      'React Query useMutation 훅을 사용해 게시물 작성·수정·삭제 기능을 구현하고 FlashMessage로 성공/실패 상태 렌더링',
+
+    'proj-1-feature-3-c2':
+      '게시물 좋아요 처리 시 onMutate를 활용해 쿼리 데이터를 직접 수정하고 실패 시 롤백 처리',
+
+    'proj-1-feature-3-c3':
+      '사용자 경험 개선을 위한 게시물 낙관적 업데이트(Optimistic Update) 구현',
+
+    'proj-1-feature-4':
+      '페이지 이동 시 유저 정보를 조회하여 토큰 유효성, 전화번호 인증, 닉네임 설정 여부 검사',
+
+    'proj-1-feature-4-c1':
+      '로그인 인증 과정에서 전화번호 유효성(validate) 여부를 감지하고 서버 응답에 따라 추가 인증 플로우 처리',
+
+    'proj-1-feature-4-c2':
+      '메인 페이지 진입 전 사용자 정보를 fetch하여 닉네임 미설정 시 닉네임 설정 페이지로 라우팅',
+
+    'proj-1-feature-5':
+      '@ 언급 및 # 해시태그 구현과 포스트 선택 시 해당 페이지로 이동',
+
+    'proj-1-feature-5-c1':
+      'React Mentions 라이브러리를 활용하여 @[display](id), #[display](id) 형태로 저장',
+
+    'proj-1-feature-5-c2':
+      'display 하는 경우 markupPattern으로 파싱하여 @ / # 타입 구분 및 클릭시 도메인 이동 로직 구현',
+ 
+    'proj-1-feature-6':
+      'SSE 기반 실시간 알림 시스템 및 알림 타입별 URL 이동 로직 구현',
+
+    'proj-1-feature-6-c2':
+      'usePushNotification을 활용하여 실시간 데이터를 파싱하여 fireNotificationWithTimeOut 함수를 통해 Browser Notification 구현, 알림 타입을 구분하여 알림메시지와 URL 매핑처리,  window.location.href를 활용하여 페이지 이동 처리',
+
+    'proj-1-feature-6-c1':
+      '백엔드에서 제공하는 SSE (Server-Sent Events) 이벤트 발생시 호출되는 커스텀 훅 usePushNotification 작성',
+
+    'proj-1-feature-7':
+      '게스트 로그인 구현 및 소셜 로그인 연동을 하나의 컴포넌트로 통합',
+
+    'proj-1-feature-7-c2':
+      '각각의 소셜 URl 로 인가토큰 받아온 이후에 통합된 페이지로 이동하여 공통 컴포넌트에서 처리',
+
+    'proj-1-feature-7-c1':
+      '소셜 로그인 Api 에 요청을 보내서 가져온 인가토큰을 활용하여, 서버와 사전에 정의한 URL 에 인가토큰 전달 서버측에서 할당받은 인가토큰으로 소셜로그인 이후 access token, refresh token 리스폰으로 발급',
+
+    'proj-1-feature-8':
+    'SSE 로 받아온 실시간 데이터 URL 클릭시 해당 댓글/ 대댓글로 자동 스크롤 이동 구현',
+    
+    'proj-1-feature-8-c2':'onLayout 으로 해당 댓글의 실제 Y좌표를 획득, targetReplyId와 일치시에 scrollView.scrollTo({y: targetY})로 스크롤 이동 처리',
+    'proj-1-feature-8-c1':'url 에 있는 댓글 대댓글 ID 의 유무로 단순 게시글인지, 댓글,대댓글 여부로 동작 확인, 서버에서 댓글이 속한 페이지의 번호 APi로 받아온후에 해당 페이지를 요청',
+    'proj-1-feature-8-c3':'대댓글의 댓글 대댓글 속한 페이지값 각각 받아온후 경우 해당 댓글의 위치로 스크롤, nestPageNumber의 응답을 기반으로한 대댓글 페이지 로드, expand() , 대댓글 스크롤의 중첩 스크롤 이동 처리 구현 ',
+
+    'proj-1-challenge': '낙관적 업데이트와 데이터 동기화 / 백엔드와의 협업',
+    'proj-1-solution-1': 'React-query를 활용하여 네트워크 오류시 전의 쿼리를 가져와 동기화',
+    'proj-1-solution-2': '정규표현식을 활용하여 구현, React Router Dom을 활용하여 페이지 이동 구현',
+    'proj-1-solution-3': 'Axios Interceptor를 활용하여 401 에러시 Refresh Token 재요청 구현',
     'proj-1-role': '프론트엔드 / 기획자',
 
     // Project 2 - Football Video Automation

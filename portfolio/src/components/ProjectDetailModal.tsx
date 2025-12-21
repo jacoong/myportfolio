@@ -1,27 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Github, ExternalLink, Calendar, User, Code, Lightbulb, CheckCircle } from 'lucide-react';
 import { useModal } from '../contexts/ModalContext';
 import { useLanguage } from '../contexts/LanguageContext';
-
+import ProjectDetailCard from './ProjectDetailCard';
+import ImageGallery from './ImageGallery';
 const ProjectDetailModal: React.FC = () => {
   const { isOpen, selectedProject, closeModal } = useModal();
   const { getText } = useLanguage();
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   if (!selectedProject) return null;
-
-  const nextImage = () => {
-    setCurrentImageIndex((prev) => 
-      prev === selectedProject.images.length - 1 ? 0 : prev + 1
-    );
-  };
-
-  const prevImage = () => {
-    setCurrentImageIndex((prev) => 
-      prev === 0 ? selectedProject.images.length - 1 : prev - 1
-    );
-  };
 
   return (
     <AnimatePresence>
@@ -64,59 +52,15 @@ const ProjectDetailModal: React.FC = () => {
               <div className="overflow-y-auto max-h-[calc(90vh-80px)] no-scrollbar">
                 <div className="p-6">
                   {/* Image Gallery */}
-                  <div className="relative  gap-8 h-[850px] md:h-[500px] mb-8 grid grid-cols-1 md:grid-cols-[7fr_3fr]">
-                    <div className="relative h-full rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-800">
-                      <img
-                        src={selectedProject.images[currentImageIndex]}
-                        alt={`${selectedProject.title} - Image ${currentImageIndex + 1}`}
-                        className="w-full h-full max-h-[700px] object-cover object-top"
-                      />
-                      
-                      {/* Navigation Arrows */}
-                      {selectedProject.images.length > 1 && (
-                        <>
-                          <button
-                            onClick={prevImage}
-                            className="absolute left-4 top-1/2 -translate-y-1/2 p-2 bg-black/50 hover:bg-black/70 text-white rounded-full transition-colors duration-200"
-                          >
-                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                            </svg>
-                          </button>
-                          <button
-                            onClick={nextImage}
-                            className="absolute right-4 top-1/2 -translate-y-1/2 p-2 bg-black/50 hover:bg-black/70 text-white rounded-full transition-colors duration-200"
-                          >
-                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                            </svg>
-                          </button>
-                        </>
-                      )}
-                      
-                      {/* Image Indicators */}
-                      {selectedProject.images.length > 1 && (
-                        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-                          {selectedProject.images.map((_, index) => (
-                            <button
-                              key={index}
-                              onClick={() => setCurrentImageIndex(index)}
-                              className={`w-2 h-2 rounded-full transition-colors duration-200 ${
-                                index === currentImageIndex 
-                                  ? 'bg-white' 
-                                  : 'bg-white/50 hover:bg-white/75'
-                              }`}
-                            />
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                     {/* Sidebar */}
-                     <div className="flex flex-col justify-between mt-6 md:mt-0 space-y-1">
-                      {/* Project Meta */}
-
-                         {/* Action Buttons */}
-                         <div className="space-y-3">
+                  <div className="relative gap-8 grid grid-cols-1 md:grid-cols-[7fr_3fr]">
+                    <ImageGallery
+                      images={selectedProject.images}
+                      title={selectedProject.title}
+                      heightClassName="h-[850px] md:h-[500px]"
+                      className="mb-0"
+                    />
+                    <div className="flex flex-col justify-between mt-6 md:mt-0 space-y-1">
+                      <div className="space-y-3">
                         <a
                           href={selectedProject.github}
                           target="_blank"
@@ -156,9 +100,8 @@ const ProjectDetailModal: React.FC = () => {
                         </div>
                       </div>
 
-                      {/* Tech Stack */}
-                      <div className="bg-gray-50 dark:bg-gray-800 rounded-xl  p-3 md:p-3">
-                        <h3 className="font-bold  text-2xl text-gray-900 dark:text-white mb-4">
+                      <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-3 md:p-3">
+                        <h3 className="font-bold text-2xl text-gray-900 dark:text-white mb-4">
                           {getText('pd-7')}
                         </h3>
                         <div className="flex flex-wrap gap-2">
@@ -172,8 +115,6 @@ const ProjectDetailModal: React.FC = () => {
                           ))}
                         </div>
                       </div>
-
-                   
                     </div>
                   </div>
 
@@ -193,31 +134,42 @@ const ProjectDetailModal: React.FC = () => {
                       </div>
 
                       {/* Features */}
-                      <div>
-                        <h3 className="font-bold  text-gray-900 dark:text-white mb-4 flex items-center">
+                                        <div className="space-y-6">
+                        <h3 className="font-bold  text-gray-900 dark:text-white flex items-center">
                           <CheckCircle className="h-6 w-6 mr-2 text-green-500" />
                           {getText('pd-9')}
                         </h3>
-                        <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <div className="space-y-4">
                           {selectedProject.details.features.map((feature, index) => (
-                            <li key={index} className="flex items-start">
-                              <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0" />
-                              <span className="text-gray-600 dark:text-gray-300 responsive-text">{feature}</span>
-                            </li>
+                            <ProjectDetailCard
+                              key={`${feature.title}-${index}`}
+                              title={feature.title}
+                              paraGraphs={feature.paraGraphs}
+                              pictures={feature.pictures}
+                              notionBlog={feature.notionBlog}
+                            />
                           ))}
-                        </ul>
+                        </div>
                       </div>
+             
 
-                      {/* Challenges & Solutions */}
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+     {/* Challenges & Solutions */}
+                      <div className="space-y-6">
                         <div>
                           <h3 className="font-bold text-gray-900 dark:text-white mb-3 flex items-center">
                             <Lightbulb className="h-5 w-5 mr-2 text-yellow-500" />
                             {getText('pd-10')}
                           </h3>
-                          <p className="text-gray-600 dark:text-gray-300 responsive-text">
-                            {selectedProject.details.challenges}
-                          </p>
+                          <div className="space-y-4">
+                            {selectedProject.details.challenges.map((challenge, index) => (
+                              <ProjectDetailCard
+                                key={`${challenge.title}-${index}`}
+                                title={challenge.title}
+                                paraGraphs={challenge.paraGraphs}
+                                pictures={challenge.pictures}
+                              />
+                            ))}
+                          </div>
                         </div>
                         <div>
                           <h3 className="font-bold text-gray-900 dark:text-white mb-3 flex items-center">

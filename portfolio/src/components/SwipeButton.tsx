@@ -154,7 +154,7 @@ const SwipeButton: React.FC<SwipeButtonProps> = ({
         </span>
       </div>
     </div>
-    <div className='w-full justify-center flex'>
+    <div className='w-full justify-center flex group'>
 
     <div className={`relative  w-60 ${className}`}>
       {/* 슬롯 틀 (배경) */}

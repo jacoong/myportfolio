@@ -1,12 +1,18 @@
 export interface ProjectDetails {
   overview: string;
-  features: string[];
-  challenges: string;
+  features: ProjectDetailSection[];
+  challenges: ProjectDetailSection[];
   solutions: string;
   numberOfDevelopers: number;
 
   role: string;
 }
+export interface ProjectDetailSection {
+  title: string;
+  paraGraphs: string[];
+  pictures: string[];
+  notionBlog?: string;
+} 
 
 export interface Project {
   id: number;

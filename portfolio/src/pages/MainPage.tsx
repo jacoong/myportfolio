@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { useTheme } from '../contexts/ThemeContext';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -14,12 +14,16 @@ import ProjectDetailModal from '../components/ProjectDetailModal';
 import ProjectsSection from '../components/ProjectsSection';
 import RotatingText from '../components/DynamicCompoents/RotatingText';
 import BlogSection from '../components/BlogSection';
+import RemoteBar from '../components/RemoteBar';
 import { Project,Blog } from '../types/Project';
+import { get } from 'axios';
 
 const MainPage: React.FC = () => {
   const { isDark, toggleTheme } = useTheme();
-  const { getText } = useLanguage();
+  const { getText, lang } = useLanguage();
   const dynamicScrollRef = useRef<HTMLDivElement>(null);
+  const projectsSectionRef = useRef<HTMLDivElement>(null);
+  const notionSectionRef = useRef<HTMLDivElement>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [showScrollButton, setShowScrollButton] = useState(false);
 
@@ -33,6 +37,22 @@ const MainPage: React.FC = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const scrollToSection = (targetRef: React.RefObject<HTMLElement | null>) => {
+    if (targetRef.current) {
+      targetRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const remoteSections = useMemo(
+    () => [
+      { id: 'about', label: getText('remote-about'), targetRef: dynamicScrollRef },
+      { id: 'projects', label: getText('remote-projects'), targetRef: projectsSectionRef },
+      { id: 'blog', label: getText('remote-blog'), targetRef: notionSectionRef }
+    ],
+    [lang, getText]
+  );
+
 
   const projects: Project[] = [
     {
@@ -56,314 +76,409 @@ const MainPage: React.FC = () => {
       details: {
         overview: getText('proj-1-overview'),
         features: [
-          getText('proj-1-feature-1'),
-          getText('proj-1-feature-2'),
-          getText('proj-1-feature-3'),
-          getText('proj-1-feature-4'),
-          getText('proj-1-feature-5'),
-          getText('proj-1-feature-6')
-        ],
-        challenges: getText('proj-1-challenge'),
+  {
+    title: getText('proj-1-feature-1'),
+    paraGraphs: [
+      getText('proj-1-feature-1-c1'),
+      getText('proj-1-feature-1-c2'),
+      getText('proj-1-feature-1-c3')
+    ],
+    pictures: [
+      'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-10+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+8.00.41.png',
+      'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-10+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+8.00.41.png',
+    ],
+  },
+
+  {
+    title: getText('proj-1-feature-2'),
+    paraGraphs: [
+      getText('proj-1-feature-2-c1'),
+      getText('proj-1-feature-2-c2'),
+      getText('proj-1-feature-2-c3'),
+      getText('proj-1-feature-2-c4')
+    ],
+    pictures: [
+      'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/%E1%84%89%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-10+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+8.06.26.png'
+    ],
+    notionBlog: ''
+  },
+
+  {
+    title: getText('proj-1-feature-3'),
+    paraGraphs: [
+      getText('proj-1-feature-3-c1'),
+      getText('proj-1-feature-3-c2'),
+      getText('proj-1-feature-3-c3')
+    ],
+    pictures: [
+      'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-10+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+8.06.33.png'
+    ],
+    notionBlog: ''
+  },
+
+  {
+    title: getText('proj-1-feature-4'),
+    paraGraphs: [
+      getText('proj-1-feature-4-c1'),
+      getText('proj-1-feature-4-c2')
+    ],
+    pictures: [
+      'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-10+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+8.06.26.png'
+    ],
+    notionBlog: ''
+  },
+
+  {
+    title: getText('proj-1-feature-5'),
+    paraGraphs: [
+      getText('proj-1-feature-5-c1'),
+      getText('proj-1-feature-5-c2')
+    ],
+    pictures: [
+      'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-10+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+8.00.41.png'
+    ],
+    notionBlog: 'https://www.notion.so/2c47855813648054bf68fef70b4bcaa6?source=copy_link'
+  },
+
+  {
+    title: getText('proj-1-feature-6'),
+    paraGraphs: [
+      getText('proj-1-feature-6-c1'),
+      getText('proj-1-feature-6-c2'),
+      getText('proj-1-feature-6-c3')
+    ],
+    pictures: [
+      'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/%E1%84%89%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-10+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+8.06.33.png'
+    ],
+    notionBlog: ''
+  },
+   {
+    title: getText('proj-1-feature-7'),
+    paraGraphs: [
+      getText('proj-1-feature-7-c1'),
+      getText('proj-1-feature-7-c2'),
+      getText('proj-1-feature-7-c3')
+    ],
+    pictures: [
+      'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/%E1%84%89%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-10+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+8.06.33.png'
+    ],
+    notionBlog: ''
+   },
+   {
+    title: getText('proj-1-feature-8'),
+    paraGraphs: [
+      getText('proj-1-feature-8-c1'),
+      getText('proj-1-feature-8-c2'),
+      getText('proj-1-feature-8-c3')
+    ],
+    pictures: [
+      'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/%E1%84%89%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-10+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+8.06.33.png'
+    ],
+    notionBlog: 'https://www.notion.so/2c47855813648054bf68fef70b4bcaa6?source=copy_link'
+  }
+],
+
+        challenges:[{title: getText('proj-1-challenge'), paraGraphs: [getText('proj-1-feature-1')], pictures: ['https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-10+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+8.00.41.png']}],
         solutions: getText('proj-1-solution'),
         numberOfDevelopers: 2,
         role: getText('proj-1-role')
       }
     },
-    {
-      id: 2,
-      title: getText('proj-2-title'),
-      description: getText('proj-2-desc'),
-      shortDescription: getText('proj-2-short'),
-      image: 'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/runscreen.png',
-      images: [
-        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.11.28.png',
-        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/IMG_5834.PNG',
-        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/IMG_5835.PNG'
-      ],
-      tech: ['Python', 'Movie.py', 'Aws Lamda', 'Aws S3'],
-      featured: false,
-      github: 'https://github.com/jacoong/footballApi/tree/master',
-      demo: 'https://www.youtube.com/shorts/br4ZXMDxF1o',
-      category: 'main' as const,
-      status: 'completed' as const,
-      createdAt: '2023-12-15',
-      details: {
-        overview: getText('proj-2-overview'),
-        features: [
-          getText('proj-2-feature-1'),
-          getText('proj-2-feature-2'),
-          getText('proj-2-feature-3'),
-          getText('proj-2-feature-4'),
-          getText('proj-2-feature-5'),
-          getText('proj-2-feature-6'),
-          getText('proj-2-feature-7'),
-        ],
-        challenges: getText('proj-2-challenge'),
-        solutions: getText('proj-2-solution'),
-        numberOfDevelopers: 1,
-        role: getText('proj-2-role')
-      }
-    },
-    {
-      id: 3,
-      title: getText('proj-3-title'),
-      description: getText('proj-3-desc'),
-      shortDescription: getText('proj-3-short'),
-      image: 'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/calender+Project/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-24+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+7.06.11.png',
-      images: [
-        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/calender+Project/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-24+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+7.06.06.png',
-        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/calender+Project/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-24+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+7.06.11.png'
-      ],
-      tech: ['React', 'TypeScript','TypeScript', 'Spring Boot', 'Open Ai Api'],
-      featured: true,
-      github: 'https://github.com/jacoong/calanderFront/tree/master',
-      demo: '/welcome',
-      category: 'main' as const,
-      status: 'in-progress' as const,
-      createdAt: '2024-01-01',
-      details: {
-        overview: getText('proj-3-overview'),
-        features: [
-          getText('proj-3-feature-1'),
-          getText('proj-3-feature-2'),
-          getText('proj-3-feature-3'),
-          getText('proj-3-feature-4'),
-          getText('proj-3-feature-5'),
-          getText('proj-3-feature-6'),
-        ],
-        challenges: getText('proj-3-challenge'),
-        solutions: getText('proj-3-solution'),
-        numberOfDevelopers: 1,
-        role: getText('proj-3-role')
-      }
-    },
-    {
-      id: 4,
-      title: getText('proj-4-title'),
-      description: getText('proj-4-desc'),
-      shortDescription: getText('proj-4-short'),
-      image: 'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/python_webscrapper/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.09.51.png',
-      images: [
-        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/python_webscrapper/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.09.51.png',
-        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/python_webscrapper/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.10.26.png',
-      ],
-      tech: ['python', 'flask', 'selenium', 'beautifulsoup4', 'requests', 'render', 'html5lib', 'webdriver-manager'],
-      featured: true,
-      github: 'https://github.com/jacoong/The-web-scrapper',
-      demo: 'https://job-scraper-demo.onrender.com',
-      category: 'side' as const,
-      status: 'completed' as const,
-      createdAt: '2025-09-12',
-      details: {
-        overview: getText('proj-4-overview'),
-        features: [
-          getText('proj-4-feature-1'),
-          getText('proj-4-feature-2'),
-          getText('proj-4-feature-3'),
-          getText('proj-4-feature-4'),
-          getText('proj-4-feature-5'),
-          getText('proj-4-feature-6'),
-          getText('proj-4-feature-7'),
-          getText('proj-4-feature-8'),
-          getText('proj-4-feature-9'),
-          getText('proj-4-feature-10'),
-        ],
-        challenges: getText('proj-4-challenge'),
-        solutions: getText('proj-4-solution'),
-        numberOfDevelopers: 1,
-        role: getText('proj-4-role')
-      }
-    },
-    {
-      id: 5,
-      title: getText('proj-5-title'),
-      description: getText('proj-5-desc'),
-      shortDescription: getText('proj-5-short'),
-      image: 'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/chord/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.18.44.png',
-      images: [
-        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/chord/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.18.44.png',
-        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/chord/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.19.13.png',
-        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/chord/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.18.56.png'
-      ],
-      tech: ['HTML5', 'CSS3', 'JavaScript ES6+', 'Web Speech API', 'Local Storage'],
-      featured: false,
-      github: 'https://github.com/jacoong/random-chord',
-      demo: 'https://random-chord-practice.netlify.app',
-      category: 'latest' as const,
-      status: 'completed' as const,
-      createdAt: '2024-01-15',
-      details: {
-        overview: getText('proj-5-overview'),
-        features: [
-          getText('proj-5-feature-1'),
-          getText('proj-5-feature-2'),
-          getText('proj-5-feature-3'),
-          getText('proj-5-feature-4'),
-          getText('proj-5-feature-5'),
-          getText('proj-5-feature-6'),
-          getText('proj-5-feature-7'),
-          getText('proj-5-feature-8'),
-          getText('proj-5-feature-9'),
-          getText('proj-5-feature-10'),
-        ],
-        challenges: getText('proj-5-challenge'),
-        solutions: getText('proj-5-solution'),
-        numberOfDevelopers: 1,
-        role: getText('proj-5-role')
-      }
-    },
-    {
-      id: 6,
-      title: getText('proj-6-title'),
-      description: getText('proj-6-desc'),
-      shortDescription: getText('proj-6-short'),
-      image: "https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/The_Area/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.19.26.png",
-      images: ["https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/The_Area/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.20.08.png","https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/The_Area/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.49.30.png",
-        "https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/The_Area/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.20.17.png"
-      ],
-      tech: ["React", "JavaScript", "CSS3", "HTML5", "React Router"],
-      featured: true,
-      github: "https://github.com/jacoong/The-Area",
-      demo: "https://jacoong.github.io/The-Area/",
-      category: "main" as const,
-      status: "completed" as const,
-      createdAt: "2024-02-01",
-      details: {
-        overview: getText('proj-6-overview'),
-        features: [
-          getText('proj-6-feature-1'),
-          getText('proj-6-feature-2'),
-          getText('proj-6-feature-3'),
-          getText('proj-6-feature-4'),
-          getText('proj-6-feature-5'),
-          getText('proj-6-feature-6'),
-        ],
-        challenges: getText('proj-6-challenge'),
-        solutions: getText('proj-6-solution'),
-        numberOfDevelopers: 1,
-        role: getText('proj-6-role')
-      }
-    },
-    {
-      id: 7,
-      title: getText('proj-7-title'),
-      description: getText('proj-7-desc'),
-      shortDescription: getText('proj-7-short'),
-      image: 'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/cocoatalk/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.51.44.png',
-      images: [
-      'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/cocoatalk/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.51.44.png',
-      'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/cocoatalk/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.52.03.png',
-      'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/cocoatalk/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.52.16.png',
-      'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/cocoatalk/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.52.20.png',
-      'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/cocoatalk/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.52.25.png'
-      ],
-      tech: ['HTML5', 'CSS3', 'JavaScript', 'Font Awesome', 'Google Fonts'],
-      featured: false,
-      github: 'https://github.com/jacoong/cocoa-talk',
-      demo: 'https://cocoatalkproject.netlify.app/',
-      category: 'side' as const,
-      status: 'completed' as const,
-      createdAt: '2024-01-15',
-      details: {
-        overview: getText('proj-7-overview'),
-        features: [
-          getText('proj-7-feature-1'),
-          getText('proj-7-feature-2'),
-          getText('proj-7-feature-3'),
-          getText('proj-7-feature-4'),
-          getText('proj-7-feature-5'),
-          getText('proj-7-feature-6'),
-          getText('proj-7-feature-7'),
-          getText('proj-7-feature-8'),
-          getText('proj-7-feature-9'),
-        ],
-        challenges: getText('proj-7-challenge'),
-        solutions: getText('proj-7-solution'),
-        numberOfDevelopers: 1,
-        role: getText('proj-7-role')
-      }
-    },
-    {
-      id: 8,
-      title: getText('proj-8-title'),
-      description: getText('proj-8-desc'),
-      shortDescription: getText('proj-8-short'),
-      image: 'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/js_vanilla_project/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.59.05.png',
-      images: [
-        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/js_vanilla_project/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.59.05.png',
-        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/js_vanilla_project/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.21.01.png',
-        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/js_vanilla_project/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.59.05.png',
-        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/js_vanilla_project/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.21.11.png'
-      ],
-      tech: ['HTML5', 'CSS3', 'JavaScript ES6+', 'Geolocation API', 'OpenWeather API', 'YouTube API', 'Local Storage'],
-      featured: false,
-      github: 'https://github.com/jacoong/Js_vanilla_Project',
-      demo: 'https://momentum-dashboard-demo.netlify.app',
-      category: 'latest' as const,
-      status: 'completed' as const,
-      createdAt: '2024-02-10',
-      details: {
-        overview: getText('proj-8-overview'),
-        features: [
-          getText('proj-8-feature-1'),
-          getText('proj-8-feature-2'),
-          getText('proj-8-feature-3'),
-          getText('proj-8-feature-4'),
-          getText('proj-8-feature-5'),
-          getText('proj-8-feature-6'),
-          getText('proj-8-feature-7'),
-          getText('proj-8-feature-8'),
-          getText('proj-8-feature-9'),
-          getText('proj-8-feature-10'),
-          getText('proj-8-feature-11'),
-          getText('proj-8-feature-12'),
-          getText('proj-8-feature-13'),
-        ],
-        challenges: getText('proj-8-challenge'),
-        solutions: getText('proj-8-solution'),
-        numberOfDevelopers: 1,
-        role: getText('proj-8-role')
-      }
-    },
+    // {
+    //   id: 2,
+    //   title: getText('proj-2-title'),
+    //   description: getText('proj-2-desc'),
+    //   shortDescription: getText('proj-2-short'),
+    //   image: 'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/runscreen.png',
+    //   images: [
+    //     'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.11.28.png',
+    //     'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/IMG_5834.PNG',
+    //     'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/IMG_5835.PNG'
+    //   ],
+    //   tech: ['Python', 'Movie.py', 'Aws Lamda', 'Aws S3'],
+    //   featured: false,
+    //   github: 'https://github.com/jacoong/footballApi/tree/master',
+    //   demo: 'https://www.youtube.com/shorts/br4ZXMDxF1o',
+    //   category: 'main' as const,
+    //   status: 'completed' as const,
+    //   createdAt: '2023-12-15',
+    //   details: {
+    //     overview: getText('proj-2-overview'),
+    //     features: [
+    //       getText('proj-2-feature-1'),
+    //       getText('proj-2-feature-2'),
+    //       getText('proj-2-feature-3'),
+    //       getText('proj-2-feature-4'),
+    //       getText('proj-2-feature-5'),
+    //       getText('proj-2-feature-6'),
+    //       getText('proj-2-feature-7'),
+    //     ],
+    //     challenges: getText('proj-2-challenge'),
+    //     solutions: getText('proj-2-solution'),
+    //     numberOfDevelopers: 1,
+    //     role: getText('proj-2-role')
+    //   }
+    // },
+    // {
+    //   id: 3,
+    //   title: getText('proj-3-title'),
+    //   description: getText('proj-3-desc'),
+    //   shortDescription: getText('proj-3-short'),
+    //   image: 'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/calender+Project/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-24+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+7.06.11.png',
+    //   images: [
+    //     'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/calender+Project/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-24+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+7.06.06.png',
+    //     'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/calender+Project/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-24+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+7.06.11.png'
+    //   ],
+    //   tech: ['React', 'TypeScript','TypeScript', 'Spring Boot', 'Open Ai Api'],
+    //   featured: true,
+    //   github: 'https://github.com/jacoong/calanderFront/tree/master',
+    //   demo: '/welcome',
+    //   category: 'main' as const,
+    //   status: 'in-progress' as const,
+    //   createdAt: '2024-01-01',
+    //   details: {
+    //     overview: getText('proj-3-overview'),
+    //     features: [
+    //       getText('proj-3-feature-1'),
+    //       getText('proj-3-feature-2'),
+    //       getText('proj-3-feature-3'),
+    //       getText('proj-3-feature-4'),
+    //       getText('proj-3-feature-5'),
+    //       getText('proj-3-feature-6'),
+    //     ],
+    //     challenges: getText('proj-3-challenge'),
+    //     solutions: getText('proj-3-solution'),
+    //     numberOfDevelopers: 1,
+    //     role: getText('proj-3-role')
+    //   }
+    // },
+    // {
+    //   id: 4,
+    //   title: getText('proj-4-title'),
+    //   description: getText('proj-4-desc'),
+    //   shortDescription: getText('proj-4-short'),
+    //   image: 'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/python_webscrapper/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.09.51.png',
+    //   images: [
+    //     'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/python_webscrapper/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.09.51.png',
+    //     'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/python_webscrapper/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.10.26.png',
+    //   ],
+    //   tech: ['python', 'flask', 'selenium', 'beautifulsoup4', 'requests', 'render', 'html5lib', 'webdriver-manager'],
+    //   featured: true,
+    //   github: 'https://github.com/jacoong/The-web-scrapper',
+    //   demo: 'https://job-scraper-demo.onrender.com',
+    //   category: 'side' as const,
+    //   status: 'completed' as const,
+    //   createdAt: '2025-09-12',
+    //   details: {
+    //     overview: getText('proj-4-overview'),
+    //     features: [
+    //       getText('proj-4-feature-1'),
+    //       getText('proj-4-feature-2'),
+    //       getText('proj-4-feature-3'),
+    //       getText('proj-4-feature-4'),
+    //       getText('proj-4-feature-5'),
+    //       getText('proj-4-feature-6'),
+    //       getText('proj-4-feature-7'),
+    //       getText('proj-4-feature-8'),
+    //       getText('proj-4-feature-9'),
+    //       getText('proj-4-feature-10'),
+    //     ],
+    //     challenges: getText('proj-4-challenge'),
+    //     solutions: getText('proj-4-solution'),
+    //     numberOfDevelopers: 1,
+    //     role: getText('proj-4-role')
+    //   }
+    // },
+    // {
+    //   id: 5,
+    //   title: getText('proj-5-title'),
+    //   description: getText('proj-5-desc'),
+    //   shortDescription: getText('proj-5-short'),
+    //   image: 'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/chord/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.18.44.png',
+    //   images: [
+    //     'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/chord/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.18.44.png',
+    //     'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/chord/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.19.13.png',
+    //     'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/chord/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.18.56.png'
+    //   ],
+    //   tech: ['HTML5', 'CSS3', 'JavaScript ES6+', 'Web Speech API', 'Local Storage'],
+    //   featured: false,
+    //   github: 'https://github.com/jacoong/random-chord',
+    //   demo: 'https://random-chord-practice.netlify.app',
+    //   category: 'latest' as const,
+    //   status: 'completed' as const,
+    //   createdAt: '2024-01-15',
+    //   details: {
+    //     overview: getText('proj-5-overview'),
+    //     features: [
+    //       getText('proj-5-feature-1'),
+    //       getText('proj-5-feature-2'),
+    //       getText('proj-5-feature-3'),
+    //       getText('proj-5-feature-4'),
+    //       getText('proj-5-feature-5'),
+    //       getText('proj-5-feature-6'),
+    //       getText('proj-5-feature-7'),
+    //       getText('proj-5-feature-8'),
+    //       getText('proj-5-feature-9'),
+    //       getText('proj-5-feature-10'),
+    //     ],
+    //     challenges: getText('proj-5-challenge'),
+    //     solutions: getText('proj-5-solution'),
+    //     numberOfDevelopers: 1,
+    //     role: getText('proj-5-role')
+    //   }
+    // },
+    // {
+    //   id: 6,
+    //   title: getText('proj-6-title'),
+    //   description: getText('proj-6-desc'),
+    //   shortDescription: getText('proj-6-short'),
+    //   image: "https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/The_Area/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.19.26.png",
+    //   images: ["https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/The_Area/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.20.08.png","https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/The_Area/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.49.30.png",
+    //     "https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/The_Area/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.20.17.png"
+    //   ],
+    //   tech: ["React", "JavaScript", "CSS3", "HTML5", "React Router"],
+    //   featured: true,
+    //   github: "https://github.com/jacoong/The-Area",
+    //   demo: "https://jacoong.github.io/The-Area/",
+    //   category: "main" as const,
+    //   status: "completed" as const,
+    //   createdAt: "2024-02-01",
+    //   details: {
+    //     overview: getText('proj-6-overview'),
+    //     features: [
+    //       getText('proj-6-feature-1'),
+    //       getText('proj-6-feature-2'),
+    //       getText('proj-6-feature-3'),
+    //       getText('proj-6-feature-4'),
+    //       getText('proj-6-feature-5'),
+    //       getText('proj-6-feature-6'),
+    //     ],
+    //     challenges: getText('proj-6-challenge'),
+    //     solutions: getText('proj-6-solution'),
+    //     numberOfDevelopers: 1,
+    //     role: getText('proj-6-role')
+    //   }
+    // },
+    // {
+    //   id: 7,
+    //   title: getText('proj-7-title'),
+    //   description: getText('proj-7-desc'),
+    //   shortDescription: getText('proj-7-short'),
+    //   image: 'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/cocoatalk/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.51.44.png',
+    //   images: [
+    //   'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/cocoatalk/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.51.44.png',
+    //   'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/cocoatalk/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.52.03.png',
+    //   'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/cocoatalk/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.52.16.png',
+    //   'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/cocoatalk/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.52.20.png',
+    //   'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/cocoatalk/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.52.25.png'
+    //   ],
+    //   tech: ['HTML5', 'CSS3', 'JavaScript', 'Font Awesome', 'Google Fonts'],
+    //   featured: false,
+    //   github: 'https://github.com/jacoong/cocoa-talk',
+    //   demo: 'https://cocoatalkproject.netlify.app/',
+    //   category: 'side' as const,
+    //   status: 'completed' as const,
+    //   createdAt: '2024-01-15',
+    //   details: {
+    //     overview: getText('proj-7-overview'),
+    //     features: [
+    //       getText('proj-7-feature-1'),
+    //       getText('proj-7-feature-2'),
+    //       getText('proj-7-feature-3'),
+    //       getText('proj-7-feature-4'),
+    //       getText('proj-7-feature-5'),
+    //       getText('proj-7-feature-6'),
+    //       getText('proj-7-feature-7'),
+    //       getText('proj-7-feature-8'),
+    //       getText('proj-7-feature-9'),
+    //     ],
+    //     challenges: getText('proj-7-challenge'),
+    //     solutions: getText('proj-7-solution'),
+    //     numberOfDevelopers: 1,
+    //     role: getText('proj-7-role')
+    //   }
+    // },
+    // {
+    //   id: 8,
+    //   title: getText('proj-8-title'),
+    //   description: getText('proj-8-desc'),
+    //   shortDescription: getText('proj-8-short'),
+    //   image: 'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/js_vanilla_project/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.59.05.png',
+    //   images: [
+    //     'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/js_vanilla_project/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.59.05.png',
+    //     'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/js_vanilla_project/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.21.01.png',
+    //     'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/js_vanilla_project/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.59.05.png',
+    //     'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/js_vanilla_project/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.21.11.png'
+    //   ],
+    //   tech: ['HTML5', 'CSS3', 'JavaScript ES6+', 'Geolocation API', 'OpenWeather API', 'YouTube API', 'Local Storage'],
+    //   featured: false,
+    //   github: 'https://github.com/jacoong/Js_vanilla_Project',
+    //   demo: 'https://momentum-dashboard-demo.netlify.app',
+    //   category: 'latest' as const,
+    //   status: 'completed' as const,
+    //   createdAt: '2024-02-10',
+    //   details: {
+    //     overview: getText('proj-8-overview'),
+    //     features: [
+    //       getText('proj-8-feature-1'),
+    //       getText('proj-8-feature-2'),
+    //       getText('proj-8-feature-3'),
+    //       getText('proj-8-feature-4'),
+    //       getText('proj-8-feature-5'),
+    //       getText('proj-8-feature-6'),
+    //       getText('proj-8-feature-7'),
+    //       getText('proj-8-feature-8'),
+    //       getText('proj-8-feature-9'),
+    //       getText('proj-8-feature-10'),
+    //       getText('proj-8-feature-11'),
+    //       getText('proj-8-feature-12'),
+    //       getText('proj-8-feature-13'),
+    //     ],
+    //     challenges: getText('proj-8-challenge'),
+    //     solutions: getText('proj-8-solution'),
+    //     numberOfDevelopers: 1,
+    //     role: getText('proj-8-role')
+    //   }
+    // },
   
-    {
-      id: 9,
-      title: getText('proj-9-title'),
-      description: getText('proj-9-desc'),
-      shortDescription: getText('proj-9-short'),
-      image:  'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/camping/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+5.33.32.png',
-      images: [
-        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/camping/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+5.39.03.png',
-        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/camping/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+5.33.32.png',
-        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/camping/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+5.33.19.png',
-        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/camping/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+5.33.03.png'
-      ],
-      tech: ['Node.js', 'Express.js', 'MongoDB', 'Mongoose', 'EJS', 'Bootstrap 5', 'Passport.js', 'Joi'],
-      featured: false,
-      github: 'https://github.com/jacoong/camping',
-      demo: '/welcome',
-      category: 'side' as const,
-      status: 'completed' as const,
-      createdAt: '2024-01-15',
-      details: {
-        overview: getText('proj-9-overview'),
-        features: [
-          getText('proj-9-feature-1'),
-          getText('proj-9-feature-2'),
-          getText('proj-9-feature-3'),
-          getText('proj-9-feature-4'),
-          getText('proj-9-feature-5'),
-          getText('proj-9-feature-6'),
-          getText('proj-9-feature-7'),
-          getText('proj-9-feature-8'),
-          getText('proj-9-feature-9'),
-        ],
-        challenges: getText('proj-9-challenge'),
-        solutions: getText('proj-9-solution'),
-        numberOfDevelopers: 1,
-        role: getText('proj-9-role')
-      }
-    }
+    // {
+    //   id: 9,
+    //   title: getText('proj-9-title'),
+    //   description: getText('proj-9-desc'),
+    //   shortDescription: getText('proj-9-short'),
+    //   image:  'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/camping/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+5.33.32.png',
+    //   images: [
+    //     'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/camping/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+5.39.03.png',
+    //     'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/camping/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+5.33.32.png',
+    //     'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/camping/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+5.33.19.png',
+    //     'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/camping/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+5.33.03.png'
+    //   ],
+    //   tech: ['Node.js', 'Express.js', 'MongoDB', 'Mongoose', 'EJS', 'Bootstrap 5', 'Passport.js', 'Joi'],
+    //   featured: false,
+    //   github: 'https://github.com/jacoong/camping',
+    //   demo: '/welcome',
+    //   category: 'side' as const,
+    //   status: 'completed' as const,
+    //   createdAt: '2024-01-15',
+    //   details: {
+    //     overview: getText('proj-9-overview'),
+    //     features: [
+    //       getText('proj-9-feature-1'),
+    //       getText('proj-9-feature-2'),
+    //       getText('proj-9-feature-3'),
+    //       getText('proj-9-feature-4'),
+    //       getText('proj-9-feature-5'),
+    //       getText('proj-9-feature-6'),
+    //       getText('proj-9-feature-7'),
+    //       getText('proj-9-feature-8'),
+    //       getText('proj-9-feature-9'),
+    //     ],
+    //     challenges: getText('proj-9-challenge'),
+    //     solutions: getText('proj-9-solution'),
+    //     numberOfDevelopers: 1,
+    //     role: getText('proj-9-role')
+    //   }
+    // }
   
   ];
 
@@ -426,8 +541,27 @@ const MainPage: React.FC = () => {
 
           <h1 className="responsive-h2 font-bold mb-10">{getText('DES-0')}</h1>
           <p className="responsive-h3 concept-text-secondary">Frontend Developer</p>
-          <p className="responsive-text concept-text-secondary mt-4 max-w-2xl mx-auto px-4">
+          <p className="responsive-text concept-text-primary-light mt-4 max-w-2xl mx-auto px-4">
+            <div className='mb-1'>
             {getText('m-1')}
+            </div>
+            <div className='mb-3'>
+            {getText('m-1-1')}
+            </div>
+       
+                      <div className='mb-1'> 
+            <a
+              href="https://www.notion.so/Develop-Study-20f7855813648074a045e45a47d744be?source=copy_link"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 font-semibold underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-400 rounded-sm"
+            >
+              Notion
+            </a>{' '}
+
+              {getText('m-1-2')}
+            </div>
+            {getText('m-1-3')}
           </p>
 
           <p className="responsive-text concept-text-secondary mt-4 max-w-2xl mx-auto px-4">
@@ -694,6 +828,7 @@ const MainPage: React.FC = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-8 sm:mb-16 px-4"
         >
+            <RemoteBar sections={remoteSections} onNavigate={scrollToSection} />
             <div className='h-screen flex flex-col justify-center items-center'>
               <div className='flex flex-col items-center justify-center '>
                 <h1 className="font-bold responsive-h1 concept-text-primary mb-4 text-center">
@@ -717,10 +852,31 @@ const MainPage: React.FC = () => {
               </div>
               <div>
               <h1 className="responsive-h1 font-bold concept-text-primary mb-4">
-                    {getText('m-0-0')}
+                    {getText('m-0-0')} 
               </h1>
               </div>
-              <div className="flex py-6 sm:py-10 flex-col sm:flex-row gap-4 items-center justify-center">
+
+              <div className="flex flex-col items-center gap-4 py-6 sm:py-10">
+                <div className="flex flex-wrap items-center justify-center gap-3">
+                  <motion.button
+                    type="button"
+                    onClick={() => scrollToSection(projectsSectionRef)}
+                    whileHover={{ scale: 1.05, boxShadow: '0 20px 45px rgba(59, 130, 246, 0.35)' }}
+                    whileTap={{ scale: 0.97 }}
+                    className="px-6 py-3 rounded-full concept-gradient-primary text-white font-semibold shadow-lg transition-all duration-300 text-sm sm:text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-400"
+                  >
+                    {getText('hero-project-button')}
+                  </motion.button>
+                  <motion.button
+                    type="button"
+                    onClick={() => scrollToSection(notionSectionRef)}
+                    whileHover={{ y: -4, boxShadow: '0 18px 30px rgba(15, 23, 42, 0.2)' }}
+                    whileTap={{ scale: 0.98 }}
+                    className="px-6 py-3 rounded-full concept-card concept-text-primary font-semibold shadow-lg transition-all duration-300 text-sm sm:text-base border border-transparent hover:border-blue-300 hover:bg-white/60 dark:hover:bg-gray-800/70 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-300"
+                  >
+                    {getText('hero-notion-button')}
+                  </motion.button>
+                </div>
                 <SwipeButton
                   onSwipeComplete={() => {
                   
@@ -753,11 +909,11 @@ const MainPage: React.FC = () => {
         </section>
 
         {/* Projects Section */}
-        <section className="py-16 mx-auto w-[95%]">
+        <section className="py-16 mx-auto w-[95%]" ref={projectsSectionRef}>
           <ProjectsSection projects={projects} />
         </section>
 
-        <section className="py-16 mx-auto w-[90%]">
+        <section className="py-16 mx-auto w-[90%]" ref={notionSectionRef}>
             <BlogSection blogs={blogs}/>
         </section>
 

@@ -6,7 +6,7 @@ interface LanguageContextType {
   language: string;
   setLang: (lang: string) => void;
   countries: string[];
-  getText: (key: string) => string;
+  getText: <T = string>(key: string) => T;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
@@ -66,17 +66,18 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
     }
   };
 
-  const getText = (key: string): string => {
+  const getText = <T = string>(key: string): T => {
     const currentLang = LanguagePack[lang as keyof typeof LanguagePack];
     if (currentLang && key in currentLang) {
-      return currentLang[key as keyof typeof currentLang];
+      return currentLang[key as keyof typeof currentLang] as T;
     }
-    // Fallback to English
     if (key in LanguagePack.en) {
-      return LanguagePack.en[key as keyof typeof LanguagePack.en];
+      return LanguagePack.en[key as keyof typeof LanguagePack.en] as T;
     }
-    // If key doesn't exist, return the key itself
-    return key;
+    if (key in LanguagePack.ko) {
+      return LanguagePack.ko[key as keyof typeof LanguagePack.ko] as T;
+    }
+    return key as T;
   };
 
   return (
