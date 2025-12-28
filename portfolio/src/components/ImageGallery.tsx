@@ -30,7 +30,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
   };
 
   return (
-    <div className={`relative mb-8 ${heightClassName} ${className}`}>
+    <div className={`relative ${heightClassName} ${className}`}>
       <div className="relative h-full rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-800">
         {hasImages ? (
           <img

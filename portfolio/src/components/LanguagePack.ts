@@ -1287,8 +1287,8 @@ const LanguagePack = {
     'pd-7': '기술 스택',
     'pd-8': '프로젝트 개요',
     'pd-9': '주요 기능',
-    'pd-10': '도전 과제',
-    'pd-11': '해결 방법',
+    'pd-10': '도전부터 => ',
+    'pd-11': '해결까지',
     
     // Project Badge Labels
     'badge-main': '메인 프로젝트',
@@ -1404,7 +1404,40 @@ const LanguagePack = {
     'proj-1-feature-8-c1':'url 에 있는 댓글 대댓글 ID 의 유무로 단순 게시글인지, 댓글,대댓글 여부로 동작 확인, 서버에서 댓글이 속한 페이지의 번호 APi로 받아온후에 해당 페이지를 요청',
     'proj-1-feature-8-c3':'대댓글의 댓글 대댓글 속한 페이지값 각각 받아온후 경우 해당 댓글의 위치로 스크롤, nestPageNumber의 응답을 기반으로한 대댓글 페이지 로드, expand() , 대댓글 스크롤의 중첩 스크롤 이동 처리 구현 ',
 
-    'proj-1-challenge': '낙관적 업데이트와 데이터 동기화 / 백엔드와의 협업',
+    'proj-1-feature-9': 'skeleton 과 loading 을 적절히 활용하여 유저 친화적인 사이트 구현',
+    'proj-1-feature-9-c1':'react-loading-skeleton 패키지를 사용하여 react skeleton compoent 를 만들고 useQuery 의 isLoading, isFetching 상태에 따라 조건부 렌더링 처리',
+  
+
+    'proj-1-feature-10': '커스텀 다크/일반 모드 구현',
+    'proj-1-feature-10-c1':'ThemeContext로 isDark 상태를 전역 관리',
+    'proj-1-feature-10-c2':'ThemeColor로 색상 토큰을 전역적으로 관리하여, 색상 변경이 필요시 한 파일에서 수정가능하게 구현',
+    'proj-1-feature-10-c3':'isDark 를 컴포넌트로 받는 함수를 작성하여, 조건부 스타일링 값을 리턴하는 함수를 작성하여, 각 컴포넌트에서 일관된 다크모드 스타일링 적용',
+
+
+    'proj-1-challenge-1': '낙천적 업데이트로 포스트 생성이후 해당 포스트의 id 가 할당되지 않아 오류가 생겼던 문제',
+    'proj-1-challenge-1-c1': '기존 코드에서는 게시물을 생성하였을때, 게시물 생성정보를 가지고 가상의 포스트를 만들어 쿼리데이터에 할당하는 식으로 구현',
+    'proj-1-challenge-1-c2': '가상의 포스트는 편집이나 좋아요시 서버로부터 할당받은 id 가 없기 때문에, 포스트를 수정하는점에 있어 오류가 발생하는 문제점이 있었음 또한 서버에서도 게시글 생성시에 할당된 id를 리턴하지 않았으므로 전체 게시글에 한하여 fetch하지 않으면 게시글 수정이 불가하였다',
+    'proj-1-challenge-1-c3': '따라서 서버의 response 에서 id 를 포함한 전체 게시물 정보를 리턴하도록 백엔드와 협의 후에, 포스트 생성에 한하여 낙천적 업데이트를 제거하고, flashMessage 로 pending중에 로딩을 보여주고 성공시에 기존에 가진 게시물 생성 데이터에 서버로부터 받아온 게시물 id 를 교체함으로서 전체 게시물 Api 요청을 최소화하는 경험을 함',
+
+
+    'proj-1-challenge-3': '활동 페이지에서 유저 멘션이나, 언급 댓글로 이동하는 과정에서 기존의 infinity scroll 컴포넌트 구조의 한계로 개편을 해야하였던 문제',
+    'proj-1-challenge-3-c1': '메인 페이지에서 게시물을 랜더링하거나, 댓글을 로드하는 등의 과정에서는 pageNumber가 0부터 시작하므로, 큰 문제가 없었으나, 이후에 특정 page로부터 댓글을 로드하거나, 특정 유저의 활동 페이지로 이동하는 과정에서 기존의 infinity scroll 컴포넌트 구조에서는 pageNumber를 0부터 시작하는 구조로 설계되어있었으므로, 특정 페이지로 이동하는것이 불가능한 구조였음',
+    'proj-1-challenge-3-c2': '또한 기존에는 특정 target 이 뷰포인트에 올라오면 감지하는 intersection observer 를 활용하여 무한스크롤을 구현하였으나, 특정 상황에서는 이전 댓글 보기, 이후 댓글 등의 버튼을 활용하여 페이징을 요청하는 경우라던가, 이전 댓글이 존재하는지, 이후 댓글이 존재하는지 여부도 프론트입장에서는 알수없었음',
+    'proj-1-challenge-3-c3': '이때 서비스 설계할떄 미래의 리소스를 줄이기 위한 방법으로, 치밀한 설계과정의 중요성을 한번더 경험하는 과정이었음, 따라서 먼저 pagenationPage 라는 proops를 추가하여 initeScroll, loadMore,pageNumbers 로 나누어 intersection observer 인경우, 양방향성 스크롤, 버튼을 활용한 로드방식으로 타입을 나누었고, initialPage props을 추가하여 pageNumber 를 받아 해당 페이지부터 로드하는 기능을 구현하였다',
+    'proj-1-challenge-3-c4': '기존 서버에서 받아오는 responsed 를 전편하여, 기존에는 데이터의 pages 만 받아왓다면, 개편이후 추가적으로  현재 page 값, hasNext, hasPrev 로 이전 이후의 유무를 boolean 방식으로 받아와, 이전 이후 불러오기의 유무를 알수 있게 되었다',
+
+    'proj-1-challenge-2': 'SSE 로 받아온 실시간 알림 데이터 클릭시 해당 댓글/ 대댓글로 자동 스크롤 이동 구현의 난제',
+    'proj-1-challenge-2-c1': '실시간 알림으로 받아온 URL 에서 댓글/대댓글 ID 를 파싱하여 해당 댓글이 속한 페이지 번호를 서버로부터 받아오는 과정에서, 댓글이 속한 페이지 번호를 받아오는 Api 가 존재하지 않아, 백엔드와 협의하여 새로운 Api 를 설계하고 구현하는 과정을 겪음',
+    'proj-1-challenge-2-c2': '이후에 해당 페이지를 로드한 이후에, 댓글/대댓글의 실제 Y 좌표를 획득하는 과정에서, React Native 의 onLayout 이벤트를 활용하여 해결함으로서, 댓글 대댓글로의 스크롤 이동을 완성할수 있었음',
+
+
+    'proj-1-challenge-4': '댓글 볼러오기와 접기 등의 개념의 추가된 대댓글을 기존 PageNation 에 포함시키는것에 대한 어려움',
+    'proj-1-challenge-4-c1': '기존의 PageNation 구조에서는 PageNation type 에 따른 커스텀은 가능하였으나(loadmore, infinity scroll, 양방향 스크롤 등), 받아온 배열 data 값을 바로 map 으로 알맞는 커스텀 컴포넌트로 랜더링 하는 방식이엇으므로, 대댓글의 전부로드후에 접기기능, 대댓글을 로드하는데 필요한 댓글 id 등의 값의 스펙을 전부 포함시키자니, 하나의 파일이 방재해 질것을 우려하였음 ',
+    'proj-1-challenge-4-c2': 'PageNation 구조로 받아온 데이터로 랜덜이한 댓글 컴포넌트에서 대댓글의 수가 0보다 큰경우에 분리한 대댓글용 PageNation 컴포넌트를 랜더링 하도록 구현함으로서, 기존의 PageNation 구조를 해치지 않고 대댓글의 전부로드, 접기 기능을 구현할수 있었음',
+    'proj-1-challenge-4-c3': '하나의 컴포넌트로 모든 기능을 커버하려고 하면, 코드가 복잡해지고 유지보수가 어려워질 수 있다는 점과, 오시려 기존에 작성하였던 규칙들 안에서 추가 구현해야하므로 자체적인 제약 안에서 한다는 점을 다시한번 깨닫게 되었음',
+
+
+
     'proj-1-solution-1': 'React-query를 활용하여 네트워크 오류시 전의 쿼리를 가져와 동기화',
     'proj-1-solution-2': '정규표현식을 활용하여 구현, React Router Dom을 활용하여 페이지 이동 구현',
     'proj-1-solution-3': 'Axios Interceptor를 활용하여 401 에러시 Refresh Token 재요청 구현',

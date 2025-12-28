@@ -56,7 +56,7 @@ const ProjectDetailModal: React.FC = () => {
                     <ImageGallery
                       images={selectedProject.images}
                       title={selectedProject.title}
-                      heightClassName="h-[850px] md:h-[500px]"
+                      heightClassName="h-[300px] md:h-[500px]"
                       className="mb-0"
                     />
                     <div className="flex flex-col justify-between mt-6 md:mt-0 space-y-1">
@@ -124,7 +124,7 @@ const ProjectDetailModal: React.FC = () => {
                     <div className="lg:col-span-2 space-y-8">
                       {/* Overview */}
                       <div>
-                        <h3 className="font-bold  text-gray-900 dark:text-white mb-4 flex items-center">
+                        <h3 className="mt-6 font-bold  text-gray-900 dark:text-white mb-4 flex items-center">
                           <Code className="h-6 w-6 mr-2 text-blue-500" />
                           {getText('pd-8')}
                         </h3>
@@ -158,27 +158,21 @@ const ProjectDetailModal: React.FC = () => {
                         <div>
                           <h3 className="font-bold text-gray-900 dark:text-white mb-3 flex items-center">
                             <Lightbulb className="h-5 w-5 mr-2 text-yellow-500" />
-                            {getText('pd-10')}
-                          </h3>
-                          <div className="space-y-4">
-                            {selectedProject.details.challenges.map((challenge, index) => (
-                              <ProjectDetailCard
-                                key={`${challenge.title}-${index}`}
-                                title={challenge.title}
-                                paraGraphs={challenge.paraGraphs}
-                                pictures={challenge.pictures}
-                              />
-                            ))}
-                          </div>
-                        </div>
-                        <div>
-                          <h3 className="font-bold text-gray-900 dark:text-white mb-3 flex items-center">
+                            {getText('pd-10')}       
                             <CheckCircle className="h-5 w-5 mr-2 text-green-500" />
                             {getText('pd-11')}
                           </h3>
-                          <p className="text-gray-600 dark:text-gray-300 responsive-text">
-                            {selectedProject.details.solutions}
-                          </p>
+                          <div className="space-y-4">
+                            {selectedProject.details.challenges.map((challenge, index) => (
+                                <ProjectDetailCard
+                              key={`${challenge.title}-${index}`}
+                              title={challenge.title}
+                              paraGraphs={challenge.paraGraphs}
+                              pictures={challenge.pictures}
+                              notionBlog={challenge.notionBlog}
+                            />
+                            ))}
+                          </div>
                         </div>
                       </div>
                     </div>
