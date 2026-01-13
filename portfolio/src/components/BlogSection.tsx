@@ -6,7 +6,9 @@ import { useLanguage } from '../contexts/LanguageContext';
 
 const BlogSection: React.FC<{ blogs: Blog[] }> = ({ blogs }) => {
     const { getText } = useLanguage();
-    
+    const orderedBlogs = [...blogs].sort(
+        (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+    );
     return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Section Header */}
@@ -37,14 +39,14 @@ const BlogSection: React.FC<{ blogs: Blog[] }> = ({ blogs }) => {
 
 
             {/* Blog Grid */}
-            <div className="grid grid-cols-1 gap-8">
-                {blogs.map((blog, index) => (
+            <div className="grid- grid-cols-1 gap-8">
+                {orderedBlogs.map((blog, index) => (
                     <motion.article
                         key={blog.id}
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
-                        className="h-96 flex flex-col sm:flex-row sm:h-80 group concept-card rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 concept-interactive-hover"
+                        className="h-96 mb-6 flex flex-col sm:flex-row sm:h-80 group concept-card rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 concept-interactive-hover"
                     >
                         {/* Blog Image */}
                         <div className="relative overflow-hidden h-64 w-full sm:h-full sm:w-1/3">

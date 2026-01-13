@@ -78,7 +78,7 @@ const DynamicEntireScroll: React.FC<DynamicEntireScrollProps> = ({
     
     const scrollTop = getSectionScrollTop(index);
     
-    console.log('Dot clicked - Section:', index, 'ScrollTop:', scrollTop, 'TargetRef offsetTop:', targetRef?.current?.offsetTop);
+   
     
     window.scrollTo({
       top: scrollTop,
@@ -87,7 +87,7 @@ const DynamicEntireScroll: React.FC<DynamicEntireScrollProps> = ({
   }, [getSectionScrollTop, targetRef]);
 
   useEffect(() => {
-    console.log('DynamicEntireScroll: Setting up scroll listener for', sections.length, 'sections');
+    
     
     // 초기화 지연
     const initTimer = setTimeout(() => {
@@ -108,7 +108,6 @@ const DynamicEntireScroll: React.FC<DynamicEntireScrollProps> = ({
       const newActiveSection = getActiveSectionFromScroll();
       
       if (newActiveSection >= 0) {
-        console.log('Scroll-based section change:', newActiveSection, 'scrollTop:', window.pageYOffset);
         setActiveSectionNumber(newActiveSection);
       }
     };
@@ -146,7 +145,6 @@ const DynamicEntireScroll: React.FC<DynamicEntireScrollProps> = ({
     ? { height: `${containerHeight}vh` }
     : { height: `${(sections.length - 1) * 200 + 300}vh` };
 
-  console.log('DynamicEntireScroll: Container height', containerHeightStyle.height, 'Active section:', activeSectionNumber);
 
   return (
     <div className="w-full relative concept-bg" style={containerHeightStyle}>

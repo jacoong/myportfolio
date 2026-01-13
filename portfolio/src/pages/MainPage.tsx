@@ -72,7 +72,7 @@ const MainPage: React.FC = () => {
       demo: 'https://clipofront.netlify.app/',
       category: 'main' as const,
       status: 'completed' as const,
-      createdAt: '2024-09-12',
+      createdAt: '2025-09-12',
       details: {
         overview: getText('proj-1-overview'),
         features: [
@@ -251,301 +251,1150 @@ const MainPage: React.FC = () => {
         role: getText('proj-1-role')
       }
     },
-    // {
-    //   id: 2,
-    //   title: getText('proj-2-title'),
-    //   description: getText('proj-2-desc'),
-    //   shortDescription: getText('proj-2-short'),
-    //   image: 'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/runscreen.png',
-    //   images: [
-    //     'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.11.28.png',
-    //     'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/IMG_5834.PNG',
-    //     'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/IMG_5835.PNG'
-    //   ],
-    //   tech: ['Python', 'Movie.py', 'Aws Lamda', 'Aws S3'],
-    //   featured: false,
-    //   github: 'https://github.com/jacoong/footballApi/tree/master',
-    //   demo: 'https://www.youtube.com/shorts/br4ZXMDxF1o',
-    //   category: 'main' as const,
-    //   status: 'completed' as const,
-    //   createdAt: '2023-12-15',
-    //   details: {
-    //     overview: getText('proj-2-overview'),
-    //     features: [
-    //       getText('proj-2-feature-1'),
-    //       getText('proj-2-feature-2'),
-    //       getText('proj-2-feature-3'),
-    //       getText('proj-2-feature-4'),
-    //       getText('proj-2-feature-5'),
-    //       getText('proj-2-feature-6'),
-    //       getText('proj-2-feature-7'),
-    //     ],
-    //     challenges: getText('proj-2-challenge'),
-    //     solutions: getText('proj-2-solution'),
-    //     numberOfDevelopers: 1,
-    //     role: getText('proj-2-role')
-    //   }
-    // },
-    // {
-    //   id: 3,
-    //   title: getText('proj-3-title'),
-    //   description: getText('proj-3-desc'),
-    //   shortDescription: getText('proj-3-short'),
-    //   image: 'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/calender+Project/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-24+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+7.06.11.png',
-    //   images: [
-    //     'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/calender+Project/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-24+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+7.06.06.png',
-    //     'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/calender+Project/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-24+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+7.06.11.png'
-    //   ],
-    //   tech: ['React', 'TypeScript','TypeScript', 'Spring Boot', 'Open Ai Api'],
-    //   featured: true,
-    //   github: 'https://github.com/jacoong/calanderFront/tree/master',
-    //   demo: '/welcome',
-    //   category: 'main' as const,
-    //   status: 'in-progress' as const,
-    //   createdAt: '2024-01-01',
-    //   details: {
-    //     overview: getText('proj-3-overview'),
-    //     features: [
-    //       getText('proj-3-feature-1'),
-    //       getText('proj-3-feature-2'),
-    //       getText('proj-3-feature-3'),
-    //       getText('proj-3-feature-4'),
-    //       getText('proj-3-feature-5'),
-    //       getText('proj-3-feature-6'),
-    //     ],
-    //     challenges: getText('proj-3-challenge'),
-    //     solutions: getText('proj-3-solution'),
-    //     numberOfDevelopers: 1,
-    //     role: getText('proj-3-role')
-    //   }
-    // },
-    // {
-    //   id: 4,
-    //   title: getText('proj-4-title'),
-    //   description: getText('proj-4-desc'),
-    //   shortDescription: getText('proj-4-short'),
-    //   image: 'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/python_webscrapper/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.09.51.png',
-    //   images: [
-    //     'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/python_webscrapper/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.09.51.png',
-    //     'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/python_webscrapper/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.10.26.png',
-    //   ],
-    //   tech: ['python', 'flask', 'selenium', 'beautifulsoup4', 'requests', 'render', 'html5lib', 'webdriver-manager'],
-    //   featured: true,
-    //   github: 'https://github.com/jacoong/The-web-scrapper',
-    //   demo: 'https://job-scraper-demo.onrender.com',
-    //   category: 'side' as const,
-    //   status: 'completed' as const,
-    //   createdAt: '2025-09-12',
-    //   details: {
-    //     overview: getText('proj-4-overview'),
-    //     features: [
-    //       getText('proj-4-feature-1'),
-    //       getText('proj-4-feature-2'),
-    //       getText('proj-4-feature-3'),
-    //       getText('proj-4-feature-4'),
-    //       getText('proj-4-feature-5'),
-    //       getText('proj-4-feature-6'),
-    //       getText('proj-4-feature-7'),
-    //       getText('proj-4-feature-8'),
-    //       getText('proj-4-feature-9'),
-    //       getText('proj-4-feature-10'),
-    //     ],
-    //     challenges: getText('proj-4-challenge'),
-    //     solutions: getText('proj-4-solution'),
-    //     numberOfDevelopers: 1,
-    //     role: getText('proj-4-role')
-    //   }
-    // },
-    // {
-    //   id: 5,
-    //   title: getText('proj-5-title'),
-    //   description: getText('proj-5-desc'),
-    //   shortDescription: getText('proj-5-short'),
-    //   image: 'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/chord/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.18.44.png',
-    //   images: [
-    //     'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/chord/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.18.44.png',
-    //     'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/chord/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.19.13.png',
-    //     'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/chord/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.18.56.png'
-    //   ],
-    //   tech: ['HTML5', 'CSS3', 'JavaScript ES6+', 'Web Speech API', 'Local Storage'],
-    //   featured: false,
-    //   github: 'https://github.com/jacoong/random-chord',
-    //   demo: 'https://random-chord-practice.netlify.app',
-    //   category: 'latest' as const,
-    //   status: 'completed' as const,
-    //   createdAt: '2024-01-15',
-    //   details: {
-    //     overview: getText('proj-5-overview'),
-    //     features: [
-    //       getText('proj-5-feature-1'),
-    //       getText('proj-5-feature-2'),
-    //       getText('proj-5-feature-3'),
-    //       getText('proj-5-feature-4'),
-    //       getText('proj-5-feature-5'),
-    //       getText('proj-5-feature-6'),
-    //       getText('proj-5-feature-7'),
-    //       getText('proj-5-feature-8'),
-    //       getText('proj-5-feature-9'),
-    //       getText('proj-5-feature-10'),
-    //     ],
-    //     challenges: getText('proj-5-challenge'),
-    //     solutions: getText('proj-5-solution'),
-    //     numberOfDevelopers: 1,
-    //     role: getText('proj-5-role')
-    //   }
-    // },
-    // {
-    //   id: 6,
-    //   title: getText('proj-6-title'),
-    //   description: getText('proj-6-desc'),
-    //   shortDescription: getText('proj-6-short'),
-    //   image: "https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/The_Area/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.19.26.png",
-    //   images: ["https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/The_Area/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.20.08.png","https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/The_Area/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.49.30.png",
-    //     "https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/The_Area/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.20.17.png"
-    //   ],
-    //   tech: ["React", "JavaScript", "CSS3", "HTML5", "React Router"],
-    //   featured: true,
-    //   github: "https://github.com/jacoong/The-Area",
-    //   demo: "https://jacoong.github.io/The-Area/",
-    //   category: "main" as const,
-    //   status: "completed" as const,
-    //   createdAt: "2024-02-01",
-    //   details: {
-    //     overview: getText('proj-6-overview'),
-    //     features: [
-    //       getText('proj-6-feature-1'),
-    //       getText('proj-6-feature-2'),
-    //       getText('proj-6-feature-3'),
-    //       getText('proj-6-feature-4'),
-    //       getText('proj-6-feature-5'),
-    //       getText('proj-6-feature-6'),
-    //     ],
-    //     challenges: getText('proj-6-challenge'),
-    //     solutions: getText('proj-6-solution'),
-    //     numberOfDevelopers: 1,
-    //     role: getText('proj-6-role')
-    //   }
-    // },
-    // {
-    //   id: 7,
-    //   title: getText('proj-7-title'),
-    //   description: getText('proj-7-desc'),
-    //   shortDescription: getText('proj-7-short'),
-    //   image: 'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/cocoatalk/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.51.44.png',
-    //   images: [
-    //   'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/cocoatalk/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.51.44.png',
-    //   'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/cocoatalk/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.52.03.png',
-    //   'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/cocoatalk/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.52.16.png',
-    //   'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/cocoatalk/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.52.20.png',
-    //   'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/cocoatalk/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.52.25.png'
-    //   ],
-    //   tech: ['HTML5', 'CSS3', 'JavaScript', 'Font Awesome', 'Google Fonts'],
-    //   featured: false,
-    //   github: 'https://github.com/jacoong/cocoa-talk',
-    //   demo: 'https://cocoatalkproject.netlify.app/',
-    //   category: 'side' as const,
-    //   status: 'completed' as const,
-    //   createdAt: '2024-01-15',
-    //   details: {
-    //     overview: getText('proj-7-overview'),
-    //     features: [
-    //       getText('proj-7-feature-1'),
-    //       getText('proj-7-feature-2'),
-    //       getText('proj-7-feature-3'),
-    //       getText('proj-7-feature-4'),
-    //       getText('proj-7-feature-5'),
-    //       getText('proj-7-feature-6'),
-    //       getText('proj-7-feature-7'),
-    //       getText('proj-7-feature-8'),
-    //       getText('proj-7-feature-9'),
-    //     ],
-    //     challenges: getText('proj-7-challenge'),
-    //     solutions: getText('proj-7-solution'),
-    //     numberOfDevelopers: 1,
-    //     role: getText('proj-7-role')
-    //   }
-    // },
-    // {
-    //   id: 8,
-    //   title: getText('proj-8-title'),
-    //   description: getText('proj-8-desc'),
-    //   shortDescription: getText('proj-8-short'),
-    //   image: 'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/js_vanilla_project/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.59.05.png',
-    //   images: [
-    //     'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/js_vanilla_project/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.59.05.png',
-    //     'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/js_vanilla_project/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.21.01.png',
-    //     'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/js_vanilla_project/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.59.05.png',
-    //     'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/js_vanilla_project/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.21.11.png'
-    //   ],
-    //   tech: ['HTML5', 'CSS3', 'JavaScript ES6+', 'Geolocation API', 'OpenWeather API', 'YouTube API', 'Local Storage'],
-    //   featured: false,
-    //   github: 'https://github.com/jacoong/Js_vanilla_Project',
-    //   demo: 'https://momentum-dashboard-demo.netlify.app',
-    //   category: 'latest' as const,
-    //   status: 'completed' as const,
-    //   createdAt: '2024-02-10',
-    //   details: {
-    //     overview: getText('proj-8-overview'),
-    //     features: [
-    //       getText('proj-8-feature-1'),
-    //       getText('proj-8-feature-2'),
-    //       getText('proj-8-feature-3'),
-    //       getText('proj-8-feature-4'),
-    //       getText('proj-8-feature-5'),
-    //       getText('proj-8-feature-6'),
-    //       getText('proj-8-feature-7'),
-    //       getText('proj-8-feature-8'),
-    //       getText('proj-8-feature-9'),
-    //       getText('proj-8-feature-10'),
-    //       getText('proj-8-feature-11'),
-    //       getText('proj-8-feature-12'),
-    //       getText('proj-8-feature-13'),
-    //     ],
-    //     challenges: getText('proj-8-challenge'),
-    //     solutions: getText('proj-8-solution'),
-    //     numberOfDevelopers: 1,
-    //     role: getText('proj-8-role')
-    //   }
-    // },
+    {
+      id: 2,
+      title: getText('proj-2-title'),
+      description: getText('proj-2-desc'),
+      shortDescription: getText('proj-2-short'),
+      image: 'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/runscreen.png',
+      images: [
+        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.11.28.png',
+        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/IMG_5834.PNG',
+        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/IMG_5835.PNG'
+      ],
+      tech: ['Python', 'Movie.py', 'Aws Lamda', 'Aws S3'],
+      featured: false,
+      github: 'https://github.com/jacoong/footballApi/tree/master',
+      demo: 'https://www.youtube.com/shorts/br4ZXMDxF1o',
+      category: 'main' as const,
+      status: 'completed' as const,
+      createdAt: '2023-12-15',
+      details: {
+        overview: getText('proj-2-overview'),
+        features: [
+          {
+            title: getText('proj-2-feature-1'),
+            paraGraphs: [
+              getText('proj-2-feature-1-c1'),
+              getText('proj-2-feature-1-c2'),
+              getText('proj-2-feature-1-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-2-feature-2'),
+            paraGraphs: [
+              getText('proj-2-feature-2-c1'),
+              getText('proj-2-feature-2-c2'),
+              getText('proj-2-feature-2-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-2-feature-3'),
+            paraGraphs: [
+              getText('proj-2-feature-3-c1'),
+              getText('proj-2-feature-3-c2'),
+              getText('proj-2-feature-3-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-2-feature-4'),
+            paraGraphs: [
+              getText('proj-2-feature-4-c1'),
+              getText('proj-2-feature-4-c2'),
+              getText('proj-2-feature-4-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-2-feature-5'),
+            paraGraphs: [
+              getText('proj-2-feature-5-c1'),
+              getText('proj-2-feature-5-c2'),
+              getText('proj-2-feature-5-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-2-feature-6'),
+            paraGraphs: [
+              getText('proj-2-feature-6-c1'),
+              getText('proj-2-feature-6-c2'),
+              getText('proj-2-feature-6-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-2-feature-7'),
+            paraGraphs: [
+              getText('proj-2-feature-7-c1'),
+              getText('proj-2-feature-7-c2'),
+              getText('proj-2-feature-7-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          }
+        ],
+        challenges: [
+          {
+            title: getText('proj-2-challenge-1'),
+            paraGraphs: [
+              getText('proj-2-challenge-1-c1'),
+              getText('proj-2-challenge-1-c2'),
+              getText('proj-2-challenge-1-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          }
+        ],
+        solutions: getText('proj-2-solution'),
+        numberOfDevelopers: 1,
+        role: getText('proj-2-role')
+      }
+    },
+    {
+      id: 3,
+      title: getText('proj-3-title'),
+      description: getText('proj-3-desc'),
+      shortDescription: getText('proj-3-short'),
+      image: 'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/calender+Project/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-24+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+7.06.11.png',
+      images: [
+        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/calender+Project/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-24+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+7.06.06.png',
+        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/calender+Project/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-24+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+7.06.11.png'
+      ],
+      tech: ['React', 'TypeScript','TypeScript', 'Spring Boot', 'Open Ai Api'],
+      featured: true,
+      github: 'https://github.com/jacoong/calanderFront/tree/master',
+      demo: '/welcome',
+      category: 'main' as const,
+      status: 'in-progress' as const,
+      createdAt: '2024-01-01',
+      details: {
+        overview: getText('proj-3-overview'),
+        features: [
+          {
+            title: getText('proj-3-feature-1'),
+            paraGraphs: [
+              getText('proj-3-feature-1-c1'),
+              getText('proj-3-feature-1-c2'),
+              getText('proj-3-feature-1-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-3-feature-2'),
+            paraGraphs: [
+              getText('proj-3-feature-2-c1'),
+              getText('proj-3-feature-2-c2'),
+              getText('proj-3-feature-2-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-3-feature-3'),
+            paraGraphs: [
+              getText('proj-3-feature-3-c1'),
+              getText('proj-3-feature-3-c2'),
+              getText('proj-3-feature-3-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-3-feature-4'),
+            paraGraphs: [
+              getText('proj-3-feature-4-c1'),
+              getText('proj-3-feature-4-c2'),
+              getText('proj-3-feature-4-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-3-feature-5'),
+            paraGraphs: [
+              getText('proj-3-feature-5-c1'),
+              getText('proj-3-feature-5-c2'),
+              getText('proj-3-feature-5-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-3-feature-6'),
+            paraGraphs: [
+              getText('proj-3-feature-6-c1'),
+              getText('proj-3-feature-6-c2'),
+              getText('proj-3-feature-6-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          }
+        ],
+        challenges: [
+          {
+            title: getText('proj-3-challenge-1'),
+            paraGraphs: [
+              getText('proj-3-challenge-1-c1'),
+              getText('proj-3-challenge-1-c2'),
+              getText('proj-3-challenge-1-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          }
+        ],
+        solutions: getText('proj-3-solution'),
+        numberOfDevelopers: 1,
+        role: getText('proj-3-role')
+      }
+    },
+    {
+      id: 4,
+      title: getText('proj-4-title'),
+      description: getText('proj-4-desc'),
+      shortDescription: getText('proj-4-short'),
+      image: 'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/python_webscrapper/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.09.51.png',
+      images: [
+        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/python_webscrapper/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.09.51.png',
+        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/python_webscrapper/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.10.26.png',
+      ],
+      tech: ['python', 'flask', 'selenium', 'beautifulsoup4', 'requests', 'render', 'html5lib', 'webdriver-manager'],
+      featured: true,
+      github: 'https://github.com/jacoong/The-web-scrapper',
+      demo: 'https://job-scraper-demo.onrender.com',
+      category: 'side' as const,
+      status: 'completed' as const,
+      createdAt: '2023-09-12',
+      details: {
+        overview: getText('proj-4-overview'),
+        features: [
+          {
+            title: getText('proj-4-feature-1'),
+            paraGraphs: [
+              getText('proj-4-feature-1-c1'),
+              getText('proj-4-feature-1-c2'),
+              getText('proj-4-feature-1-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-4-feature-2'),
+            paraGraphs: [
+              getText('proj-4-feature-2-c1'),
+              getText('proj-4-feature-2-c2'),
+              getText('proj-4-feature-2-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-4-feature-3'),
+            paraGraphs: [
+              getText('proj-4-feature-3-c1'),
+              getText('proj-4-feature-3-c2'),
+              getText('proj-4-feature-3-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-4-feature-4'),
+            paraGraphs: [
+              getText('proj-4-feature-4-c1'),
+              getText('proj-4-feature-4-c2'),
+              getText('proj-4-feature-4-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-4-feature-5'),
+            paraGraphs: [
+              getText('proj-4-feature-5-c1'),
+              getText('proj-4-feature-5-c2'),
+              getText('proj-4-feature-5-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-4-feature-6'),
+            paraGraphs: [
+              getText('proj-4-feature-6-c1'),
+              getText('proj-4-feature-6-c2'),
+              getText('proj-4-feature-6-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-4-feature-7'),
+            paraGraphs: [
+              getText('proj-4-feature-7-c1'),
+              getText('proj-4-feature-7-c2'),
+              getText('proj-4-feature-7-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-4-feature-8'),
+            paraGraphs: [
+              getText('proj-4-feature-8-c1'),
+              getText('proj-4-feature-8-c2'),
+              getText('proj-4-feature-8-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-4-feature-9'),
+            paraGraphs: [
+              getText('proj-4-feature-9-c1'),
+              getText('proj-4-feature-9-c2'),
+              getText('proj-4-feature-9-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-4-feature-10'),
+            paraGraphs: [
+              getText('proj-4-feature-10-c1'),
+              getText('proj-4-feature-10-c2'),
+              getText('proj-4-feature-10-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          }
+        ],
+        challenges: [
+          {
+            title: getText('proj-4-challenge-1'),
+            paraGraphs: [
+              getText('proj-4-challenge-1-c1'),
+              getText('proj-4-challenge-1-c2'),
+              getText('proj-4-challenge-1-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          }
+        ],
+        solutions: getText('proj-4-solution'),
+        numberOfDevelopers: 1,
+        role: getText('proj-4-role')
+      }
+    },
+    {
+      id: 5,
+      title: getText('proj-5-title'),
+      description: getText('proj-5-desc'),
+      shortDescription: getText('proj-5-short'),
+      image: 'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/chord/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.18.44.png',
+      images: [
+        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/chord/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.18.44.png',
+        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/chord/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.19.13.png',
+        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/chord/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.18.56.png'
+      ],
+      tech: ['HTML5', 'CSS3', 'JavaScript ES6+', 'Web Speech API', 'Local Storage'],
+      featured: false,
+      github: 'https://github.com/jacoong/random-chord',
+      demo: 'https://random-chord-practice.netlify.app',
+      category: 'latest' as const,
+      status: 'completed' as const,
+      createdAt: '2024-01-15',
+      details: {
+        overview: getText('proj-5-overview'),
+        features: [
+          {
+            title: getText('proj-5-feature-1'),
+            paraGraphs: [
+              getText('proj-5-feature-1-c1'),
+              getText('proj-5-feature-1-c2'),
+              getText('proj-5-feature-1-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-5-feature-2'),
+            paraGraphs: [
+              getText('proj-5-feature-2-c1'),
+              getText('proj-5-feature-2-c2'),
+              getText('proj-5-feature-2-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-5-feature-3'),
+            paraGraphs: [
+              getText('proj-5-feature-3-c1'),
+              getText('proj-5-feature-3-c2'),
+              getText('proj-5-feature-3-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-5-feature-4'),
+            paraGraphs: [
+              getText('proj-5-feature-4-c1'),
+              getText('proj-5-feature-4-c2'),
+              getText('proj-5-feature-4-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-5-feature-5'),
+            paraGraphs: [
+              getText('proj-5-feature-5-c1'),
+              getText('proj-5-feature-5-c2'),
+              getText('proj-5-feature-5-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-5-feature-6'),
+            paraGraphs: [
+              getText('proj-5-feature-6-c1'),
+              getText('proj-5-feature-6-c2'),
+              getText('proj-5-feature-6-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-5-feature-7'),
+            paraGraphs: [
+              getText('proj-5-feature-7-c1'),
+              getText('proj-5-feature-7-c2'),
+              getText('proj-5-feature-7-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-5-feature-8'),
+            paraGraphs: [
+              getText('proj-5-feature-8-c1'),
+              getText('proj-5-feature-8-c2'),
+              getText('proj-5-feature-8-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-5-feature-9'),
+            paraGraphs: [
+              getText('proj-5-feature-9-c1'),
+              getText('proj-5-feature-9-c2'),
+              getText('proj-5-feature-9-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-5-feature-10'),
+            paraGraphs: [
+              getText('proj-5-feature-10-c1'),
+              getText('proj-5-feature-10-c2'),
+              getText('proj-5-feature-10-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          }
+        ],
+        challenges: [
+          {
+            title: getText('proj-5-challenge-1'),
+            paraGraphs: [
+              getText('proj-5-challenge-1-c1'),
+              getText('proj-5-challenge-1-c2'),
+              getText('proj-5-challenge-1-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          }
+        ],
+        solutions: getText('proj-5-solution'),
+        numberOfDevelopers: 1,
+        role: getText('proj-5-role')
+      }
+    },
+    {
+      id: 6,
+      title: getText('proj-6-title'),
+      description: getText('proj-6-desc'),
+      shortDescription: getText('proj-6-short'),
+      image: "https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/The_Area/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.19.26.png",
+      images: ["https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/The_Area/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.20.08.png","https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/The_Area/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.49.30.png",
+        "https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/The_Area/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.20.17.png"
+      ],
+      tech: ["React", "JavaScript", "CSS3", "HTML5", "React Router"],
+      featured: true,
+      github: "https://github.com/jacoong/The-Area",
+      demo: "https://jacoong.github.io/The-Area/",
+      category: "main" as const,
+      status: "completed" as const,
+      createdAt: "2024-02-01",
+      details: {
+        overview: getText('proj-6-overview'),
+        features: [
+          {
+            title: getText('proj-6-feature-1'),
+            paraGraphs: [
+              getText('proj-6-feature-1-c1'),
+              getText('proj-6-feature-1-c2'),
+              getText('proj-6-feature-1-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-6-feature-2'),
+            paraGraphs: [
+              getText('proj-6-feature-2-c1'),
+              getText('proj-6-feature-2-c2'),
+              getText('proj-6-feature-2-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-6-feature-3'),
+            paraGraphs: [
+              getText('proj-6-feature-3-c1'),
+              getText('proj-6-feature-3-c2'),
+              getText('proj-6-feature-3-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-6-feature-4'),
+            paraGraphs: [
+              getText('proj-6-feature-4-c1'),
+              getText('proj-6-feature-4-c2'),
+              getText('proj-6-feature-4-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-6-feature-5'),
+            paraGraphs: [
+              getText('proj-6-feature-5-c1'),
+              getText('proj-6-feature-5-c2'),
+              getText('proj-6-feature-5-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-6-feature-6'),
+            paraGraphs: [
+              getText('proj-6-feature-6-c1'),
+              getText('proj-6-feature-6-c2'),
+              getText('proj-6-feature-6-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          }
+        ],
+        challenges: [
+          {
+            title: getText('proj-6-challenge-1'),
+            paraGraphs: [
+              getText('proj-6-challenge-1-c1'),
+              getText('proj-6-challenge-1-c2'),
+              getText('proj-6-challenge-1-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          }
+        ],
+        solutions: getText('proj-6-solution'),
+        numberOfDevelopers: 1,
+        role: getText('proj-6-role')
+      }
+    },
+    {
+      id: 7,
+      title: getText('proj-7-title'),
+      description: getText('proj-7-desc'),
+      shortDescription: getText('proj-7-short'),
+      image: 'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/cocoatalk/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.51.44.png',
+      images: [
+      'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/cocoatalk/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.51.44.png',
+      'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/cocoatalk/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.52.03.png',
+      'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/cocoatalk/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.52.16.png',
+      'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/cocoatalk/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.52.20.png',
+      'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/cocoatalk/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.52.25.png'
+      ],
+      tech: ['HTML5', 'CSS3', 'JavaScript', 'Font Awesome', 'Google Fonts'],
+      featured: false,
+      github: 'https://github.com/jacoong/cocoa-talk',
+      demo: 'https://cocoatalkproject.netlify.app/',
+      category: 'side' as const,
+      status: 'completed' as const,
+      createdAt: '2024-01-15',
+      details: {
+        overview: getText('proj-7-overview'),
+        features: [
+          {
+            title: getText('proj-7-feature-1'),
+            paraGraphs: [
+              getText('proj-7-feature-1-c1'),
+              getText('proj-7-feature-1-c2'),
+              getText('proj-7-feature-1-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-7-feature-2'),
+            paraGraphs: [
+              getText('proj-7-feature-2-c1'),
+              getText('proj-7-feature-2-c2'),
+              getText('proj-7-feature-2-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-7-feature-3'),
+            paraGraphs: [
+              getText('proj-7-feature-3-c1'),
+              getText('proj-7-feature-3-c2'),
+              getText('proj-7-feature-3-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-7-feature-4'),
+            paraGraphs: [
+              getText('proj-7-feature-4-c1'),
+              getText('proj-7-feature-4-c2'),
+              getText('proj-7-feature-4-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-7-feature-5'),
+            paraGraphs: [
+              getText('proj-7-feature-5-c1'),
+              getText('proj-7-feature-5-c2'),
+              getText('proj-7-feature-5-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-7-feature-6'),
+            paraGraphs: [
+              getText('proj-7-feature-6-c1'),
+              getText('proj-7-feature-6-c2'),
+              getText('proj-7-feature-6-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-7-feature-7'),
+            paraGraphs: [
+              getText('proj-7-feature-7-c1'),
+              getText('proj-7-feature-7-c2'),
+              getText('proj-7-feature-7-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-7-feature-8'),
+            paraGraphs: [
+              getText('proj-7-feature-8-c1'),
+              getText('proj-7-feature-8-c2'),
+              getText('proj-7-feature-8-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-7-feature-9'),
+            paraGraphs: [
+              getText('proj-7-feature-9-c1'),
+              getText('proj-7-feature-9-c2'),
+              getText('proj-7-feature-9-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          }
+        ],
+        challenges: [
+          {
+            title: getText('proj-7-challenge-1'),
+            paraGraphs: [
+              getText('proj-7-challenge-1-c1'),
+              getText('proj-7-challenge-1-c2'),
+              getText('proj-7-challenge-1-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          }
+        ],
+        solutions: getText('proj-7-solution'),
+        numberOfDevelopers: 1,
+        role: getText('proj-7-role')
+      }
+    },
+    {
+      id: 8,
+      title: getText('proj-8-title'),
+      description: getText('proj-8-desc'),
+      shortDescription: getText('proj-8-short'),
+      image: 'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/js_vanilla_project/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.59.05.png',
+      images: [
+        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/js_vanilla_project/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.59.05.png',
+        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/js_vanilla_project/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.21.01.png',
+        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/js_vanilla_project/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+6.59.05.png',
+        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/js_vanilla_project/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-12+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+1.21.11.png'
+      ],
+      tech: ['HTML5', 'CSS3', 'JavaScript ES6+', 'Geolocation API', 'OpenWeather API', 'YouTube API', 'Local Storage'],
+      featured: false,
+      github: 'https://github.com/jacoong/Js_vanilla_Project',
+      demo: 'https://momentum-dashboard-demo.netlify.app',
+      category: 'latest' as const,
+      status: 'completed' as const,
+      createdAt: '2024-02-10',
+      details: {
+        overview: getText('proj-8-overview'),
+        features: [
+          {
+            title: getText('proj-8-feature-1'),
+            paraGraphs: [
+              getText('proj-8-feature-1-c1'),
+              getText('proj-8-feature-1-c2'),
+              getText('proj-8-feature-1-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-8-feature-2'),
+            paraGraphs: [
+              getText('proj-8-feature-2-c1'),
+              getText('proj-8-feature-2-c2'),
+              getText('proj-8-feature-2-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-8-feature-3'),
+            paraGraphs: [
+              getText('proj-8-feature-3-c1'),
+              getText('proj-8-feature-3-c2'),
+              getText('proj-8-feature-3-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-8-feature-4'),
+            paraGraphs: [
+              getText('proj-8-feature-4-c1'),
+              getText('proj-8-feature-4-c2'),
+              getText('proj-8-feature-4-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-8-feature-5'),
+            paraGraphs: [
+              getText('proj-8-feature-5-c1'),
+              getText('proj-8-feature-5-c2'),
+              getText('proj-8-feature-5-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-8-feature-6'),
+            paraGraphs: [
+              getText('proj-8-feature-6-c1'),
+              getText('proj-8-feature-6-c2'),
+              getText('proj-8-feature-6-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-8-feature-7'),
+            paraGraphs: [
+              getText('proj-8-feature-7-c1'),
+              getText('proj-8-feature-7-c2'),
+              getText('proj-8-feature-7-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-8-feature-8'),
+            paraGraphs: [
+              getText('proj-8-feature-8-c1'),
+              getText('proj-8-feature-8-c2'),
+              getText('proj-8-feature-8-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-8-feature-9'),
+            paraGraphs: [
+              getText('proj-8-feature-9-c1'),
+              getText('proj-8-feature-9-c2'),
+              getText('proj-8-feature-9-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-8-feature-10'),
+            paraGraphs: [
+              getText('proj-8-feature-10-c1'),
+              getText('proj-8-feature-10-c2'),
+              getText('proj-8-feature-10-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-8-feature-11'),
+            paraGraphs: [
+              getText('proj-8-feature-11-c1'),
+              getText('proj-8-feature-11-c2'),
+              getText('proj-8-feature-11-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-8-feature-12'),
+            paraGraphs: [
+              getText('proj-8-feature-12-c1'),
+              getText('proj-8-feature-12-c2'),
+              getText('proj-8-feature-12-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-8-feature-13'),
+            paraGraphs: [
+              getText('proj-8-feature-13-c1'),
+              getText('proj-8-feature-13-c2'),
+              getText('proj-8-feature-13-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          }
+        ],
+        challenges: [
+          {
+            title: getText('proj-8-challenge-1'),
+            paraGraphs: [
+              getText('proj-8-challenge-1-c1'),
+              getText('proj-8-challenge-1-c2'),
+              getText('proj-8-challenge-1-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          }
+        ],
+        solutions: getText('proj-8-solution'),
+        numberOfDevelopers: 1,
+        role: getText('proj-8-role')
+      }
+    },
   
-    // {
-    //   id: 9,
-    //   title: getText('proj-9-title'),
-    //   description: getText('proj-9-desc'),
-    //   shortDescription: getText('proj-9-short'),
-    //   image:  'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/camping/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+5.33.32.png',
-    //   images: [
-    //     'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/camping/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+5.39.03.png',
-    //     'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/camping/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+5.33.32.png',
-    //     'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/camping/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+5.33.19.png',
-    //     'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/camping/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+5.33.03.png'
-    //   ],
-    //   tech: ['Node.js', 'Express.js', 'MongoDB', 'Mongoose', 'EJS', 'Bootstrap 5', 'Passport.js', 'Joi'],
-    //   featured: false,
-    //   github: 'https://github.com/jacoong/camping',
-    //   demo: '/welcome',
-    //   category: 'side' as const,
-    //   status: 'completed' as const,
-    //   createdAt: '2024-01-15',
-    //   details: {
-    //     overview: getText('proj-9-overview'),
-    //     features: [
-    //       getText('proj-9-feature-1'),
-    //       getText('proj-9-feature-2'),
-    //       getText('proj-9-feature-3'),
-    //       getText('proj-9-feature-4'),
-    //       getText('proj-9-feature-5'),
-    //       getText('proj-9-feature-6'),
-    //       getText('proj-9-feature-7'),
-    //       getText('proj-9-feature-8'),
-    //       getText('proj-9-feature-9'),
-    //     ],
-    //     challenges: getText('proj-9-challenge'),
-    //     solutions: getText('proj-9-solution'),
-    //     numberOfDevelopers: 1,
-    //     role: getText('proj-9-role')
-    //   }
-    // }
+    {
+      id: 9,
+      title: getText('proj-9-title'),
+      description: getText('proj-9-desc'),
+      shortDescription: getText('proj-9-short'),
+      image:  'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/camping/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+5.33.32.png',
+      images: [
+        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/camping/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+5.39.03.png',
+        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/camping/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+5.33.32.png',
+        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/camping/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+5.33.19.png',
+        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/camping/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+5.33.03.png'
+      ],
+      tech: ['Node.js', 'Express.js', 'MongoDB', 'Mongoose', 'EJS', 'Bootstrap 5', 'Passport.js', 'Joi'],
+      featured: false,
+      github: 'https://github.com/jacoong/camping',
+      demo: '/welcome',
+      category: 'side' as const,
+      status: 'completed' as const,
+      createdAt: '2024-01-15',
+      details: {
+        overview: getText('proj-9-overview'),
+        features: [
+          {
+            title: getText('proj-9-feature-1'),
+            paraGraphs: [
+              getText('proj-9-feature-1-c1'),
+              getText('proj-9-feature-1-c2'),
+              getText('proj-9-feature-1-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-9-feature-2'),
+            paraGraphs: [
+              getText('proj-9-feature-2-c1'),
+              getText('proj-9-feature-2-c2'),
+              getText('proj-9-feature-2-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-9-feature-3'),
+            paraGraphs: [
+              getText('proj-9-feature-3-c1'),
+              getText('proj-9-feature-3-c2'),
+              getText('proj-9-feature-3-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-9-feature-4'),
+            paraGraphs: [
+              getText('proj-9-feature-4-c1'),
+              getText('proj-9-feature-4-c2'),
+              getText('proj-9-feature-4-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-9-feature-5'),
+            paraGraphs: [
+              getText('proj-9-feature-5-c1'),
+              getText('proj-9-feature-5-c2'),
+              getText('proj-9-feature-5-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-9-feature-6'),
+            paraGraphs: [
+              getText('proj-9-feature-6-c1'),
+              getText('proj-9-feature-6-c2'),
+              getText('proj-9-feature-6-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-9-feature-7'),
+            paraGraphs: [
+              getText('proj-9-feature-7-c1'),
+              getText('proj-9-feature-7-c2'),
+              getText('proj-9-feature-7-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-9-feature-8'),
+            paraGraphs: [
+              getText('proj-9-feature-8-c1'),
+              getText('proj-9-feature-8-c2'),
+              getText('proj-9-feature-8-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          },
+          {
+            title: getText('proj-9-feature-9'),
+            paraGraphs: [
+              getText('proj-9-feature-9-c1'),
+              getText('proj-9-feature-9-c2'),
+              getText('proj-9-feature-9-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          }
+        ],
+        challenges: [
+          {
+            title: getText('proj-9-challenge-1'),
+            paraGraphs: [
+              getText('proj-9-challenge-1-c1'),
+              getText('proj-9-challenge-1-c2'),
+              getText('proj-9-challenge-1-c3')
+            ],
+            pictures: [],
+            notionBlog: ''
+          }
+        ],
+        solutions: getText('proj-9-solution'),
+        numberOfDevelopers: 1,
+        role: getText('proj-9-role')
+      }
+    },
+     {
+      id: 10,
+      title: getText('proj-10-title'),
+      description: getText('proj-10-desc'),
+      shortDescription: getText('proj-10-short'),
+      image: 'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-10+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+8.00.41.png',
+      images: [
+        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-10+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+8.00.41.png',
+        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-10+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+8.06.26.png',
+        'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-09-10+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+8.06.33.png'
+      ],
+      tech: ['React-Native', 'TypeScript', 'Spring Boot', 'MariaDB'],
+      featured: true,
+      github: 'https://github.com/jacoong/Clipo-front',
+      demo: 'https://clipofront.netlify.app/',
+      category: 'main' as const,
+      status: 'completed' as const,
+      createdAt: '2026-01-10',
+      details: {
+        overview: getText('proj-10-overview'),
+        features: [
+  {
+    title: getText('proj-10-feature-1'),
+    paraGraphs: [
+      getText('proj-10-feature-1-c1'),
+      getText('proj-10-feature-1-c2'),
+      getText('proj-10-feature-1-c3'),
+      getText('proj-10-feature-1-c4'),
+      getText('proj-10-feature-1-c5')
+    ],
+    pictures: [
+      'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/project/clipo/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-12-22+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+12.01.13.png',
+      'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/project/clipo/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-12-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+11.11.15.png',
+    
+      'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/project/clipo/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-12-20+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+11.11.04.png'
+
+    ],
+  },
+
+  {
+    title: getText('proj-10-feature-2'),
+    paraGraphs: [
+      getText('proj-10-feature-2-c1'),
+      getText('proj-10-feature-2-c2'),
+      getText('proj-10-feature-2-c3')
+    ],
+    pictures: [
+      'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/project/clipo/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-12-25+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+12.50.22.png',
+      'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/project/clipo/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-12-25+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+12.11.05.png',
+      'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/project/clipo/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-12-22+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+12.03.48.png'
+    ],
+    notionBlog: ''
+  },
+
+  {
+    title: getText('proj-10-feature-3'),
+    paraGraphs: [
+      getText('proj-10-feature-3-c1'),
+    ],
+    pictures: [
+      'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/project/clipo/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-12-25+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+12.54.18.png',
+      'https://elasticbeanstalk-ap-northeast-2-740783871476.s3.ap-northeast-2.amazonaws.com/portfolio/project/clipo/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-12-22+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+12.04.28.png',
+    
+    ],
+    notionBlog: ''
+  },
+
+],
+
+      challenges:[
+            {
+            title: getText('proj-10-challenge-1'),
+            paraGraphs: [
+              getText('proj-10-challenge-1-c1'),
+              getText('proj-10-challenge-1-c2')
+            ],
+            pictures: [
+             
+            ],
+            notionBlog: 'https://www.notion.so/challenge-React-React-Native-2c4785581364800f8237ea877b154767?source=copy_link'
+          },
+               {
+            title: getText('proj-10-challenge-2'),
+            paraGraphs: [
+              getText('proj-10-challenge-2-c1'),
+              getText('proj-10-challenge-2-c2'),
+              getText('proj-10-challenge-2-c3'),
+              getText('proj-10-challenge-2-c4'),
+      
+            ],
+            pictures: [
+             
+            ],
+            notionBlog: 'https://www.notion.so/challenge-2c4785581364805daf5ce0b4e1a79c96?source=copy_link'
+          },
+                       {
+            title: getText('proj-10-challenge-3'),
+            paraGraphs: [
+              getText('proj-10-challenge-3-c1'),
+              getText('proj-10-challenge-3-c2'),
+              getText('proj-10-challenge-3-c3'),
+              getText('proj-10-challenge-3-c4'),
+            ],
+            pictures: [
+             
+            ],
+            notionBlog: 'https://www.notion.so/challenge-Redux-undefiend-2cb785581364800293f8e472bb58b01c?source=copy_link'
+          },
+                           {
+            title: getText('proj-10-challenge-4'),
+            paraGraphs: [
+              getText('proj-10-challenge-4-c1'),
+              getText('proj-10-challenge-4-c2'),
+              getText('proj-10-challenge-4-c3'),
+              getText('proj-10-challenge-4-c4'),
+              getText('proj-10-challenge-4-c5'),
+              getText('proj-10-challenge-4-c6'),
+              getText('proj-10-challenge-4-c7'),
+              getText('proj-10-challenge-4-c8'),
+            ],
+            pictures: [
+             
+            ],
+            notionBlog: 'https://www.notion.so/expo-web-deply-env-2e37855813648058b77ff9de6b01c78c?source=copy_link'
+          }
+        ],
+        solutions: getText('proj-10-solution'),
+        numberOfDevelopers: 2,
+        role: getText('proj-10-role')
+      }
+    },
   
   ];
 
@@ -576,7 +1425,16 @@ const MainPage: React.FC = () => {
       tech: ['React hook', 'React', 'Redux'],
       link: 'https://reinvented-screen-ae1.notion.site/Mongoose-1-ba9f20ad649f43b4b96656dfdd9b2f01?source=copy_link',
       date: '2024-03-15'
-    }
+    },
+      {
+      id: 4,
+      title: getText('blog-4-title'),
+      description: getText('blog-4-desc'),
+      image: 'https://images.unsplash.com/photo-1618060932014-4deda4932554?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8aGFja2luZ3xlbnwwfHwwfHx8MA%3D%3D',
+      tech: ['JWT','UUID'],
+      link: 'https://www.notion.so/2c67855813648097b90dfb989865a2cb?source=copy_link',
+      date: '2025-12-15'
+    },
   ];
 
 
